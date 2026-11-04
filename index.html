@@ -2,198 +2,707 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عطاری و خشکبار برادران تقدیسی | نارمک تهران</title>
-  <meta name="description" content="فروشگاه عطاری و خشکبار برادران تقدیسی در نارمک تهران. انواع خشکبار و آجیل تازه، گیاهان دارویی، عرقیجات، ادویه‌جات اصل و اقلام قندی. ارسال رایگان در محدوده نارمک.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#2c3a24">
+  <meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران؛ خشکبار، گیاهان دارویی، ادویه‌جات، عرقیجات و اجناس شرکتی. سفارش مستقیم از طریق واتساپ.">
+  <title>عطاری و خشکبار برادران تقدیسی | نارمک تهران</title>
 
-  <!-- Vazirmatn Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #2c3a24;
-      --primary-light: #3f4f34;
-      --accent: #c69234;
-      --accent-hover: #ad7c24;
-      --bg: #f8f6f0;
-      --card-bg: #ffffff;
-      --text: #22252a;
-      --text-muted: #6b7280;
+      --olive: #2c3a24;
+      --olive-light: #405337;
+      --gold: #c69234;
+      --cream: #f8f6f0;
+      --white: #fff;
+      --text: #252923;
+      --muted: #687065;
       --border: #e7e2d6;
-      --whatsapp: #25D366;
-      --shadow: 0 4px 20px rgba(0,0,0,0.06);
-      --radius: 16px;
+      --company: #445875;
+      --green: #168c49;
+      --shadow: 0 5px 22px rgba(29, 39, 25, .07);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    body { font-family: 'Vazirmatn', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 85px; }
+    * { box-sizing: border-box; }
 
-    .announcement { background: linear-gradient(90deg, #24301d, #37472c); color: #f7e7ce; text-align: center; padding: 8px 12px; font-size: 0.85rem; font-weight: 500; }
-    .announcement span { background: rgba(198, 146, 52, 0.25); border: 1px solid rgba(198, 146, 52, 0.5); padding: 2px 8px; border-radius: 20px; margin-left: 6px; font-weight: 700; }
+    html { scroll-behavior: smooth; }
 
-    header { background: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
-    .header-inner { max-width: 1200px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
-    .logo-area { display: flex; align-items: center; gap: 10px; }
-    .logo-badge { width: 44px; height: 44px; background: var(--primary); color: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-    .logo-title { font-size: 1.15rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
-    .logo-sub { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
-    .btn-call-header { background: #f1ede2; color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.85rem; padding: 8px 14px; border-radius: 10px; }
+    body {
+      margin: 0;
+      padding-bottom: 85px;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Vazirmatn, Tahoma, sans-serif;
+      line-height: 1.7;
+    }
 
-    .hero { background: linear-gradient(135deg, #24301d 0%, #3f4f34 100%); color: #ffffff; padding: 32px 16px 40px; text-align: center; position: relative; overflow: hidden; }
-    .hero::after { content: ''; position: absolute; bottom: -30px; left: 0; right: 0; height: 60px; background: var(--bg); border-radius: 50% 50% 0 0; }
-    .hero-badge { display: inline-block; background: rgba(198, 146, 52, 0.25); border: 1px solid var(--accent); color: #f7e7ce; padding: 4px 14px; border-radius: 30px; font-size: 0.8rem; margin-bottom: 14px; }
-    .hero h1 { font-size: 1.7rem; font-weight: 900; margin-bottom: 10px; }
-    .hero p { font-size: 0.95rem; color: #e2e8df; max-width: 600px; margin: 0 auto 20px; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
 
-    .controls-wrapper { max-width: 1200px; margin: 10px auto 20px; padding: 0 16px; }
-    .search-box { position: relative; margin-bottom: 16px; }
-    .search-box input { width: 100%; background: #ffffff; border: 2px solid var(--border); padding: 13px 44px 13px 16px; border-radius: 14px; outline: none; }
-    .search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
 
-    .category-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
-    .category-scroll::-webkit-scrollbar { display: none; }
-    .cat-btn { white-space: nowrap; border: 1px solid var(--border); background: #ffffff; color: var(--text); padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
-    .cat-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    .announcement {
+      padding: 8px 14px;
+      background: linear-gradient(90deg, #23301f, #405337);
+      color: #fff5df;
+      text-align: center;
+      font-size: .84rem;
+    }
 
-    .products-container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    @media (min-width: 640px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (min-width: 1024px) { .grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+    .announcement strong { color: #f4cd82; }
 
-    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); }
-    .card-thumb { width: 100%; aspect-ratio: 1 / 1; position: relative; background: #f1ede2; }
-    .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .card-badge { position: absolute; top: 8px; right: 8px; background: rgba(44, 58, 36, 0.9); color: #f7e7ce; font-size: 0.68rem; padding: 3px 8px; border-radius: 8px; }
-    .card-badge.gold { background: linear-gradient(135deg, #c69234, #ad7c24); color: #ffffff; }
-    .card-cat-tag { position: absolute; bottom: 8px; left: 8px; background: rgba(255,255,255,0.92); color: var(--primary); font-size: 0.65rem; padding: 2px 7px; border-radius: 6px; }
-    .card-body { padding: 12px; display: flex; flex-direction: column; flex: 1; }
-    .card-title { font-size: 0.95rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
-    .card-desc { font-size: 0.73rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 10px; flex: 1; }
-    .price-box { display: flex; align-items: baseline; justify-content: space-between; }
-    .price-val { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
-    .btn-order-wa { background: linear-gradient(135deg, #c69234, #b48128); color: #ffffff; text-decoration: none; padding: 8px 10px; border-radius: 10px; font-size: 0.82rem; font-weight: 700; text-align: center; display: block; margin-top: 8px; }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .97);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+    }
 
-    .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #ffffff; border-top: 1px solid var(--border); padding: 10px 16px; display: flex; gap: 10px; z-index: 999; }
-    .bottom-btn { flex: 1; padding: 11px 8px; border-radius: 12px; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-    .bottom-btn-wa { background: #25D366; color: #ffffff; }
-    .bottom-btn-call { background: var(--primary); color: #ffffff; }
+    .header-inner, .container {
+      width: min(100% - 32px, 1200px);
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      flex: none;
+      border-radius: 13px;
+      background: var(--olive);
+      font-size: 1.5rem;
+    }
+
+    .brand-name {
+      color: var(--olive);
+      font-size: clamp(.9rem, 3vw, 1.15rem);
+      font-weight: 900;
+      line-height: 1.5;
+    }
+
+    .brand-sub {
+      color: #9b722c;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .header-contact {
+      flex: none;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 11px;
+      background: #f0ecdf;
+      color: var(--olive);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .hero {
+      padding: 46px 16px 53px;
+      background: radial-gradient(circle at 15% 15%, #526844, transparent 42%),
+                  linear-gradient(135deg, #26341f, #3a4c30);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 5px 15px;
+      border: 1px solid rgba(234, 188, 104, .65);
+      border-radius: 40px;
+      background: rgba(198, 146, 52, .15);
+      color: #ffe3ad;
+      font-size: .8rem;
+    }
+
+    .hero h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(1.55rem, 5vw, 2.5rem);
+      line-height: 1.55;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 0 auto;
+      color: #e7ecdf;
+      font-size: .94rem;
+    }
+
+    .hero-contact {
+      margin-top: 21px;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 11px;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .catalog { padding: 26px 0 46px; }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--olive);
+      font-size: 1.3rem;
+    }
+
+    .section-head p {
+      margin: 3px 0 17px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .search {
+      position: relative;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .search span {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 13px 46px 13px 15px;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+    }
+
+    .search input:focus { border-color: var(--gold); }
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 0 8px;
+      scrollbar-width: thin;
+    }
+
+    .category-btn {
+      flex: none;
+      padding: 8px 15px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: var(--white);
+      color: var(--olive);
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .category-btn.active {
+      border-color: var(--olive);
+      background: var(--olive);
+      color: var(--white);
+    }
+
+    .category-btn.company-tab.active {
+      border-color: var(--company);
+      background: var(--company);
+    }
+
+    .result-line {
+      min-height: 26px;
+      margin: 12px 0;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .card.company {
+      border-color: #d6e0ed;
+      box-shadow: 0 5px 22px rgba(52, 75, 107, .08);
+    }
+
+    .thumb {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1.25;
+      overflow: hidden;
+      background: #f0ecdf;
+    }
+
+    .company .thumb { background: #e9eff5; }
+
+    .thumb-fallback {
+      font-size: 3.1rem;
+      line-height: 1;
+    }
+
+    .thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tag {
+      position: absolute;
+      top: 9px;
+      right: 9px;
+      z-index: 1;
+      padding: 3px 8px;
+      border-radius: 7px;
+      background: rgba(44, 58, 36, .92);
+      color: #fff;
+      font-size: .67rem;
+    }
+
+    .company .tag { background: rgba(68, 88, 117, .95); }
+
+    .card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 12px;
+    }
+
+    .card-title {
+      margin: 0 0 5px;
+      font-size: .94rem;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .card-detail {
+      flex: 1;
+      margin: 0 0 11px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .company-note {
+      width: fit-content;
+      margin: 0 0 8px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #eef3f9;
+      color: var(--company);
+      font-size: .7rem;
+      font-weight: 700;
+    }
+
+    .price {
+      color: var(--olive);
+      font-size: 1rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .price small {
+      font-size: .72rem;
+      font-weight: 600;
+    }
+
+    .order-btn {
+      width: 100%;
+      margin-top: 10px;
+      padding: 9px 7px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #c69234, #ad7c24);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 800;
+    }
+
+    .company .order-btn {
+      background: linear-gradient(135deg, #536b8c, #405571);
+    }
+
+    .empty {
+      padding: 34px 18px;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      background: var(--white);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .more-wrap { margin-top: 22px; text-align: center; }
+
+    .more-btn {
+      min-width: 190px;
+      padding: 10px 22px;
+      border: 1px solid var(--olive);
+      border-radius: 11px;
+      background: var(--white);
+      color: var(--olive);
+      font-weight: 800;
+    }
+
+    .price-note {
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: .76rem;
+      text-align: center;
+    }
+
+    .info {
+      padding: 28px 0 100px;
+      background: #eae9df;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .info-box {
+      padding: 17px;
+      border: 1px solid #dedfd3;
+      border-radius: 14px;
+      background: var(--white);
+    }
+
+    .info-box h2 {
+      margin: 0 0 7px;
+      color: var(--olive);
+      font-size: 1rem;
+    }
+
+    .info-box p { margin: 0; font-size: .87rem; }
+    .info-box a { color: var(--olive-light); font-weight: 700; }
+
+    .bottom-bar {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 30;
+      display: flex;
+      gap: 10px;
+      padding: 10px 16px max(10px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--border);
+      background: var(--white);
+      box-shadow: 0 -3px 16px rgba(0, 0, 0, .05);
+    }
+
+    .bottom-bar button {
+      flex: 1;
+      padding: 10px 5px;
+      border: 0;
+      border-radius: 11px;
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 800;
+    }
+
+    .bottom-wa { background: var(--green); }
+    .bottom-call { background: var(--olive); }
+
+    .contact-dialog {
+      width: min(100% - 28px, 470px);
+      max-height: min(85vh, 690px);
+      padding: 0;
+      overflow: auto;
+      border: 0;
+      border-radius: 20px;
+      background: var(--white);
+      color: var(--text);
+      box-shadow: 0 18px 70px rgba(0, 0, 0, .22);
+    }
+
+    .contact-dialog::backdrop { background: rgba(19, 28, 19, .67); }
+
+    .dialog-inner { padding: 20px; }
+
+    .dialog-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .dialog-top h2 {
+      margin: 0;
+      color: var(--olive);
+      font-size: 1.15rem;
+    }
+
+    .close-btn {
+      width: 32px;
+      height: 32px;
+      flex: none;
+      border: 0;
+      border-radius: 8px;
+      background: #f0efe9;
+      font-size: 1.2rem;
+    }
+
+    .dialog-description {
+      margin: 7px 0 16px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .contact-group { margin-top: 15px; }
+
+    .contact-group h3 {
+      margin: 0 0 8px;
+      font-size: .88rem;
+    }
+
+    .contact-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: .83rem;
+      font-weight: 700;
+    }
+
+    .contact-option span:last-child {
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    .contact-option.wa { border-color: #c5e8d3; background: #f1faf4; }
+    .contact-option.tel { background: #f7f7f2; }
+
+    @media (min-width: 650px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+      .info-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1020px) {
+      .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+      .info-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 390px) {
+      .brand-sub { display: none; }
+      .header-contact { padding: 8px; font-size: .76rem; }
+      .card-body { padding: 10px; }
+      .card-title { font-size: .86rem; }
+      .price { font-size: .9rem; }
+    }
   </style>
 </head>
+
 <body>
+  <div class="announcement">
+    🚚 <strong>ارسال رایگان در محدوده نارمک</strong> برای سفارش‌های بالای ۴۰۰٬۰۰۰ تومان
+  </div>
 
-  <div class="announcement"><span>پیک رایگان</span> سفارش‌های بالای ۴۰۰ هزار تومان در محدوده نارمک</div>
-
-  <header>
+  <header class="header">
     <div class="header-inner">
-      <div class="logo-area">
-        <div class="logo-badge">🌿</div>
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">🌿</div>
         <div>
-          <div class="logo-title">عطاری و خشکبار برادران تقدیسی</div>
-          <div class="logo-sub">کیفیت اعلا • تضمین اصالت کالا</div>
+          <div class="brand-name">عطاری و خشکبار برادران تقدیسی</div>
+          <div class="brand-sub">تازگی، کیفیت و انتخاب با خیال راحت</div>
         </div>
       </div>
-      <a href="tel:09188085331" class="btn-call-header">📞 ۰۹۱۸۸۰۸۵۳۳۱</a>
+      <button class="header-contact" type="button" data-contact="all">☎ راه‌های ارتباطی</button>
     </div>
   </header>
 
   <section class="hero">
-    <span class="hero-badge">عطاری تخصصی و خشکبار دست‌چین</span>
-    <h1>محصولات تازه و اعلا در نارمک تهران</h1>
-    <p>عرضه مستقیم انواع آجیل ممتاز، گیاهان دارویی مرغوب، ادویه‌جات اصل و عرقیجات ناب با ارسال سریع در محدوده نارمک</p>
+    <span class="hero-label">عطاری، خشکبار و اجناس شرکتی</span>
+    <h1>طعم تازگی در قلب نارمک</h1>
+    <p>انواع خشکبار، گیاهان دارویی، ادویه‌جات، عرقیجات و محصولات بسته‌بندی؛ سفارش مستقیم از طریق واتساپ.</p>
+    <button class="hero-contact" type="button" data-contact="wa">سفارش از طریق واتساپ</button>
   </section>
 
-  <section class="controls-wrapper">
-    <div class="search-box">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="جستجوی پسته، گردو، زعفران..." oninput="renderProducts()">
-    </div>
-    <div class="category-scroll">
-      <button class="cat-btn active" onclick="setCat('همه')">همه</button>
-      <button class="cat-btn" onclick="setCat('خشکبار و آجیل')">🥜 خشکبار و آجیل</button>
-      <button class="cat-btn" onclick="setCat('گیاهان دارویی')">🌿 گیاهان دارویی</button>
-      <button class="cat-btn" onclick="setCat('عرقیجات و نوشیدنی‌ها')">🍶 عرقیجات و نوشیدنی‌ها</button>
-      <button class="cat-btn" onclick="setCat('ادویه‌جات')">🌶️ ادویه‌جات</button>
-      <button class="cat-btn" onclick="setCat('حبوبات و اقلام قندی')">🍬 حبوبات و قندی</button>
-      <button class="cat-btn" onclick="setCat('اجناس شرکتی')">📦 اجناس شرکتی</button>
-    </div>
-  </section>
+  <main>
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <h2>فهرست محصولات</h2>
+          <p>نام محصول را جست‌وجو کنید یا دستهٔ موردنظرتان را انتخاب کنید.</p>
+        </div>
 
-  <main class="products-container">
-    <div class="grid" id="productsGrid"></div>
+        <label class="search">
+          <span aria-hidden="true">🔍</span>
+          <input id="searchInput" type="search" autocomplete="off"
+                 placeholder="جست‌وجوی نام محصول یا نوع بسته‌بندی..."
+                 aria-label="جست‌وجوی محصولات">
+        </label>
+
+        <nav class="categories" aria-label="دسته‌بندی محصولات">
+          <button class="category-btn active" type="button" data-category="همه" aria-pressed="true">همه</button>
+          <button class="category-btn" type="button" data-category="خشکبار و آجیل" aria-pressed="false">🥜 خشکبار و آجیل</button>
+          <button class="category-btn" type="button" data-category="گیاهان دارویی" aria-pressed="false">🌿 گیاهان دارویی</button>
+          <button class="category-btn" type="button" data-category="عرقیجات و نوشیدنی‌ها" aria-pressed="false">🍶 عرقیجات</button>
+          <button class="category-btn" type="button" data-category="ادویه‌جات" aria-pressed="false">🌶️ ادویه‌جات</button>
+          <button class="category-btn" type="button" data-category="حبوبات و اقلام قندی" aria-pressed="false">🍬 حبوبات و قندی</button>
+          <button class="category-btn company-tab" type="button" data-category="اجناس شرکتی" aria-pressed="false">📦 اجناس شرکتی</button>
+        </nav>
+
+        <p class="result-line" id="resultLine" aria-live="polite"></p>
+        <div class="grid" id="productsGrid"></div>
+        <p class="empty" id="emptyMessage" hidden>محصولی با این جست‌وجو پیدا نشد.</p>
+
+        <div class="more-wrap">
+          <button class="more-btn" id="moreBtn" type="button" hidden>نمایش محصولات بیشتر</button>
+        </div>
+
+        <p class="price-note">موجودی و قیمت نهایی هنگام ثبت سفارش تأیید می‌شود.</p>
+      </div>
+    </section>
+
+    <section class="info">
+      <div class="container info-grid">
+        <div class="info-box">
+          <h2>📍 نشانی فروشگاه</h2>
+          <p>تهران، نارمک، میدان نبوت، به سمت چهارراه تلفن‌خانه، خیابان شمالی، روبه‌روی مؤسسه زبان سفیر، کنار نان برکت، پلاک ۲۴۶</p>
+        </div>
+
+        <div class="info-box">
+          <h2>🕘 ساعت کاری و ارسال</h2>
+          <p>همه‌روزه از ساعت ۰۹:۰۰ تا ۲۲:۰۰<br>ارسال رایگان در محدوده نارمک برای سفارش‌های بالای ۴۰۰٬۰۰۰ تومان</p>
+        </div>
+
+        <div class="info-box">
+          <h2>📱 ارتباط با ما</h2>
+          <p>
+            <a href="tel:09188085331">۰۹۱۸۸۰۸۵۳۳۱</a><br>
+            <a href="tel:09921971423">۰۹۹۲۱۹۷۱۴۲۳</a><br>
+            اینستاگرام:
+            <a href="https://www.instagram.com/atarikhoshkbartaghdisi/"
+               target="_blank" rel="noopener noreferrer">@atarikhoshkbartaghdisi</a>
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div class="bottom-bar">
-    <a href="https://wa.me/989188085331" class="bottom-btn bottom-btn-wa">💬 سفارش در واتساپ</a>
-    <a href="tel:09188085331" class="bottom-btn bottom-btn-call">📞 تماس فوری</a>
+    <button class="bottom-wa" type="button" data-contact="wa">💬 انتخاب شماره واتساپ</button>
+    <button class="bottom-call" type="button" data-contact="call">📞 انتخاب شماره تماس</button>
   </div>
 
-  <script>
-    const products = [
-      {name: "پسته اکبری درجه یک", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | اکبری خندان، تازه و برشته", price: 493000, badge: "ویژه", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"},
-      {name: "بادام هندی زعفرانی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | بو داده با زعفران خالص", price: 395000, badge: "پرفروش", img: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=80"},
-      {name: "بادام هندی خام", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | طبیعی بدون نمک", price: 390000, badge: "خام", img: "https://images.unsplash.com/photo-1536591375315-1b8368144026?auto=format&fit=crop&w=600&q=80"},
-      {name: "مغز بادام درختی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | شیرین و دست‌چین", price: 430000, badge: "دست‌چین", img: "https://images.unsplash.com/photo-1508061252227-0c337e403856?auto=format&fit=crop&w=600&q=80"},
-      {name: "بادام درختی پوست‌کاغذی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | پوست بسیار نازک", price: 285000, badge: "ممتاز", img: "https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?auto=format&fit=crop&w=600&q=80"},
-      {name: "بادام سنگی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | مناسب مصرف سنتی", price: 90000, badge: "اقتصادی", img: "https://images.unsplash.com/photo-1508061252227-0c337e403856?auto=format&fit=crop&w=600&q=80"},
-      {name: "مغز گردو توسکان", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | سفید و چرب", price: 275000, badge: "ویژه", img: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=600&q=80"},
-      {name: "مغز گردو خورشتی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | مناسب فسنجان", price: 165000, badge: "پرروغن", img: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=600&q=80"},
-      {name: "گردو محلی با پوست", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | طعم سنتی", price: 88000, badge: "محلی", img: "https://images.unsplash.com/photo-1574786445585-61849a656641?auto=format&fit=crop&w=600&q=80"},
-      {name: "آجیل سه مغز", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | پسته و بادام", price: 380000, badge: "پرفروش", img: "https://images.unsplash.com/photo-1536591375315-1b8368144026?auto=format&fit=crop&w=600&q=80"},
-      {name: "توت خشک درجه یک", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | شیرین طبیعی", price: 180000, badge: "طبیعی", img: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=600&q=80"},
-      {name: "توت خشک معمولی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | مناسب چای", price: 99000, badge: "اقتصادی", img: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=600&q=80"},
-      {name: "انجیر خشک استهبان", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | خندان و پرشهد", price: 120000, badge: "اعلا", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80"},
-      {name: "بادام زمینی آستانه", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | برشته معطر", price: 97000, badge: "اصل", img: "https://images.unsplash.com/photo-1567894340315-735d7c361db0?auto=format&fit=crop&w=600&q=80"},
-      {name: "تخمه کدو مرمری", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | بوداده", price: 120000, badge: "بوداده", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"},
-      {name: "مغز تخمه کدو", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | خام", price: 185000, badge: "خام", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"},
-      {name: "مغز تخمه آفتابگردان", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | تازه", price: 122000, badge: "تازه", img: "https://images.unsplash.com/photo-1567894340315-735d7c361db0?auto=format&fit=crop&w=600&q=80"},
-      {name: "مویز افغان", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | بدون هسته", price: 110000, badge: "گوشتی", img: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=600&q=80"},
-      {name: "کشمش سبز", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | قلمی", price: 82000, badge: "قلمی", img: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=600&q=80"},
-      {name: "کشمش پلویی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | آفتابی", price: 77000, badge: "آفتابی", img: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=600&q=80"},
-      {name: "خرما پیارم", cat: "خشکبار و آجیل", desc: "بسته ۲۰۰ گرمی | شکلاتی", price: 165000, badge: "شکلاتی", img: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=600&q=80"},
-      {name: "خرما زاهدی", cat: "خشکبار و آجیل", desc: "بسته ۵۰۰ گرمی | نیمه‌خشک", price: 99000, badge: "نیمه‌خشک", img: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=600&q=80"},
-      {name: "برگه هلو ساده", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | ترش و شیرین", price: 140000, badge: "سنتی", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80"},
-      {name: "برگه هلو زعفرانی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | معطر", price: 145000, badge: "زعفرانی", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80"},
-      {name: "اسلایس شلیل", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | میوه خشک", price: 167000, badge: "میوه خشک", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80"},
-      {name: "آلو حاج‌حسنی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | آفتابی", price: 110000, badge: "آفتابی", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80"},
-      {name: "آلو دودی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | معطر", price: 115000, badge: "دودی", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80"},
-      {name: "نخودچی", cat: "خشکبار و آجیل", desc: "بسته ۱۰۰ گرمی | دوآتیشه", price: 75000, badge: "دوآتیشه", img: "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600&q=80"},
-      {name: "گل گاوزبان", cat: "گیاهان دارویی", desc: "بسته ۵۰ گرمی | آرام‌بخش", price: 85000, badge: "دست‌چین", img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80"},
-      {name: "بابونه کوهی", cat: "گیاهان دارویی", desc: "بسته ۵۰ گرمی | ضدالتهاب", price: 65000, badge: "کوهی", img: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=600&q=80"},
-      {name: "آویشن شیرازی", cat: "گیاهان دارویی", desc: "بسته ۵۰ گرمی | ضدسرفه", price: 72000, badge: "معطر", img: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=80"},
-      {name: "زعفران قائنات", cat: "ادویه‌جات", desc: "یک مثقال | اصل", price: 540000, badge: "قائنات", img: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=80"},
-      {name: "زردچوبه اعلا", cat: "ادویه‌جات", desc: "بسته ۱۰۰ گرمی | خالص", price: 48000, badge: "آسیاب", img: "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=600&q=80"},
-      {name: "چوب دارچین", cat: "ادویه‌جات", desc: "بسته ۱۰۰ گرمی | سیلان", price: 68000, badge: "سیلان", img: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=80"},
-      {name: "گلاب دوآتیشه", cat: "عرقیجات و نوشیدنی‌ها", desc: "۱ لیتری | کاشان", price: 95000, badge: "دوآتیشه", img: "https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=600&q=80"},
-      {name: "عرق نعناع", cat: "عرقیجات و نوشیدنی‌ها", desc: "۱ لیتری | غلیظ", price: 68000, badge: "غلیظ", img: "https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=600&q=80"},
-      {name: "نبات شاخه زعفرانی", cat: "حبوبات و اقلام قندی", desc: "۵۰۰ گرمی | زعفرانی", price: 85000, badge: "زعفرانی", img: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=600&q=80"},
-      {name: "بادام زمینی روکش‌دار", cat: "اجناس شرکتی", desc: "۱۰۰ گرمی | پنیری/کچاپ", price: 82000, badge: "شرکتی", img: "https://images.unsplash.com/photo-1567894340315-735d7c361db0?auto=format&fit=crop&w=600&q=80"},
-      {name: "تخمه کانادایی", cat: "اجناس شرکتی", desc: "۵۰۰ گرمی | طعم‌دار", price: 420000, badge: "شرکتی", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"}
-    ];
+  <dialog class="contact-dialog" id="contactDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-inner">
+      <div class="dialog-top">
+        <h2 id="dialogTitle">راه‌های ارتباطی</h2>
+        <button class="close-btn" id="closeDialog" type="button" aria-label="بستن">×</button>
+      </div>
 
-    let currentCat = "همه";
-    function setCat(c) { currentCat = c; document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.textContent.includes(c))); renderProducts(); }
-    function renderProducts() {
-      const grid = document.getElementById('productsGrid');
-      const q = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = products.filter(p => (currentCat === "همه" || p.cat === currentCat) && (p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)));
-      grid.innerHTML = filtered.map(p => `
-        <div class="card">
-          <div class="card-thumb"><img src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d'">
-            <span class="card-badge ${p.badge === 'ویژه' ? 'gold' : ''}">${p.badge}</span><span class="card-cat-tag">${p.cat}</span>
-          </div>
-          <div class="card-body">
-            <div class="card-title">${p.name}</div>
-            <div class="card-desc">${p.desc}</div>
-            <div class="price-box"><span class="price-val">${p.price.toLocaleString('fa-IR')}</span><span style="font-size:0.7rem">تومان</span></div>
-            <a href="https://wa.me/989188085331?text=سفارش:${p.name}" class="btn-order-wa">سفارش در واتساپ</a>
-          </div>
-        </div>
-      `).join('');
+      <p class="dialog-description" id="dialogDescription">شمارهٔ موردنظرتان را انتخاب کنید.</p>
+
+      <div class="contact-group" id="whatsappGroup">
+        <h3>💬 سفارش و پیام در واتساپ</h3>
+        <a class="contact-option wa" id="wa1" href="https://wa.me/989188085331"
+           target="_blank" rel="noopener noreferrer">
+          <span>واتساپ شمارهٔ ۱</span><span>۰۹۱۸۸۰۸۵۳۳۱</span>
+        </a>
+        <a class="contact-option wa" id="wa2" href="https://wa.me/989921971423"
+           target="_blank" rel="noopener noreferrer">
+          <span>واتساپ شمارهٔ ۲</span><span>۰۹۹۲۱۹۷۱۴۲۳</span>
+        </a>
+      </div>
+
+      <div class="contact-group" id="phoneGroup">
+        <h3>📞 تماس تلفنی</h3>
+        <a class="contact-option tel" href="tel:09188085331">
+          <span>تماس با شمارهٔ ۱</span><span>۰۹۱۸۸۰۸۵۳۳۱</span>
+        </a>
+        <a class="contact-option tel" href="tel:09921971423">
+          <span>تماس با شمارهٔ ۲</span><span>۰۹۹۲۱۹۷۱۴۲۳</span>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    "use strict";
+
+    /*
+      برای افزودن کالاهای بعدی، کافی است یک سطر p(...) داخل فهرست زیر اضافه کنید.
+      ترتیب اطلاعات هر کالا:
+      p("نام", "دسته", "وزن یا بسته‌بندی", قیمت_به_تومان, "نشان", عکس_اختیاری)
+
+      اگر عکس ندارید، آرگومان آخر را ننویسید؛ به‌جای عکس نماد دسته نمایش داده می‌شود.
+      اجناس شرکتی را با دستهٔ دقیق "اجناس شرکتی" وارد کنید.
+      قیمت‌ها عدد ساده و بدون ویرگول هستند؛ مثلاً 195000.
+    */
+
+    const PHOTO = {
+      nuts: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80",
+      cashew: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=80",
+      almond: "https://images.unsplash.com/photo-1508061252227-0c337e403856?auto=format&fit=crop&w=600&q=80",
+      walnut: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=600&q=80",
+      walnut2: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=600&q=80",
+      mixed: "https://images.unsplash.com/photo-1536591375315-1b8368144026?auto=format&fit=crop&w=600&q=80",
+      dried: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80",
+      peanut: "https://images.unsplash.com/photo-1567894340315-735d7c361db0?auto=format&fit=crop&w=600&q=80",
+      raisin: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=600&q=80",
+      date: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=600&q=80",
+      herb: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+      spice: "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=600&q=80",
+      drink: "https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=600&q=80"
+    };
+
+    function p(name, category, details, price, tag, image) {
+      return { name, category, details, price, tag, image: image || "" };
     }
-    renderProducts();
-  </script>
-</body>
-</html>
+
+    const products = [
+      // خشکبار و آجیل ـ کالاهای موجود در کد قبلی
+      p("پسته اکبری درجه یک", "خشکبار و آجیل", "بسته ۱۰۰ گرمی | اکبری خندان، تازه و برشته", 493000, "ویژه", PHOTO.nuts),
+      p("بادام هندی زعفرانی", "خشکبار و آجیل", "بسته ۱۰۰ گرمی | بو داده با زعفران", 395000, "پرفروش", PHOTO.cashew),
+      p("بادام هندی خام", "خشکبار و آجیل", "بسته ۱۰۰ گرمی | بدون نمک", 390000, "خام", PHOTO.mixed),
+      p("مغز بادام درختی", "خشکبار و آجیل", "بسته ۱۰۰ گرمی | شیرین و دست‌چین", 430000, "دست‌چین", PHOTO.almond),
+      p("بادام درختی پوست‌کاغذی", "خشکبار و آجیل", "بسته ۱۰۰ گرمی | پوست نازک", 285000, "ممتاز", PHOTO.almond),
+      p("بادام سنگی", "خشکبار و آجیل", "بسته ۱۰۰ گرمی", 90000, "اقتصادی", PHOTO.almond),
+      p("مغز گردو توسکان", "خشکبار و آجیل", "بسته ۱۰۰ گرمی", 275000, "ویژه", PHOTO.walnut),
+      p("مغز گردو خورشتی", "خشکبار و آجیل", "بسته ۱۰۰ گرمی | مناسب فسنجان", 165000
