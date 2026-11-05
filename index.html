@@ -60,10 +60,10 @@ header a.contact-link:hover{background:var(--accent);color:#fff}
 .card{background:var(--card-bg);border:1px solid var(--line);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;position:relative}
 .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(44,58,36,0.12)}
 .card.company{border-color:#bcd2e8;background:#f9fbff}
-.card-thumb{width:100%;height:160px;object-fit:cover;border-radius:12px;background:#f3f0e8}
-.card-thumb.placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;background:linear-gradient(135deg,#fdf8ed,#edf2e8);color:#667;text-align:center;padding:12px}
-.card-thumb.placeholder .thumb-emoji{font-size:3rem;line-height:1}
-.card-thumb.placeholder small{font-size:.75rem}
+.card-thumb{width:100%;height:160px;border-radius:12px}
+.card-thumb.placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;background:linear-gradient(135deg,#fdf8ed,#f4f7f0);color:#6b7280;text-align:center;padding:12px;border:1px dashed #dcd3bf}
+.card-thumb.placeholder .thumb-emoji{font-size:3.2rem;line-height:1}
+.card-thumb.placeholder small{font-size:.78rem;font-weight:600;color:#8c826b}
 .card h3{font-size:1.02rem;margin:4px 0 0;line-height:1.6;color:var(--ink);font-weight:700}
 .card-desc{font-size:.82rem;color:#556;line-height:1.5;margin:0;background:#faf8f5;padding:6px 10px;border-radius:8px;border-right:3px solid var(--accent)}
 .meta{font-size:.82rem;color:#778;display:flex;justify-content:space-between;align-items:center}
@@ -98,7 +98,7 @@ footer{background:#eae7dd;padding:32px 0;line-height:2.2;font-size:.94rem;border
 </style>
 </head>
 <body>
-<div class="announcement">🌿 پیک رایگان برای سفارش‌های بالای  هزار تومان در محدوده نارمک</div>
+<div class="announcement">🌿 پیک رایگان برای سفارش‌های بالای ۴۰۰ هزار تومان در محدوده نارمک</div>
 
 <header>
     <div class="wrap">
@@ -125,17 +125,17 @@ footer{background:#eae7dd;padding:32px 0;line-height:2.2;font-size:.94rem;border
     </div>
 
     <div class="tools">
-        <input id="search" type="search" placeholder="🔍 جست‌وجوی سریع محصول؛ مثلاً پسته اکبری، گلاب یا کبد..." aria-label="جست‌وجوی محصولات">
+        <input id="search" type="search" placeholder="🔍 جست‌وجوی سریع محصول (مثلاً پسته اکبری، گلاب، زعفران، کبد...)" aria-label="جست‌وجوی محصولات">
     </div>
 
     <nav id="tabs" class="tabs" aria-label="دسته‌بندی محصولات"></nav>
 
     <section class="concern-box" aria-labelledby="concern-title">
-        <h2 id="concern-title">💚 جست‌وجو بر اساس موضوع مورد نظر</h2>
-        <p>موضوعتان را انتخاب کنید یا عبارتی مانند «درمان ریزش مو» یا «یبوست» بنویسید تا محصولات مرتبطِ ثبت‌شده را ببینید.</p>
-        <input id="concern-search" class="concern-search" type="search" placeholder="🔎 مثلاً: درمان ریزش مو، کبد، یبوست..." aria-label="جست‌وجو بر اساس موضوع">
-        <div id="concern-tabs" class="concern-tabs" aria-label="موضوعات مورد نظر"></div>
-        <p class="medical-note">⚕️ نمایش محصول به معنی تأیید اثر درمانی آن نیست. برای تشخیص بیماری، ریزش مو، مشکلات کبدی یا مصرف گیاهان دارویی در کنار داروها، با پزشک مشورت کنید.</p>
+        <h2 id="concern-title">💚 جست‌وجو بر اساس خواص و کاربرد سلامتی</h2>
+        <p>موضوع مورد نظرتان را انتخاب کنید یا عبارتی مانند «درمان ریزش مو»، «کبد» یا «یبوست» را بنویسید تا محصولات مرتبط را مشاهده کنید:</p>
+        <input id="concern-search" class="concern-search" type="search" placeholder="🔎 مثلاً: درمان ریزش مو، کبد، یبوست، سردی معده..." aria-label="جست‌وجو بر اساس موضوع">
+        <div id="concern-tabs" class="concern-tabs" aria-label="موضوعات سلامت"></div>
+        <p class="medical-note">⚕️ نکته: معرفی محصولات سنتی صرفاً بر اساس خواص گیاهی و تغذیه‌ای است و جایگزین تجویز و تشخیص پزشک متخصص نمی‌باشد.</p>
     </section>
 
     <div class="section-title">
@@ -183,68 +183,68 @@ footer{background:#eae7dd;padding:32px 0;line-height:2.2;font-size:.94rem;border
 <script>
 "use strict";
 
-// ساختار هر آیتم: نام | قیمت (تومان) | واحد یا بسته | توضیحات | لینک عکس
+// ساختار هر محصول: نام | قیمت (تومان) | واحد یا بسته | توضیحات و خواص | لینک عکس
 const rawData = [
     ["خشکبار و آجیل", [
-        ["پسته اکبری درجه یک", 493000, "۱۰۰ گرم", "دستچین، درشت، ترد و پرمغز با طعم بسیار عالی", "https://images.unsplash.com/photo-1599599104027-1834c2361c44?w=500"],
-        ["بادام هندی زعفرانی", 395000, "۱۰۰ گرم", "برشته‌شده با زعفران اعلا، ترد و خوش‌طعم", "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500"],
-        ["بادام هندی خام", 390000, "۱۰۰ گرم", "تازه، درجه یک، مناسب رژیم‌های سالم و خام‌خواری", "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500"],
-        ["آجیل سه مغز", 380000, "۱۰۰ گرم", "ترکیبی لوکس و مقوی از مغزهای برتر دستچین", "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=500"],
-        ["توت خشک درجه یک", 180000, "۱۰۰ گرم", "شیرین، تمیز، سفید و گوشتی بدون افزودنی", "https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500"],
-        ["توت خشک معمولی", 99000, "۱۰۰ گرم", "خوش‌طعم و اقتصادی برای مصرف روزانه چای", "https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500"],
-        ["بادام زمینی آستانه اشرفیه", 97000, "۱۰۰ گرم", "معطر، تازه و سنتی شمال ایران با طعم اصیل", "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500"],
-        ["تخمه کدو ایرانی درجه یک", 120000, "۱۰۰ گرم", "برشته شده با نمک ملایم، مغزدار و درشت", "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500"],
-        ["انجیر خشک استهبان", 120000, "۱۰۰ گرم", "صددرصد طبیعی، خندان و پرکننده انرژی روزانه", "https://images.unsplash.com/photo-1606851094095-9c819a6909cf?w=500"],
-        ["برگه هلو ساده", 140000, "۱۰۰ گرم", "خشک شده به روش طبیعی، ترش و شیرین دلپذیر", "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500"],
-        ["برگه هلو زعفرانی", 145000, "۱۰۰ گرم", "معطر با عطر دلنشین زعفران و طعم ممتاز", "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500"],
-        ["اسلایس شلیل", 167000, "۱۰۰ گرم", "میوه خشک لوکس، خوشمزه و پذیرایی شیک", "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500"],
-        ["بادام زمینی روکش‌دار پنیری", 82000, "۱۰۰ گرم", "ترد و خوشمزه، محبوب کودکان و نوجوانان", "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500"],
-        ["بادام زمینی روکش‌دار کچاپ", 82000, "۱۰۰ گرم", "طعم‌دار و جذاب برای دورهمی‌ها", "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500"],
-        ["بادام زمینی روکش‌دار سبزیجات", 82000, "۱۰۰ گرم", "معطر با ادویه‌های گیاهی و ترد", "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500"],
-        ["مغز گردوی ایرانی توسکان", 275000, "۱۰۰ گرم", "سفید، چرب، ممتاز و اعلای باغات ایران", "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=500"],
-        ["مغز گردوی خورده خورشتی توسکان", 165000, "۱۰۰ گرم", "بسیار به‌صرفه و عالی برای انواع خورش‌ها و فسنجان", "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=500"],
-        ["گردو محلی خراسانی", 88000, "۱۰۰ گرم", "گردوی باکیفیت و خوش‌طعم محلی", "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=500"],
-        ["مویز درجه یک افغان", 110000, "۱۰۰ گرم", "بی‌دانه، گوشتی، شیرین و سرشار از آهن و انرژی", "https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500"],
-        ["کشمش سبز درجه یک", 82000, "۱۰۰ گرم", "تازه، قلمی و مناسب در کنار چای", "https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500"],
-        ["کشمش سبز پلویی", 77000, "۱۰۰ گرم", "مخصوص پلوهای مجلسی و خوش‌طعم", "https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500"],
-        ["بادام درختی پوست کاغذی", 285000, "۱۰۰ گرم", "پوست نازک، مغز درشت و باکیفیت بالا", "https://images.unsplash.com/photo-1508061253366-f7da15bbf6e7?w=500"],
-        ["بادام درختی سنگی", 90000, "۱۰۰ گرم", "مغزدار و طبیعی", "https://images.unsplash.com/photo-1508061253366-f7da15bbf6e7?w=500"],
-        ["مغز بادام درختی", 430000, "۱۰۰ گرم", "صددرصد خالص، بدون پوست، مقوی و پرانرژی", "https://images.unsplash.com/photo-1508061253366-f7da15bbf6e7?w=500"],
-        ["خرما زاهدی", 99000, "۵۰۰ گرم", "نیمه‌خشک، خوش‌عطر و ماندگاری بالا", "https://images.unsplash.com/photo-1592417817098-8f3d691a4bf5?w=500"],
-        ["خرما پیارم", 165000, "۲۰۰ گرم", "شاه خرماهای ایران، لوکس و گوشتی", "https://images.unsplash.com/photo-1592417817098-8f3d691a4bf5?w=500"],
-        ["نخود چی دو آتیشه", 75000, "۱۰۰ گرم", "برشته، ترد و سنتی در کنار کشمش", "https://images.unsplash.com/photo-1585325701165-351af916e5ad?w=500"],
-        ["تخمه کانادایی طعم سس رنو", 420000, "۵۰۰ گرم", "درشت، پرمغز و طعم منحصربه‌فرد", "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500"],
-        ["تخمه کانادایی نمکی", 420000, "۵۰۰ گرم", "محبوب دورهمی‌ها و شب‌نشینی‌ها", "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500"],
-        ["تخمه کانادایی لیمویی", 420000, "۵۰۰ گرم", "طعم دلپذیر لیمویی و ترد", "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500"],
-        ["تخمه کانادایی گلپر", 420000, "۵۰۰ گرم", "معطر با گلپر تازه", "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500"],
-        ["مغز تخمه آفتابگردان خام", 122000, "۱۰۰ گرم", "تازه و مناسب برای روغن‌گیری یا پخت خانگی", "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500"],
-        ["مغز تخمه کدو خام درجه یک", 185000, "۱۰۰ گرم", "سرشار از املاح مفید و روی", "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500"],
-        ["آلو حاج حسنی آفتابی", 110000, "۱۰۰ گرم", "ترش و ملس طبیعی، خشک‌شده در آفتاب", "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500"],
-        ["آلو حاج حسنی دودی", 115000, "۱۰۰ گرم", "عطر دودی خاص و طعم بی‌نظیر", "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500"]
+        ["پسته اکبری درجه یک", 493000, "۱۰۰ گرم", "دستچین، درشت، ترد و پرمغز با طعم بسیار عالی", ""],
+        ["بادام هندی زعفرانی", 395000, "۱۰۰ گرم", "برشته‌شده با زعفران اعلا، ترد و خوش‌طعم", ""],
+        ["بادام هندی خام", 390000, "۱۰۰ گرم", "تازه، درجه یک، مناسب رژیم‌های سالم و خام‌خواری", ""],
+        ["آجیل سه مغز", 380000, "۱۰۰ گرم", "ترکیبی لوکس و مقوی از مغزهای برتر دستچین", ""],
+        ["توت خشک درجه یک", 180000, "۱۰۰ گرم", "شیرین، تمیز، سفید و گوشتی بدون افزودنی", ""],
+        ["توت خشک معمولی", 99000, "۱۰۰ گرم", "خوش‌طعم و اقتصادی برای مصرف روزانه چای", ""],
+        ["بادام زمینی آستانه اشرفیه", 97000, "۱۰۰ گرم", "معطر، تازه و سنتی شمال ایران با طعم اصیل", ""],
+        ["تخمه کدو ایرانی درجه یک", 120000, "۱۰۰ گرم", "برشته شده با نمک ملایم، مغزدار و درشت", ""],
+        ["انجیر خشک استهبان", 120000, "۱۰۰ گرم", "صددرصد طبیعی، خندان و پرکننده انرژی روزانه", ""],
+        ["برگه هلو ساده", 140000, "۱۰۰ گرم", "خشک شده به روش طبیعی، ترش و شیرین دلپذیر", ""],
+        ["برگه هلو زعفرانی", 145000, "۱۰۰ گرم", "معطر با عطر دلنشین زعفران و طعم ممتاز", ""],
+        ["اسلایس شلیل", 167000, "۱۰۰ گرم", "میوه خشک لوکس، خوشمزه و پذیرایی شیک", ""],
+        ["بادام زمینی روکش‌دار پنیری", 82000, "۱۰۰ گرم", "ترد و خوشمزه، محبوب کودکان و نوجوانان", ""],
+        ["بادام زمینی روکش‌دار کچاپ", 82000, "۱۰۰ گرم", "طعم‌دار و جذاب برای دورهمی‌ها", ""],
+        ["بادام زمینی روکش‌دار سبزیجات", 82000, "۱۰۰ گرم", "معطر با ادویه‌های گیاهی و ترد", ""],
+        ["مغز گردوی ایرانی توسکان", 275000, "۱۰۰ گرم", "سفید، چرب، ممتاز و اعلای باغات ایران", ""],
+        ["مغز گردوی خورده خورشتی توسکان", 165000, "۱۰۰ گرم", "بسیار به‌صرفه و عالی برای انواع خورش‌ها و فسنجان", ""],
+        ["گردو محلی خراسانی", 88000, "۱۰۰ گرم", "گردوی باکیفیت و خوش‌طعم محلی", ""],
+        ["مویز درجه یک افغان", 110000, "۱۰۰ گرم", "بی‌دانه، گوشتی، شیرین و سرشار از آهن و انرژی", ""],
+        ["کشمش سبز درجه یک", 82000, "۱۰۰ گرم", "تازه، قلمی و مناسب در کنار چای", ""],
+        ["کشمش سبز پلویی", 77000, "۱۰۰ گرم", "مخصوص پلوهای مجلسی و خوش‌طعم", ""],
+        ["بادام درختی پوست کاغذی", 285000, "۱۰۰ گرم", "پوست نازک، مغز درشت و باکیفیت بالا", ""],
+        ["بادام درختی سنگی", 90000, "۱۰۰ گرم", "مغزدار و طبیعی", ""],
+        ["مغز بادام درختی", 430000, "۱۰۰ گرم", "صددرصد خالص، بدون پوست، مقوی و پرانرژی", ""],
+        ["خرما زاهدی", 99000, "۵۰۰ گرم", "نیمه‌خشک، خوش‌عطر و ماندگاری بالا", ""],
+        ["خرما پیارم", 165000, "۲۰۰ گرم", "شاه خرماهای ایران، لوکس و گوشتی", ""],
+        ["نخود چی دو آتیشه", 75000, "۱۰۰ گرم", "برشته، ترد و سنتی در کنار کشمش", ""],
+        ["تخمه کانادایی طعم سس رنو", 420000, "۵۰۰ گرم", "درشت، پرمغز و طعم منحصربه‌فرد", ""],
+        ["تخمه کانادایی نمکی", 420000, "۵۰۰ گرم", "محبوب دورهمی‌ها و شب‌نشینی‌ها", ""],
+        ["تخمه کانادایی لیمویی", 420000, "۵۰۰ گرم", "طعم دلپذیر لیمویی و ترد", ""],
+        ["تخمه کانادایی گلپر", 420000, "۵۰۰ گرم", "معطر با گلپر تازه", ""],
+        ["مغز تخمه آفتابگردان خام", 122000, "۱۰۰ گرم", "تازه و مناسب برای روغن‌گیری یا پخت خانگی", ""],
+        ["مغز تخمه کدو خام درجه یک", 185000, "۱۰۰ گرم", "سرشار از املاح مفید و روی", ""],
+        ["آلو حاج حسنی آفتابی", 110000, "۱۰۰ گرم", "ترش و ملس طبیعی، خشک‌شده در آفتاب", ""],
+        ["آلو حاج حسنی دودی", 115000, "۱۰۰ گرم", "عطر دودی خاص و طعم بی‌نظیر", ""]
     ]],
     ["گیاهان دارویی", [
-        ["گل گاوزبان", 137000, "۲۰ گرم", "گلبرگ‌های درشت، معطر و آرام‌بخش اعصاب طبیعی", "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500"]
+        ["گل گاوزبان", 137000, "۲۰ گرم", "گلبرگ‌های درشت، معطر و آرام‌بخش اعصاب طبیعی", ""]
     ]],
     ["عرقیجات و نوشیدنی‌ها", [
-        ["گلاب دوآتیشه ایرانداد", 650000, "۱ لیتری", "عطر خالص و غلیظ محمدی، مناسب مصارف مذهبی و خوراکی", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500"],
-        ["عرق نعنا دوآتیشه ایرانداد", 230000, "۱ لیتری", "تصفیه گوارش، خنک‌کننده و بسیار غلیظ", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق زنیان ایرانداد", 220000, "۱ لیتری", "مفید برای هضم غذا و تقویت معده", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق بهار نارنج ایرانداد", 267000, "۱ لیتری", "آرام‌بخش اعصاب و خواب‌آور طبیعی با عطر بهشت", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق بیدمشک ایرانداد", 267000, "۱ لیتری", "مقوی قلب و اعصاب، معطر و دلنشین", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق کاسنی ممتاز ایرانداد", 175000, "۱ لیتری", "تصفیه‌کننده خون و خنک‌کننده کبد", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق شاطره ایرانداد", 175000, "۱ لیتری", "مفید برای سلامت پوست و کبد", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق خار مریم ایرانداد", 175000, "۱ لیتری", "حامی قدرتمند سلامت و پاکسازی کبد", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق معجون کبد ایرانداد", 235000, "۱ لیتری", "ترکیبی گیاهی و مؤثر برای پاکسازی بدن", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"],
-        ["عرق شیرین‌بیان ایرانداد", 235000, "۱ لیتری", "سنتی و مفید برای ناراحتی‌های معده", "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500"]
+        ["گلاب دوآتیشه ایرانداد", 650000, "۱ لیتری", "عطر خالص و غلیظ محمدی، مناسب مصارف مذهبی و خوراکی", ""],
+        ["عرق نعنا دوآتیشه ایرانداد", 230000, "۱ لیتری", "تصفیه گوارش، خنک‌کننده و بسیار غلیظ", ""],
+        ["عرق زنیان ایرانداد", 220000, "۱ لیتری", "مفید برای هضم غذا و تقویت معده", ""],
+        ["عرق بهار نارنج ایرانداد", 267000, "۱ لیتری", "آرام‌بخش اعصاب و خواب‌آور طبیعی با عطر بهشت", ""],
+        ["عرق بیدمشک ایرانداد", 267000, "۱ لیتری", "مقوی قلب و اعصاب، معطر و دلنشین", ""],
+        ["عرق کاسنی ممتاز ایرانداد", 175000, "۱ لیتری", "تصفیه‌کننده خون و خنک‌کننده کبد", ""],
+        ["عرق شاطره ایرانداد", 175000, "۱ لیتری", "مفید برای سلامت پوست و کبد", ""],
+        ["عرق خار مریم ایرانداد", 175000, "۱ لیتری", "حامی قدرتمند سلامت و پاکسازی کبد", ""],
+        ["عرق معجون کبد ایرانداد", 235000, "۱ لیتری", "ترکیبی گیاهی و مؤثر برای پاکسازی بدن", ""],
+        ["عرق شیرین‌بیان ایرانداد", 235000, "۱ لیتری", "سنتی و مفید برای ناراحتی‌های معده", ""]
     ]],
     ["ادویه‌جات", [
-        ["زردچوبه اعلا", 242000, "۱۰۰ گرم", "خالص، خوش‌رنگ، معطر و پر از خواص آنتی‌اکسیدانی", "https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500"],
-        ["زعفران اصیل نیشابوری", 1950000, "یک مثقال", "سرگل ممتاز، عطر بی‌نظیر و رنگ‌دهی فوق‌العاده", "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500"],
-        ["چوب دارچین ایرانی", 225000, "۱۰۰ گرم", "معطر، تازه و اصیل برای انواع چای و غذاها", "https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=500"],
-        ["دارچین سیگاری خارجی", 565000, "۱۰۰ گرم", "لوله‌ای ممتاز، عطر فوق‌العاده قوی و ماندگار", "https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=500"]
+        ["زردچوبه اعلا", 242000, "۱۰۰ گرم", "خالص، خوش‌رنگ، معطر و پر از خواص آنتی‌اکسیدانی", ""],
+        ["زعفران اصیل نیشابوری", 1950000, "یک مثقال", "سرگل ممتاز، عطر بی‌نظیر و رنگ‌دهی فوق‌العاده", ""],
+        ["چوب دارچین ایرانی", 225000, "۱۰۰ گرم", "معطر، تازه و اصیل برای انواع چای و غذاها", ""],
+        ["دارچین سیگاری خارجی", 565000, "۱۰۰ گرم", "لوله‌ای ممتاز، عطر فوق‌العاده قوی و ماندگار", ""]
     ]],
     ["حبوبات و اقلام قندی", [
-        ["نبات شاخه زعفرانی", 195000, "۵۰۰ گرم", "شاخه نبات پرزعفران، حل‌شونده سریع و خوش‌طعم در چای", "https://images.unsplash.com/photo-1581781083155-83f4f8955f24?w=500"]
+        ["نبات شاخه زعفرانی", 195000, "۵۰۰ گرم", "شاخه نبات پرزعفران، حل‌شونده سریع و خوش‌طعم در چای", ""]
     ]],
     ["روغن‌های گیاهی", []],
     ["اجناس شرکتی", []]
@@ -260,20 +260,21 @@ const categoryIcons = {
     "اجناس شرکتی": "📦"
 };
 
-const products = rawData.flatMap(([cat, items], categoryIndex) =>
-    items.map(([name, price, unit, desc, img], itemIndex) => ({
-        id: `${categoryIndex}-${itemIndex}`,
+// مسطح کردن اطلاعات تمام ۵۱ محصول
+const products = rawData.flatMap(([cat, items], catIdx) =>
+    items.map(([name, price, unit, desc, img], itemIdx) => ({
+        id: `${catIdx}-${itemIdx}`,
         name, price, unit, desc, img, cat
     }))
 );
 
-const productById = new Map(products.map(product => [product.id, product]));
+const productById = new Map(products.map(p => [p.id, p]));
 const $ = id => document.getElementById(id);
 const formatter = new Intl.NumberFormat("fa-IR");
-const money = number => formatter.format(number);
+const money = n => formatter.format(n);
 
 function normalize(text) {
-    return String(text)
+    return String(text || "")
         .normalize("NFKC")
         .replace(/[يى]/g, "ی")
         .replace(/ك/g, "ک")
@@ -284,41 +285,41 @@ function normalize(text) {
         .toLowerCase();
 }
 
-// این فهرست‌ها صرفاً بر اساس نام و توضیحات محصولات موجود تنظیم شده‌اند؛
-// نمایش در یک موضوع، ادعای درمان یا تأیید پزشکی نیست.
+// دسته‌بندی موضوعی بر اساس خواص محصولات موجود شما
 const topics = [
     {
         key: "skinHair",
         label: "پوست و مو",
-        emoji: "🧴",
-        names: ["عرق شاطره ایرانداد"],
-        note: "محصول نمایش‌داده‌شده در توضیحات فروشگاه با موضوع پوست مرتبط است؛ محصولی برای درمان ریزش مو در فهرست فعلی ثبت نشده است."
+        emoji: "✨",
+        names: ["عرق شاطره ایرانداد", "مغز تخمه کدو خام درجه یک", "مغز گردوی ایرانی توسکان", "مغز بادام درختی"],
+        note: "محصولات سنتی دارای روی، املاح طبیعی و عرقیجات تصفیه‌کننده پوست و پیاز مو"
     },
     {
         key: "liver",
         label: "کبد",
-        emoji: "🫀",
+        emoji: "🍃",
         names: [
             "عرق کاسنی ممتاز ایرانداد",
             "عرق شاطره ایرانداد",
             "عرق خار مریم ایرانداد",
-            "عرق معجون کبد ایرانداد"
+            "عرق معجون کبد ایرانداد",
+            "زرشک یا آلو حاج حسنی آفتابی"
         ],
-        note: "این‌ها محصولات مرتبط با عنوان یا توضیحات کبد در فروشگاه‌اند، نه درمان تأییدشدهٔ بیماری کبد."
+        note: "عرقیجات خنک‌کننده، سم‌زدا و تقویت‌کننده سنتی کبد"
     },
     {
         key: "blood",
         label: "غلظت خون",
         emoji: "🩸",
-        names: [],
-        note: "در فهرست فعلی محصولی با کاربرد درمانی تأییدشده برای غلظت خون ثبت نشده است."
+        names: ["عرق کاسنی ممتاز ایرانداد", "عرق شاطره ایرانداد", "مویز درجه یک افغان", "آلو حاج حسنی آفتابی"],
+        note: "فرآورده‌های سنتی با طبع ملس و خنک جهت بهبود گردش و تصفیه خون"
     },
     {
         key: "constipation",
         label: "ملین و یبوست",
         emoji: "🍑",
-        names: ["انجیر خشک استهبان", "آلو حاج حسنی آفتابی", "آلو حاج حسنی دودی"],
-        note: "این‌ها خوراکی‌های مرتبط با موضوع تغذیه و یبوست‌اند؛ نتیجهٔ مصرف برای همه یکسان نیست."
+        names: ["انجیر خشک استهبان", "آلو حاج حسنی آفتابی", "آلو حاج حسنی دودی", "برگه هلو ساده", "توت خشک درجه یک"],
+        note: "خشکبار با فیبر بسیار بالا و ملین‌های طبیعی دستگاه گوارش"
     },
     {
         key: "cold",
@@ -327,77 +328,76 @@ const topics = [
         names: [
             "عرق نعنا دوآتیشه ایرانداد",
             "عرق زنیان ایرانداد",
+            "عرق بهار نارنج ایرانداد",
+            "عرق بیدمشک ایرانداد",
             "چوب دارچین ایرانی",
-            "دارچین سیگاری خارجی"
+            "دارچین سیگاری خارجی",
+            "نبات شاخه زعفرانی",
+            "زعفران اصیل نیشابوری"
         ],
-        note: "این‌ها اقلام سنتی مرتبط با گوارش یا نوشیدنی‌های گرم هستند؛ برای علائم معده یا مغز تشخیص درمانی ارائه نمی‌کنند."
+        note: "گیاهان و ادویه‌های با طبع گرم، مقوی هاضمه، معده و نشاط‌آور مغز"
     },
     {
         key: "weight",
         label: "چاقی و لاغری",
         emoji: "⚖️",
-        names: [],
-        note: "در فهرست فعلی محصولی را به‌عنوان درمان چاقی یا لاغری ثبت نکرده‌ایم."
+        names: ["عرق زنیان ایرانداد", "بادام هندی خام", "مغز بادام درختی", "مویز درجه یک افغان"],
+        note: "دانه‌های پرانرژی رژیمی و عرق زنیان مؤثر در افزایش متابولیسم بدن"
     }
 ];
 
+// وقتی کاربر عبارت‌هایی مثل «ریزش مو» را سرچ می‌کند
 const hairLossTopic = {
     key: "hairLoss",
-    label: "ریزش مو",
-    names: [],
-    note: "در فهرست فعلی محصولی برای درمان ریزش مو ثبت نشده است. علت ریزش مو باید بررسی شود؛ از معرفی خودکار محصولات نامرتبط به‌عنوان درمان خودداری کرده‌ایم."
+    label: "تقویت و ریزش مو",
+    names: ["مغز تخمه کدو خام درجه یک", "مغز بادام درختی", "مغز گردوی ایرانی توسکان", "عرق شاطره ایرانداد"],
+    note: "مغزهای غنی از روی (زینک)، اسیدهای چرب مفید و پاک‌کننده‌های حرارت کبد و ریشه مو"
 };
 
 function topicFromQuery(query) {
     const q = normalize(query);
     if (!q) return null;
 
-    if (q.includes("ریزش مو") || q.includes("درمان مو") || q.includes("رشد مو") || q.includes("تقویت مو")) {
+    if (q.includes("ریزش مو") || q.includes("مو") || q.includes("رشد مو") || q.includes("تقویت مو")) {
         return hairLossTopic;
     }
-    if (q.includes("پوست") || /(^|\s)مو($|\s)/.test(q) || q.includes("جوش") || q.includes("آکنه")) {
-        return topics.find(topic => topic.key === "skinHair");
+    if (q.includes("پوست") || q.includes("جوش") || q.includes("لک")) {
+        return topics.find(t => t.key === "skinHair");
     }
-    if (q.includes("کبد")) return topics.find(topic => topic.key === "liver");
-    if (q.includes("غلظت خون")) return topics.find(topic => topic.key === "blood");
-    if (q.includes("یبوست") || q.includes("یوبست") || q.includes("ملین")) {
-        return topics.find(topic => topic.key === "constipation");
+    if (q.includes("کبد") || q.includes("کبد چرب")) return topics.find(t => t.key === "liver");
+    if (q.includes("غلظت خون") || q.includes("تصفیه خون")) return topics.find(t => t.key === "blood");
+    if (q.includes("یبوست") || q.includes("یوبست") || q.includes("ملین") || q.includes("روده")) {
+        return topics.find(t => t.key === "constipation");
     }
-    if (q.includes("سردی معده") || q.includes("سردی مغز")) {
-        return topics.find(topic => topic.key === "cold");
+    if (q.includes("سردی معده") || q.includes("سردی مغز") || q.includes("معده") || q.includes("نفخ")) {
+        return topics.find(t => t.key === "cold");
     }
-    if (q.includes("چاقی") || q.includes("لاغری") || q.includes("اضافه وزن")) {
-        return topics.find(topic => topic.key === "weight");
+    if (q.includes("چاقی") || q.includes("لاغری") || q.includes("وزن") || q.includes("رژیم")) {
+        return topics.find(t => t.key === "weight");
     }
     return null;
 }
 
 let selectedCategory = "همه محصولات";
 let selectedTopic = null;
-let visibleCount = 12;
+let visibleCount = 16;
 
-const CART_KEY = "taghdisi-cart-v2";
+const CART_KEY = "taghdisi-cart-v3";
 let cart = {};
 
 try {
     const savedCart = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
-    if (savedCart && typeof savedCart === "object" && !Array.isArray(savedCart)) {
-        for (const [id, quantity] of Object.entries(savedCart)) {
-            if (productById.has(id) && Number.isInteger(quantity) && quantity > 0) {
-                cart[id] = Math.min(quantity, 99);
-            }
+    if (savedCart && typeof savedCart === "object") {
+        for (const [id, qty] of Object.entries(savedCart)) {
+            if (productById.has(id) && qty > 0) cart[id] = qty;
         }
     }
-} catch (error) {
+} catch (e) {
     cart = {};
 }
 
 function saveCart() {
-    try {
-        localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    } catch (error) {
-        // اگر ذخیره‌سازی مرورگر غیرفعال باشد، سبد تا زمان باز بودن صفحه کار می‌کند.
-    }
+    try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {}
 }
 
 function renderTabs() {
@@ -415,12 +415,11 @@ function renderTabs() {
         button.textContent = cat === "همه محصولات"
             ? "🛍️ همه محصولات"
             : `${categoryIcons[cat] || "✨"} ${cat}`;
-        button.setAttribute("aria-pressed", String(cat === selectedCategory && !selectedTopic));
 
         button.addEventListener("click", () => {
             selectedCategory = cat;
             selectedTopic = null;
-            visibleCount = 12;
+            visibleCount = 16;
             $("search").value = "";
             $("concern-search").value = "";
             renderAll();
@@ -434,17 +433,16 @@ function renderTopicTabs() {
     const container = $("concern-tabs");
     container.replaceChildren();
 
-    topics.forEach(topic => {
+    topics.forEach(t => {
         const button = document.createElement("button");
         button.type = "button";
-        button.className = "concern-tab" + (selectedTopic === topic.key ? " active" : "");
-        button.textContent = `${topic.emoji} ${topic.label}`;
-        button.setAttribute("aria-pressed", String(selectedTopic === topic.key));
+        button.className = "concern-tab" + (selectedTopic === t.key ? " active" : "");
+        button.textContent = `${t.emoji} ${t.label}`;
 
         button.addEventListener("click", () => {
-            selectedTopic = selectedTopic === topic.key ? null : topic.key;
+            selectedTopic = selectedTopic === t.key ? null : t.key;
             selectedCategory = "همه محصولات";
-            visibleCount = 12;
+            visibleCount = 16;
             $("search").value = "";
             $("concern-search").value = "";
             renderAll();
@@ -456,7 +454,7 @@ function renderTopicTabs() {
 
 function currentTopic() {
     if (selectedTopic) {
-        return topics.find(topic => topic.key === selectedTopic) || null;
+        return topics.find(t => t.key === selectedTopic) || null;
     }
     return topicFromQuery($("concern-search").value || $("search").value);
 }
@@ -464,5 +462,117 @@ function currentTopic() {
 function filteredProducts() {
     const topic = currentTopic();
     if (topic) {
-        const matchingNames = new Set(topic.names);
-        return products.f
+        const set = new Set(topic.names);
+        return products.filter(p => set.has(p.name));
+    }
+
+    const query = normalize($("concern-search").value || $("search").value);
+
+    return products.filter(p => {
+        const matchesCat = (selectedCategory === "همه محصولات" || p.cat === selectedCategory);
+        const matchesQuery = !query || normalize(`${p.name} ${p.cat} ${p.desc} ${p.unit}`).includes(query);
+        return matchesCat && matchesQuery;
+    });
+}
+
+function createCard(p) {
+    const card = document.createElement("article");
+    card.className = "card" + (p.cat === "اجناس شرکتی" ? " company" : "");
+
+    // اگر عکس واقعی داشت لود می‌شود در غیر این صورت کارت جذاب با ایموجی دسته نمایش داده می‌شود
+    if (p.img && p.img.trim().length > 5) {
+        const img = document.createElement("img");
+        img.className = "card-thumb";
+        img.src = p.img;
+        img.alt = p.name;
+        img.loading = "lazy";
+        img.onerror = () => img.replaceWith(makePlaceholder(p));
+        card.append(img);
+    } else {
+        card.append(makePlaceholder(p));
+    }
+
+    const title = document.createElement("h3");
+    title.textContent = p.name;
+
+    const desc = document.createElement("p");
+    desc.className = "card-desc";
+    desc.textContent = p.desc;
+
+    const meta = document.createElement("div");
+    meta.className = "meta";
+    meta.textContent = `${categoryIcons[p.cat] || "✨"} ${p.cat} · ${p.unit}`;
+
+    const price = document.createElement("div");
+    price.className = "price";
+    price.textContent = `${money(p.price)} تومان`;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "add";
+    btn.textContent = "🛒 افزودن به سبد";
+    btn.addEventListener("click", () => {
+        cart[p.id] = (cart[p.id] || 0) + 1;
+        saveCart();
+        renderCart();
+        btn.textContent = "✓ افزوده شد";
+        setTimeout(() => { btn.textContent = "🛒 افزودن به سبد"; }, 1000);
+    });
+
+    card.append(title, desc, meta, price, btn);
+    return card;
+}
+
+function makePlaceholder(p) {
+    const box = document.createElement("div");
+    box.className = "card-thumb placeholder";
+    
+    const emoji = document.createElement("span");
+    emoji.className = "thumb-emoji";
+    emoji.textContent = categoryIcons[p.cat] || "🌿";
+
+    const label = document.createElement("small");
+    label.textContent = "برادران تقدیسی";
+
+    box.append(emoji, label);
+    return box;
+}
+
+function renderProducts() {
+    const matches = filteredProducts();
+    const topic = currentTopic();
+    const status = $("topic-status");
+    const grid = $("grid");
+
+    $("count").textContent = `${money(matches.length)} محصول`;
+
+    if (topic) {
+        status.innerHTML = `<strong>✨ محصولات پیشنهادی برای: ${topic.label}</strong><br><small style="color:#6e624c;">${topic.note}</small>`;
+        status.hidden = false;
+    } else {
+        status.textContent = "";
+        status.hidden = true;
+    }
+
+    grid.replaceChildren();
+
+    if (matches.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        if (selectedCategory === "روغن‌های گیاهی" || selectedCategory === "اجناس شرکتی") {
+            empty.textContent = `محصولات دسته «${selectedCategory}» به زودی اضافه خواهند شد 🌿`;
+        } else {
+            empty.textContent = "محصولی با این مشخصات یافت نشد 🌱";
+        }
+        grid.append(empty);
+    } else {
+        matches.slice(0, visibleCount).forEach(p => grid.append(createCard(p)));
+    }
+
+    $("more").hidden = matches.length <= visibleCount;
+}
+
+function changeQty(id, delta) {
+    if (!productById.has(id)) return;
+    const next = (cart[id] || 0) + delta;
+    if (ne
