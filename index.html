@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#2c3a24">
-<meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران؛ خشکبار دستچین، گیاهان دارویی اعلا، عرقیجات سنتی و ادویه‌جات ناب. پیک رایگان برای سفارش‌های بالای ۴۰۰ هزار تومان در محدوده نارمک.">
+<meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران؛ خشکبار دستچین، گیاهان دارویی اعلا، عرقیجات سنتی و ادویه‌جات ناب. پیک رایگان در محدوده نارمک.">
 <title>عطاری و خشکبار برادران تقدیسی | نارمک تهران</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,10 +132,10 @@ footer{background:#eae7dd;padding:32px 0;line-height:2.2;font-size:.94rem;border
 
     <section class="concern-box" aria-labelledby="concern-title">
         <h2 id="concern-title">💚 جست‌وجو بر اساس خواص و کاربرد سلامتی</h2>
-        <p>موضوع مورد نظرتان را انتخاب کنید یا عبارتی مانند «درمان ریزش مو»، «کبد» یا «یبوست» را بنویسید تا محصولات مرتبط را مشاهده کنید:</p>
-        <input id="concern-search" class="concern-search" type="search" placeholder="🔎 مثلاً: درمان ریزش مو، کبد، یبوست، سردی معده..." aria-label="جست‌وجو بر اساس موضوع">
+        <p>موضوع مورد نظرتان را انتخاب کنید یا عبارتی مانند «ریزش مو»، «کبد» یا «یبوست» را بنویسید:</p>
+        <input id="concern-search" class="concern-search" type="search" placeholder="🔎 مثلاً: ریزش مو، کبد، یبوست، سردی معده..." aria-label="جست‌وجو بر اساس موضوع">
         <div id="concern-tabs" class="concern-tabs" aria-label="موضوعات سلامت"></div>
-        <p class="medical-note">⚕️ نکته: معرفی محصولات سنتی صرفاً بر اساس خواص گیاهی و تغذیه‌ای است و جایگزین تجویز و تشخیص پزشک متخصص نمی‌باشد.</p>
+        <p class="medical-note">⚕️ نکته: معرفی محصولات سنتی صرفاً بر اساس خواص گیاهی و تغذیه‌ای است و جایگزین تشخیص پزشک متخصص نمی‌باشد.</p>
     </section>
 
     <div class="section-title">
@@ -181,9 +181,7 @@ footer{background:#eae7dd;padding:32px 0;line-height:2.2;font-size:.94rem;border
 </div>
 
 <script>
-"use strict";
-
-// ساختار هر محصول: نام | قیمت (تومان) | واحد یا بسته | توضیحات و خواص | لینک عکس
+// لیست کامل محصولات و دسته‌ها
 const rawData = [
     ["خشکبار و آجیل", [
         ["پسته اکبری درجه یک", 493000, "۱۰۰ گرم", "دستچین، درشت، ترد و پرمغز با طعم بسیار عالی", ""],
@@ -260,22 +258,23 @@ const categoryIcons = {
     "اجناس شرکتی": "📦"
 };
 
-// مسطح کردن اطلاعات تمام ۵۱ محصول
-const products = rawData.flatMap(([cat, items], catIdx) =>
-    items.map(([name, price, unit, desc, img], itemIdx) => ({
-        id: `${catIdx}-${itemIdx}`,
-        name, price, unit, desc, img, cat
-    }))
-);
+// تبدیل آرایه تو در تو به لیست یکپارچه محصولات
+const products = [];
+rawData.forEach(([cat, items], catIdx) => {
+    items.forEach(([name, price, unit, desc, img], itemIdx) => {
+        products.push({
+            id: `${catIdx}-${itemIdx}`,
+            name, price, unit, desc, img, cat
+        });
+    });
+});
 
 const productById = new Map(products.map(p => [p.id, p]));
 const $ = id => document.getElementById(id);
-const formatter = new Intl.NumberFormat("fa-IR");
-const money = n => formatter.format(n);
+const money = n => n.toLocaleString("fa-IR");
 
 function normalize(text) {
     return String(text || "")
-        .normalize("NFKC")
         .replace(/[يى]/g, "ی")
         .replace(/ك/g, "ک")
         .replace(/\u200c/g, " ")
@@ -285,261 +284,110 @@ function normalize(text) {
         .toLowerCase();
 }
 
-// دسته‌بندی موضوعی بر اساس خواص محصولات موجود شما
+// موضوعات سلامت درخواستی
 const topics = [
-    {
-        key: "skinHair",
-        label: "پوست و مو",
-        emoji: "✨",
-        names: ["عرق شاطره ایرانداد", "مغز تخمه کدو خام درجه یک", "مغز گردوی ایرانی توسکان", "مغز بادام درختی"],
-        note: "محصولات سنتی دارای روی، املاح طبیعی و عرقیجات تصفیه‌کننده پوست و پیاز مو"
-    },
-    {
-        key: "liver",
-        label: "کبد",
-        emoji: "🍃",
-        names: [
-            "عرق کاسنی ممتاز ایرانداد",
-            "عرق شاطره ایرانداد",
-            "عرق خار مریم ایرانداد",
-            "عرق معجون کبد ایرانداد",
-            "زرشک یا آلو حاج حسنی آفتابی"
-        ],
-        note: "عرقیجات خنک‌کننده، سم‌زدا و تقویت‌کننده سنتی کبد"
-    },
-    {
-        key: "blood",
-        label: "غلظت خون",
-        emoji: "🩸",
-        names: ["عرق کاسنی ممتاز ایرانداد", "عرق شاطره ایرانداد", "مویز درجه یک افغان", "آلو حاج حسنی آفتابی"],
-        note: "فرآورده‌های سنتی با طبع ملس و خنک جهت بهبود گردش و تصفیه خون"
-    },
-    {
-        key: "constipation",
-        label: "ملین و یبوست",
-        emoji: "🍑",
-        names: ["انجیر خشک استهبان", "آلو حاج حسنی آفتابی", "آلو حاج حسنی دودی", "برگه هلو ساده", "توت خشک درجه یک"],
-        note: "خشکبار با فیبر بسیار بالا و ملین‌های طبیعی دستگاه گوارش"
-    },
-    {
-        key: "cold",
-        label: "سردی معده و مغز",
-        emoji: "🍵",
-        names: [
-            "عرق نعنا دوآتیشه ایرانداد",
-            "عرق زنیان ایرانداد",
-            "عرق بهار نارنج ایرانداد",
-            "عرق بیدمشک ایرانداد",
-            "چوب دارچین ایرانی",
-            "دارچین سیگاری خارجی",
-            "نبات شاخه زعفرانی",
-            "زعفران اصیل نیشابوری"
-        ],
-        note: "گیاهان و ادویه‌های با طبع گرم، مقوی هاضمه، معده و نشاط‌آور مغز"
-    },
-    {
-        key: "weight",
-        label: "چاقی و لاغری",
-        emoji: "⚖️",
-        names: ["عرق زنیان ایرانداد", "بادام هندی خام", "مغز بادام درختی", "مویز درجه یک افغان"],
-        note: "دانه‌های پرانرژی رژیمی و عرق زنیان مؤثر در افزایش متابولیسم بدن"
-    }
+    { key: "skinHair", label: "پوست و مو", emoji: "🧴", names: ["عرق شاطره ایرانداد", "مغز تخمه کدو خام درجه یک", "مغز گردوی ایرانی توسکان", "مغز بادام درختی"], note: "محصولات سنتی با خواص مفید برای تغذیه مو و پاکسازی پوست" },
+    { key: "liver", label: "کبد", emoji: "🫀", names: ["عرق کاسنی ممتاز ایرانداد", "عرق شاطره ایرانداد", "عرق خار مریم ایرانداد", "عرق معجون کبد ایرانداد"], note: "عرقیجات خنک‌کننده و سم‌زدای سنتی کبد" },
+    { key: "blood", label: "غلظت خون", emoji: "🩸", names: ["عرق کاسنی ممتاز ایرانداد", "عرق شاطره ایرانداد", "مویز درجه یک افغان", "آلو حاج حسنی آفتابی"], note: "فرآورده‌های سنتی با طبع ملس جهت کمک به گردش خون" },
+    { key: "constipation", label: "ملین و یبوست", emoji: "🍑", names: ["انجیر خشک استهبان", "آلو حاج حسنی آفتابی", "آلو حاج حسنی دودی", "برگه هلو ساده", "توت خشک درجه یک"], note: "خشکبار غنی از فیبر طبیعی جهت کمک به گوارش" },
+    { key: "cold", label: "سردی معده و مغز", emoji: "🍵", names: ["عرق نعنا دوآتیشه ایرانداد", "عرق زنیان ایرانداد", "عرق بهار نارنج ایرانداد", "عرق بیدمشک ایرانداد", "چوب دارچین ایرانی", "دارچین سیگاری خارجی", "نبات شاخه زعفرانی"], note: "گیاهان و عرقیجات با طبع گرم جهت تقویت معده و آرامش مغز" },
+    { key: "weight", label: "چاقی و لاغری", emoji: "⚖️", names: ["عرق زنیان ایرانداد", "بادام هندی خام", "مغز بادام درختی", "مویز درجه یک افغان"], note: "دانه‌های رژیمی و عرق سنتی مؤثر در متابولیسم" }
 ];
 
-// وقتی کاربر عبارت‌هایی مثل «ریزش مو» را سرچ می‌کند
-const hairLossTopic = {
-    key: "hairLoss",
-    label: "تقویت و ریزش مو",
-    names: ["مغز تخمه کدو خام درجه یک", "مغز بادام درختی", "مغز گردوی ایرانی توسکان", "عرق شاطره ایرانداد"],
-    note: "مغزهای غنی از روی (زینک)، اسیدهای چرب مفید و پاک‌کننده‌های حرارت کبد و ریشه مو"
-};
+const hairLossTopic = { key: "hairLoss", label: "ریزش مو", names: ["مغز تخمه کدو خام درجه یک", "مغز بادام درختی", "مغز گردوی ایرانی توسکان", "عرق شاطره ایرانداد"], note: "مغزهای غنی از روی (زینک) و اسیدهای چرب و تصفیه‌کننده‌های سنتی" };
 
-function topicFromQuery(query) {
-    const q = normalize(query);
-    if (!q) return null;
-
-    if (q.includes("ریزش مو") || q.includes("مو") || q.includes("رشد مو") || q.includes("تقویت مو")) {
-        return hairLossTopic;
-    }
-    if (q.includes("پوست") || q.includes("جوش") || q.includes("لک")) {
-        return topics.find(t => t.key === "skinHair");
-    }
-    if (q.includes("کبد") || q.includes("کبد چرب")) return topics.find(t => t.key === "liver");
-    if (q.includes("غلظت خون") || q.includes("تصفیه خون")) return topics.find(t => t.key === "blood");
-    if (q.includes("یبوست") || q.includes("یوبست") || q.includes("ملین") || q.includes("روده")) {
-        return topics.find(t => t.key === "constipation");
-    }
-    if (q.includes("سردی معده") || q.includes("سردی مغز") || q.includes("معده") || q.includes("نفخ")) {
-        return topics.find(t => t.key === "cold");
-    }
-    if (q.includes("چاقی") || q.includes("لاغری") || q.includes("وزن") || q.includes("رژیم")) {
-        return topics.find(t => t.key === "weight");
-    }
+function getTopicByQuery(q) {
+    const query = normalize(q);
+    if (!query) return null;
+    if (query.includes("ریزش مو") || query.includes("رشد مو")) return hairLossTopic;
+    if (query.includes("پوست") || query.includes("جوش")) return topics.find(t => t.key === "skinHair");
+    if (query.includes("کبد")) return topics.find(t => t.key === "liver");
+    if (query.includes("غلظت خون") || query.includes("تصفیه خون")) return topics.find(t => t.key === "blood");
+    if (query.includes("یبوست") || query.includes("یوبست") || query.includes("ملین")) return topics.find(t => t.key === "constipation");
+    if (query.includes("سردی معده") || query.includes("سردی مغز") || query.includes("معده")) return topics.find(t => t.key === "cold");
+    if (query.includes("چاقی") || query.includes("لاغری")) return topics.find(t => t.key === "weight");
     return null;
 }
 
 let selectedCategory = "همه محصولات";
 let selectedTopic = null;
 let visibleCount = 16;
-
-const CART_KEY = "taghdisi-cart-v3";
 let cart = {};
 
 try {
-    const savedCart = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
-    if (savedCart && typeof savedCart === "object") {
-        for (const [id, qty] of Object.entries(savedCart)) {
-            if (productById.has(id) && qty > 0) cart[id] = qty;
-        }
-    }
-} catch (e) {
-    cart = {};
-}
+    cart = JSON.parse(localStorage.getItem("taghdisi-cart-v4") || "{}");
+} catch(e) { cart = {}; }
 
 function saveCart() {
-    try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {}
+    try { localStorage.setItem("taghdisi-cart-v4", JSON.stringify(cart)); } catch(e){}
 }
 
 function renderTabs() {
-    const container = $("tabs");
-    container.replaceChildren();
-
-    const categories = ["همه محصولات", ...rawData.map(([cat]) => cat)];
-
-    categories.forEach(cat => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "tab" +
-            (cat === selectedCategory && !selectedTopic ? " active" : "") +
-            (cat === "اجناس شرکتی" ? " company" : "");
-        button.textContent = cat === "همه محصولات"
-            ? "🛍️ همه محصولات"
-            : `${categoryIcons[cat] || "✨"} ${cat}`;
-
-        button.addEventListener("click", () => {
+    const nav = $("tabs");
+    nav.innerHTML = "";
+    const cats = ["همه محصولات", ...rawData.map(c => c[0])];
+    
+    cats.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "tab" + (cat === selectedCategory && !selectedTopic ? " active" : "") + (cat === "اجناس شرکتی" ? " company" : "");
+        btn.textContent = cat === "همه محصولات" ? "🛍️ همه محصولات" : `${categoryIcons[cat] || "✨"} ${cat}`;
+        btn.onclick = () => {
             selectedCategory = cat;
             selectedTopic = null;
             visibleCount = 16;
             $("search").value = "";
             $("concern-search").value = "";
-            renderAll();
-        });
-
-        container.append(button);
+            updateUI();
+        };
+        nav.appendChild(btn);
     });
 }
 
-function renderTopicTabs() {
-    const container = $("concern-tabs");
-    container.replaceChildren();
-
+function renderConcernTabs() {
+    const box = $("concern-tabs");
+    box.innerHTML = "";
     topics.forEach(t => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "concern-tab" + (selectedTopic === t.key ? " active" : "");
-        button.textContent = `${t.emoji} ${t.label}`;
-
-        button.addEventListener("click", () => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "concern-tab" + (selectedTopic === t.key ? " active" : "");
+        btn.textContent = `${t.emoji} ${t.label}`;
+        btn.onclick = () => {
             selectedTopic = selectedTopic === t.key ? null : t.key;
             selectedCategory = "همه محصولات";
             visibleCount = 16;
             $("search").value = "";
             $("concern-search").value = "";
-            renderAll();
-        });
-
-        container.append(button);
+            updateUI();
+        };
+        box.appendChild(btn);
     });
 }
 
 function currentTopic() {
-    if (selectedTopic) {
-        return topics.find(t => t.key === selectedTopic) || null;
-    }
-    return topicFromQuery($("concern-search").value || $("search").value);
+    if (selectedTopic) return topics.find(t => t.key === selectedTopic) || null;
+    return getTopicByQuery($("concern-search").value || $("search").value);
 }
 
-function filteredProducts() {
+function getFilteredProducts() {
     const topic = currentTopic();
     if (topic) {
-        const set = new Set(topic.names);
-        return products.filter(p => set.has(p.name));
+        const names = new Set(topic.names);
+        return products.filter(p => names.has(p.name));
     }
-
-    const query = normalize($("concern-search").value || $("search").value);
-
+    const q = normalize($("concern-search").value || $("search").value);
     return products.filter(p => {
-        const matchesCat = (selectedCategory === "همه محصولات" || p.cat === selectedCategory);
-        const matchesQuery = !query || normalize(`${p.name} ${p.cat} ${p.desc} ${p.unit}`).includes(query);
-        return matchesCat && matchesQuery;
+        const matchCat = (selectedCategory === "همه محصولات" || p.cat === selectedCategory);
+        const matchQ = !q || normalize(`${p.name} ${p.cat} ${p.desc}`).includes(q);
+        return matchCat && matchQ;
     });
 }
 
-function createCard(p) {
-    const card = document.createElement("article");
-    card.className = "card" + (p.cat === "اجناس شرکتی" ? " company" : "");
-
-    // اگر عکس واقعی داشت لود می‌شود در غیر این صورت کارت جذاب با ایموجی دسته نمایش داده می‌شود
-    if (p.img && p.img.trim().length > 5) {
-        const img = document.createElement("img");
-        img.className = "card-thumb";
-        img.src = p.img;
-        img.alt = p.name;
-        img.loading = "lazy";
-        img.onerror = () => img.replaceWith(makePlaceholder(p));
-        card.append(img);
-    } else {
-        card.append(makePlaceholder(p));
-    }
-
-    const title = document.createElement("h3");
-    title.textContent = p.name;
-
-    const desc = document.createElement("p");
-    desc.className = "card-desc";
-    desc.textContent = p.desc;
-
-    const meta = document.createElement("div");
-    meta.className = "meta";
-    meta.textContent = `${categoryIcons[p.cat] || "✨"} ${p.cat} · ${p.unit}`;
-
-    const price = document.createElement("div");
-    price.className = "price";
-    price.textContent = `${money(p.price)} تومان`;
-
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "add";
-    btn.textContent = "🛒 افزودن به سبد";
-    btn.addEventListener("click", () => {
-        cart[p.id] = (cart[p.id] || 0) + 1;
-        saveCart();
-        renderCart();
-        btn.textContent = "✓ افزوده شد";
-        setTimeout(() => { btn.textContent = "🛒 افزودن به سبد"; }, 1000);
-    });
-
-    card.append(title, desc, meta, price, btn);
-    return card;
-}
-
-function makePlaceholder(p) {
-    const box = document.createElement("div");
-    box.className = "card-thumb placeholder";
+function updateUI() {
+    renderTabs();
+    renderConcernTabs();
     
-    const emoji = document.createElement("span");
-    emoji.className = "thumb-emoji";
-    emoji.textContent = categoryIcons[p.cat] || "🌿";
-
-    const label = document.createElement("small");
-    label.textContent = "برادران تقدیسی";
-
-    box.append(emoji, label);
-    return box;
-}
-
-function renderProducts() {
-    const matches = filteredProducts();
+    const matches = getFilteredProducts();
     const topic = currentTopic();
     const status = $("topic-status");
     const grid = $("grid");
@@ -547,32 +395,140 @@ function renderProducts() {
     $("count").textContent = `${money(matches.length)} محصول`;
 
     if (topic) {
-        status.innerHTML = `<strong>✨ محصولات پیشنهادی برای: ${topic.label}</strong><br><small style="color:#6e624c;">${topic.note}</small>`;
+        status.innerHTML = `<strong>✨ محصولات پیشنهادی برای: ${topic.label}</strong><br><small>${topic.note}</small>`;
         status.hidden = false;
     } else {
         status.textContent = "";
         status.hidden = true;
     }
 
-    grid.replaceChildren();
+    grid.innerHTML = "";
 
     if (matches.length === 0) {
         const empty = document.createElement("div");
         empty.className = "empty";
-        if (selectedCategory === "روغن‌های گیاهی" || selectedCategory === "اجناس شرکتی") {
-            empty.textContent = `محصولات دسته «${selectedCategory}» به زودی اضافه خواهند شد 🌿`;
-        } else {
-            empty.textContent = "محصولی با این مشخصات یافت نشد 🌱";
-        }
-        grid.append(empty);
+        empty.textContent = selectedCategory === "روغن‌های گیاهی" ? "محصولات این دسته به‌زودی اضافه خواهند شد 🌿" : "محصولی با این مشخصات یافت نشد 🌱";
+        grid.appendChild(empty);
     } else {
-        matches.slice(0, visibleCount).forEach(p => grid.append(createCard(p)));
+        matches.slice(0, visibleCount).forEach(p => {
+            const card = document.createElement("article");
+            card.className = "card" + (p.cat === "اجناس شرکتی" ? " company" : "");
+
+            const thumb = document.createElement("div");
+            thumb.className = "card-thumb placeholder";
+            thumb.innerHTML = `<span class="thumb-emoji">${categoryIcons[p.cat] || "🌿"}</span><small>برادران تقدیسی</small>`;
+            card.appendChild(thumb);
+
+            const title = document.createElement("h3");
+            title.textContent = p.name;
+            card.appendChild(title);
+
+            const desc = document.createElement("p");
+            desc.className = "card-desc";
+            desc.textContent = p.desc;
+            card.appendChild(desc);
+
+            const meta = document.createElement("div");
+            meta.className = "meta";
+            meta.textContent = `${categoryIcons[p.cat] || "✨"} ${p.cat} · ${p.unit}`;
+            card.appendChild(meta);
+
+            const price = document.createElement("div");
+            price.className = "price";
+            price.textContent = `${money(p.price)} تومان`;
+            card.appendChild(price);
+
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "add";
+            btn.textContent = "🛒 افزودن به سبد";
+            btn.onclick = () => {
+                cart[p.id] = (cart[p.id] || 0) + 1;
+                saveCart();
+                renderCart();
+                btn.textContent = "✓ افزوده شد";
+                setTimeout(() => btn.textContent = "🛒 افزودن به سبد", 1000);
+            };
+            card.appendChild(btn);
+
+            grid.appendChild(card);
+        });
     }
 
     $("more").hidden = matches.length <= visibleCount;
+    renderCart();
 }
 
-function changeQty(id, delta) {
-    if (!productById.has(id)) return;
-    const next = (cart[id] || 0) + delta;
-    if (ne
+function renderCart() {
+    const container = $("cart-items");
+    container.innerHTML = "";
+    let total = 0;
+    let count = 0;
+
+    for (const [id, qty] of Object.entries(cart)) {
+        const p = productById.get(id);
+        if (!p) continue;
+        total += p.price * qty;
+        count += qty;
+
+        const row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML = `<div><strong>${p.name}</strong><small>${p.unit} × ${money(qty)} — ${money(p.price * qty)} تومان</small></div>`;
+
+        const ctrl = document.createElement("div");
+        ctrl.className = "controls";
+
+        const pBtn = document.createElement("button");
+        pBtn.textContent = "+";
+        pBtn.onclick = () => { cart[id] = (cart[id] || 0) + 1; saveCart(); updateUI(); };
+
+        const qSpan = document.createElement("span");
+        qSpan.textContent = money(qty);
+
+        const mBtn = document.createElement("button");
+        mBtn.textContent = "−";
+        mBtn.onclick = () => {
+            if (cart[id] > 1) cart[id]--;
+            else delete cart[id];
+            saveCart();
+            updateUI();
+        };
+
+        const dBtn = document.createElement("button");
+        dBtn.textContent = "×";
+        dBtn.className = "remove";
+        dBtn.onclick = () => { delete cart[id]; saveCart(); updateUI(); };
+
+        ctrl.append(pBtn, qSpan, mBtn, dBtn);
+        row.appendChild(ctrl);
+        container.appendChild(row);
+    }
+
+    if (count === 0) {
+        container.innerHTML = `<p style="color:#667;">سبد خرید شما در حال حاضر خالی است.</p>`;
+    }
+
+    $("cart-count").textContent = money(count);
+    $("total").textContent = `جمع کل: ${money(total)} تومان`;
+    $("send").disabled = count === 0;
+}
+
+$("search").oninput = () => {
+    $("concern-search").value = "";
+    selectedCategory = "همه محصولات";
+    selectedTopic = null;
+    visibleCount = 16;
+    updateUI();
+};
+
+$("concern-search").oninput = () => {
+    $("search").value = "";
+    selectedCategory = "همه محصولات";
+    selectedTopic = null;
+    visibleCount = 16;
+    updateUI();
+};
+
+$("more").onclick = () => {
+    visibleCount += 16;
+    update
