@@ -1,66 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عطاری و خشکبار برادران تقدیسی</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css">
-    <style>
-        :root { --primary: #2c3a24; --accent: #c69234; --bg: #f8f6f0; --text: #22252a; --white: #ffffff; }
-        body { font-family: 'Vazirmatn', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 80px; }
-        header { background: var(--primary); color: var(--white); padding: 20px; text-align: center; }
-        .banner { background: var(--accent); color: white; padding: 10px; text-align: center; font-size: 0.9rem; }
-        .search-container { padding: 20px; }
-        #searchInput { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding: 15px; }
-        .card { background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
-        .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
-        .price { color: var(--accent); font-weight: bold; margin: 10px 0; }
-        .bottom-bar { position: fixed; bottom: 0; width: 100%; display: flex; background: white; border-top: 1px solid #ddd; }
-        .bottom-bar a { flex: 1; padding: 15px; text-align: center; text-decoration: none; color: var(--primary); font-weight: bold; }
-        .cat-btn { padding: 8px 15px; margin: 5px; border-radius: 20px; border: 1px solid var(--primary); cursor: pointer; background: white; }
-        .cat-btn.active { background: var(--primary); color: white; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2c3a24">
+<meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران؛ خشکبار دستچین، گیاهان دارویی اعلا، عرقیجات سنتی و ادویه‌جات ناب. ارسال رایگان در محدوده نارمک.">
+<title>عطاری و خشکبار برادران تقدیسی | نارمک تهران</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#2c3a24;--primary-dark:#1e2718;--accent:#c69234;--accent-light:#fdf8ed;--bg:#f8f6f0;--ink:#283029;--line:#e5e0d4;--card-bg:#ffffff;--shadow:0 10px 25px -5px rgba(44,58,36,0.08),0 8px 10px -6px rgba(44,58,36,0.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;padding-bottom:90px}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{max-width:1160px;margin:auto;padding:0 16px}
+.announcement{background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;text-align:center;padding:10px 12px;font-size:.92rem;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);background-color:rgba(255,255,255,0.95)}
+header .wrap{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo-area{display:flex;align-items:center;gap:10px}.logo-icon{font-size:1.8rem;background:var(--accent-light);width:45px;height:45px;display:grid;place-items:center;border-radius:12px;border:1px solid #f1e4cb}
+header strong{font-size:1.2rem;color:var(--primary);display:block}header span{font-size:.78rem;color:#667}
+header a.contact-link{background:var(--accent-light);color:var(--accent);padding:8px 14px;border-radius:10px;font-weight:700;border:1px solid #ecd6b1;transition:.2s}
+header a.contact-link:hover{background:var(--accent);color:#fff}
+.hero{margin:24px 0;padding:40px 28px;border-radius:24px;background:linear-gradient(135deg,#2c3a24 0%,#435634 50%,#5a7246 100%);color:white;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero::after{content:'🌿';position:absolute;bottom:-20px;left:-10px;font-size:10rem;opacity:0.07;pointer-events:none}
+.hero h1{margin:0 0 10px;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.5px}
+.hero p{margin:0;color:#f3efe2;font-size:1.05rem;max-width:700px;line-height:1.7}
+.about-box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin:24px 0;box-shadow:var(--shadow)}
+.about-box h2{margin-top:0;color:var(--primary);font-size:1.25rem;display:flex;align-items:center;gap:8px}
+.about-box p{line-height:1.9;color:#4a524b;margin-bottom:0;font-size:0.96rem}
+.tools{display:flex;gap:10px;margin:22px 0}.tools input{width:100%;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:white;outline:none;font-size:1rem;box-shadow:0 2px 6px rgba(0,0,0,0.02);transition:all .2s}
+.tools input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(198,146,52,0.15)}
+.tabs{display:flex;gap:10px;overflow-x:auto;padding:4px 0 16px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{white-space:nowrap;border:1px solid var(--line);border-radius:30px;background:white;padding:10px 18px;font-weight:600;font-size:0.93rem;transition:.2s;box-shadow:0 2px 4px rgba(0,0,0,0.02)}
+.tab:hover{border-color:var(--accent);color:var(--accent)}
+.tab.active{background:var(--primary);border-color:var(--primary);color:white;box-shadow:0 4px 12px rgba(44,58,36,0.2)}
+.tab.company{border-color:#b0c4de;background:#f0f4f8;color:#2c3e50}.tab.company.active{background:#34495e;border-color:#34495e;color:white}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:18px 0 12px}.section-title h2{font-size:1.2rem;margin:0;color:var(--primary)}#count{color:#667;font-size:.9rem;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:var(--card-bg);border:1px solid var(--line);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;position:relative}
+.card:hover{transform:-translateY(3px);box-shadow:0 14px 30px rgba(44,58,36,0.12)}
+.card.company{border-color:#bcd2e8;background:#f9fbff}
+.card-thumb{width:100%;height:160px;object-fit:cover;border-radius:12px;background:#f3f0e8}
+.card h3{font-size:1.02rem;margin:4px 0 0;line-height:1.6;color:var(--ink);font-weight:700}
+.card-desc{font-size:0.82rem;color:#556;line-height:1.5;margin:0;background:#faf8f5;padding:6px 10px;border-radius:8px;border-right:3px solid var(--accent)}
+.meta{font-size:.82rem;color:#778;display:flex;justify-content:space-between;align-items:center}
+.price{font-weight:800;color:var(--primary);font-size:1.05rem;margin-top:auto}
+.add{border:0;border-radius:11px;padding:11px;font-weight:700;background:var(--accent);color:#fff;transition:.2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.add:hover{background:#b2802b;box-shadow:0 4px 10px rgba(198,146,52,0.3)}
+.more{display:block;margin:30px auto;background:var(--primary);color:white;padding:12px 32px;border-radius:14px;font-weight:700;box-shadow:var(--shadow);transition:.2s}
+.more:hover{background:var(--primary-dark)}
+.empty{grid-column:1/-1;text-align:center;background:white;border:2px dashed var(--line);border-radius:18px;padding:36px;color:#667}
+.cart{background:white;border:1px solid var(--line);border-radius:22px;margin:35px 0;padding:24px;box-shadow:var(--shadow)}
+.cart h2{margin:0 0 16px;color:var(--primary);font-size:1.3rem}
+.cart-item{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:14px 0}
+.cart-item:first-of-type{border-top:0}
+.cart-item small{display:block;color:#667;margin-top:2px}
+.controls{display:flex;align-items:center;gap:8px}
+.controls button{border:1px solid var(--line);background:white;border-radius:10px;min-width:36px;min-height:36px;font-weight:bold;transition:.2s}
+.controls button:hover{border-color:var(--primary);background:#f4f6f3}
+.controls .remove{color:#d32f2f;border-color:#ffcdd2;background:#ffebee}
+.controls .remove:hover{background:#ffcdd2}
+.cart-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-top:2px solid var(--line);padding-top:18px;margin-top:10px}
+.cart-bottom select{padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:white;outline:none}
+.send{background:#198a50;color:white;border:0;border-radius:12px;padding:12px 24px;font-weight:700;box-shadow:0 4px 12px rgba(25,138,80,0.25);transition:.2s}
+.send:hover{background:#146c3e}
+.send:disabled{background:#ccc;box-shadow:none;cursor:not-allowed}
+footer{background:#eae7dd;padding:32px 0;line-height:2.2;font-size:.94rem;border-top:1px solid #ded9cb}
+.mobile-bar{position:fixed;bottom:0;right:0;left:0;background:white;border-top:1px solid var(--line);display:flex;gap:10px;padding:12px 16px;z-index:100;box-shadow:0 -4px 20px rgba(0,0,0,0.06)}
+.mobile-bar a{flex:1;text-align:center;padding:12px 8px;border-radius:12px;background:var(--primary);color:white;font-size:.88rem;font-weight:700;box-shadow:0 2px 6px rgba(44,58,36,0.2)}
+.mobile-bar a:last-child{background:#198a50}
+@media(max-width:1024px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:768px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{padding:10px}.card-thumb{height:140px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-    <div class="banner">🌿 ارسال رایگان در محدوده نارمک برای سفارش‌های بالای ۴۰۰ هزار تومان</div>
-    <header><h1>عطاری و خشکبار برادران تقدیسی</h1><p>کیفیت اعلا • تضمین اصالت کالا</p></header>
-    
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="جستجوی محصول (مثلاً پسته، زردچوبه...)" oninput="render()">
-        <div id="cats" style="margin-top: 10px;"></div>
+<div class="announcement">🌿 پیک رایگان برای سفارش‌های بالای ۴۰۰ هزار تومان در محدوده نارمک</div>
+<header>
+    <div class="wrap">
+        <div class="logo-area">
+            <div class="logo-icon">🌿</div>
+            <div>
+                <strong>عطاری و خشکبار برادران تقدیسی</strong>
+                <span>اصالت، کیفیت و عطر سنتی در نارمک</span>
+            </div>
+        </div>
+        <a href="#contact" class="contact-link">📞 راه های ارتباطی</a>
+    </div>
+</header>
+
+<main class="wrap">
+    <section class="hero">
+        <h1>طعم ناب طبیعت و سلامت در قلب نارمک</h1>
+        <p>گلچینی از مرغوب‌ترین خشکبار ایران، آجیل‌های دستچین، گیاهان دارویی اعلا، عرقیجات اصیل دوآتیشه و ادویه‌جات ناب با ضمانت کیفیت. مستقیماً از دل بازار برای سفره‌های پربرکت شما.</p>
+    </section>
+
+    <div class="about-box">
+        <h2>✨ درباره عطاری و خشکبار برادران تقدیسی</h2>
+        <p>مجموعه ما با سال‌ها تجربه در ارائه محصولات سنتی، ارگانیک و درجه یک، پاتوق اهالی محترم نارمک تهران است. ما در «برادران تقدیسی» بر این باوریم که سلامتی خانواده شما ارزشمندترین سرمایه است؛ به همین دلیل تمامی محصولات (از پسته و زعفران تا عرقیجات خالص و گیاهان دارویی) با دقت بالا، عطر بی‌نظیر و کیفیت اعلا گلچین شده و با مناسب‌ترین قیمت تقدیمتان می‌گردد. همکاران ما آماده مشاوره و ارسال سریع (رایگان در محدوده نارمک) به شما عزیزان هستند.</p>
     </div>
 
-    <div class="grid" id="productGrid"></div>
-
-    <div class="bottom-bar">
-        <a href="tel:09188085331">📞 تماس ۱</a>
-        <a href="https://wa.me/989188085331" style="background:#25D366; color:white;">💬 واتساپ ۱</a>
-        <a href="tel:09921971423">📞 تماس ۲</a>
+    <div class="tools">
+        <input id="search" type="search" placeholder="🔍 جست‌وجوی سریع محصول (مثلاً پسته اکبری، گلاب، زعفران، زردچوبه...)" aria-label="جست‌وجوی محصولات">
     </div>
 
-    <script>
-        const products = [
-            // نمونه محصولات (اضافه کردن لیست کامل در اینجا)
-            {name: "پسته اکبری", price: 493000, cat: "خشکبار و آجیل", img: "https://images.unsplash.com/photo-1599599104027-1834c2361c44?w=400"},
-            {name: "زردچوبه اعلا", price: 85000, cat: "ادویه‌جات", img: "https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=400"},
-            {name: "عرق زنیان", price: 65000, cat: "عرقیجات و نوشیدنی‌ها", img: "https://images.unsplash.com/photo-1574784267442-70b334164b38?w=400"},
-            // ... (بقیه لیست خود را اینجا ادامه دهید)
-        ];
+    <nav id="tabs" class="tabs" aria-label="دسته‌بندی محصولات"></nav>
 
-        function render() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = products.filter(p => p.name.includes(query)).map(p => `
-                <div class="card">
-                    <img src="${p.img}" alt="${p.name}">
-                    <h3>${p.name}</h3>
-                    <div class="price">${p.price.toLocaleString()} تومان</div>
-                    <button onclick="alert('سفارش شما در واتساپ ارسال شد')">سفارش واتساپی</button>
-                </div>
-            `).join('');
+    <div class="section-title">
+        <h2>فهرست محصولات</h2>
+        <span id="count"></span>
+    </div>
+
+    <div id="grid" class="grid"></div>
+    <button id="more" class="more" type="button" hidden>نمایش محصولات بیشتر</button>
+
+    <section id="cart" class="cart">
+        <h2>🛒 سبد خرید شما <span id="cart-count">۰</span></h2>
+        <div id="cart-items"></div>
+        <div class="cart-bottom">
+            <strong id="total" style="font-size:1.15rem; color:var(--primary);">جمع کل: ۰ تومان</strong>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <label for="whatsapp" style="font-size:0.9rem; font-weight:600;">ارسال سفارش به:</label>
+                <select id="whatsapp">
+                    <option value="989188085331">واتساپ شماره ۱ (۰۹۱۸۸۰۸۵۳۳۱)</option>
+                    <option value="989921971423">واتساپ شماره ۲ (۰۹۹۲۱۹۷۱۴۲۳)</option>
+                </select>
+                <button id="send" class="send" type="button">📤 ارسال نهایی به واتساپ</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="contact">
+    <div class="wrap">
+        <strong>عطاری و خشکبار برادران تقدیسی</strong><br>
+        📍 آدرس: تهران، نارمک، میدان نبوت، به سمت چهارراه تلفن‌خانه، روبه‌روی آموزشگاه زبان سفیر، جنب نان برکت، پلاک ۲۴۶<br>
+        ⏰ ساعت کاری: همه‌روزه از ساعت ۰۹:۰۰ الی ۲۲:۰۰ (یکسره)<br>
+        📞 تلفن‌های تماس: <a href="tel:09188085331"><strong>۰۹۱۸۸۰۸۵۳۳۱</strong></a> و <a href="tel:09921971423"><strong>۰۹۹۲۱۹۷۱۴۲۳</strong></a><br>
+        📸 اینستاگرام: <a href="https://www.instagram.com/atarikhoshkbartaghdisi/" target="_blank" rel="noopener noreferrer"><strong>@atarikhoshkbartaghdisi</strong></a>
+    </div>
+</footer>
+
+<div class="mobile-bar">
+    <a href="tel:09188085331">📞 تماس ۱</a>
+    <a href="tel:09921971423">📞 تماس ۲</a>
+    <a href="#cart">🛒 سبد خرید</a>
+</div>
+
+<script>
+"use strict";
+// ساختار هر آیتم: نام | قیمت (تومان) | واحد یا بسته | توضیحات و خواص | لینک عکس Unsplash
+const groups = [
+["خشکبار و آجیل", `
+پسته اکبری درجه یک|493000|۱۰۰ گرم|دستچین، درشت، ترد و پرمغز با طعم بسیار عالی|https://images.unsplash.com/photo-1599599104027-1834c2361c44?w=500;
+بادام هندی زعفرانی|395000|۱۰۰ گرم|برشته‌شده با زعفران اعلا، ترد و خوش‌طعم|https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500;
+بادام هندی خام|390000|۱۰۰ گرم|تازه، درجه یک، مناسب رژیم‌های سالم و خام‌خواری|https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500;
+آجیل سه مغز|380000|۱۰۰ گرم|ترکیبی لوکس و مقوی از مغزهای برتر دستچین|https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=500;
+توت خشک درجه یک|180000|۱۰۰ گرم|شیرین، تمیز، سفید و گوشتی بدون افزودنی|https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500;
+توت خشک معمولی|99000|۱۰۰ گرم|خوش‌طعم و اقتصادی برای مصرف روزانه چای|https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500;
+بادام زمینی آستانه اشرفیه|97000|۱۰۰ گرم|معطر، تازه و سنتی شمال ایران با طعم اصیل|https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500;
+تخمه کدو ایرانی درجه یک|120000|۱۰۰ گرم|برشته شده با نمک ملایم، مغزدار و درشت|https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500;
+انجیر خشک استهبان|120000|۱۰۰ گرم|صددرصد طبیعی، خندان و پرکننده انرژی روزانه|https://images.unsplash.com/photo-1606851094095-9c819a6909cf?w=500;
+برگه هلو ساده|140000|۱۰۰ گرم|خشک شده به روش طبیعی، ترش و شیرین دلپذیر|https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500;
+برگه هلو زعفرانی|145000|۱۰۰ گرم|معطر با عطر دلنشین زعفران و طعم ممتاز|https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500;
+اسلایس شلیل|167000|۱۰۰ گرم|میوه خشک لوکس، خوشمزه و پذیرایی شیک|https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500;
+بادام زمینی روکش‌دار پنیری|82000|۱۰۰ گرم|ترد و خوشمزه، محبوب کودکان و نوجوانان|https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500;
+بادام زمینی روکش‌دار کچاپ|82000|۱۰۰ گرم|طعم‌دار و جذاب برای دورهمی‌ها|https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500;
+بادام زمینی روکش‌دار سبزیجات|82000|۱۰۰ گرم|معطر با ادویه‌های گیاهی و ترد|https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500;
+مغز گردوی ایرانی توسکان|275000|۱۰۰ گرم|سفید، چرب، ممتاز و اعلای باغات ایران|https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=500;
+مغز گردوی خورده خورشتی توسکان|165000|۱۰۰ گرم|بسیار به‌صرفه و عالی برای انواع خورش‌ها و فسنجان|https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=500;
+گردو محلی خراسانی|88000|۱۰۰ گرم|گردوی باکیفیت و خوش‌طعم محلی|https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=500;
+مویز درجه یک افغان|110000|۱۰۰ گرم|بی‌دانه، گوشتی، شیرین و سرشار از آهن و انرژی|https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500;
+کشمش سبز درجه یک|82000|۱۰۰ گرم|تازه، قلمی و مناسب در کنار چای|https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500;
+کشمش سبز پلویی|77000|۱۰۰ گرم|مخصوص پلوهای مجلسی و خوش‌طعم|https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500;
+بادام درختی پوست کاغذی|285000|۱۰۰ گرم|پوست نازک، مغز درشت و باکیفیت بالا|https://images.unsplash.com/photo-1508061253366-f7da15bbf6e7?w=500;
+بادام درختی سنگی|90000|۱۰۰ گرم|مغزدار و طبیعی|https://images.unsplash.com/photo-1508061253366-f7da15bbf6e7?w=500;
+مغز بادام درختی|430000|۱۰۰ گرم|صددرصد خالص، بدون پوست، مقوی و پرانرژی|https://images.unsplash.com/photo-1508061253366-f7da15bbf6e7?w=500;
+خرما زاهدی|99000|۵۰۰ گرم|نیمه‌خشک، خوش‌عطر و ماندگاری بالا|https://images.unsplash.com/photo-1592417817098-8f3d691a4bf5?w=500;
+خرما پیارم|165000|۲۰۰ گرم|شاه خرماهای ایران، لوکسی و گوشتی|https://images.unsplash.com/photo-1592417817098-8f3d691a4bf5?w=500;
+نخود چی دو آتیشه|75000|۱۰۰ گرم|برشته، ترد و سنتی در کنار کشمش|https://images.unsplash.com/photo-1585325701165-351af916e5ad?w=500;
+تخمه کانادایی طعم سس رنو|420000|۵۰۰ گرم|درشت، پرمغز و طعم منحصربه‌فرد|https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500;
+تخمه کانادایی نمکی|420000|۵۰۰ گرم|محبوب دورهمی‌ها و شب‌نشینی‌ها|https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500;
+تخمه کانادایی لیمویی|420000|۵۰۰ گرم|طعم دلپذیر لیمویی و ترد|https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500;
+تخمه کانادایی گلپر|420000|۵۰۰ گرم|معطر با گلپر تازه|https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500;
+مغز تخمه آفتابگردان خام|122000|۱۰۰ گرم|تازه و مناسب برای روغن‌گیری یا پخت خانگی|https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500;
+مغز تخمه کدو خام درجه یک|185000|۱۰۰ گرم|سرشار از املاح مفید و روی|https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500;
+آلو حاج حسنی آفتابی|110000|۱۰۰ گرم|ترش و ملس طبیعی، خشک‌شده در آفتاب|https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500;
+آلو حاج حسنی دودی|115000|۱۰۰ گرم|عطر دودی خاص و طعم بی‌نظیر|https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500;
+`],
+
+["گیاهان دارویی", `
+گل گاوزبان|137000|۲۰ گرم|گلبرگ‌های درشت، معطر و آرام‌بخش اعصاب طبیعی|https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500;
+`],
+
+["عرقیجات و نوشیدنی‌ها", `
+گلاب دوآتیشه ایرانداد|650000|۱ لیتری|عطر خالص و غلیظ محمدی، مناسب مصارف مذهبی و خوراکی|https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500;
+عرق نعنا دوآتیشه ایرانداد|230000|۱ لیتری|تصفیه گوارش، خنک‌کننده و بسیار غلیظ|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق زنیان ایرانداد|220000|۱ لیتری|مفید برای هضم غذا و تقویت معده|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق بهار نارنج ایرانداد|267000|۱ لیتری|آرام‌بخش اعصاب و خواب‌آور طبیعی با عطر بهشت|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق بیدمشک ایرانداد|267000|۱۰۰۰ سی‌سی|مقوی قلب و اعصاب، معطر و دلنشین|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق کاسنی ممتاز ایرانداد|175000|۱ لیتری|تصفیه‌کننده خون و خنک‌کننده کبد|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق شاطره ایرانداد|175000|۱ لیتری|مفید برای سلامت پوست و کبد|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق خار مریم ایرانداد|175000|۱ لیتری|حامی قدرتمند سلامت و پاکسازی کبد|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق معجون کبد ایرانداد|235000|۱ لیتری|ترکیبی گیاهی و مؤثر برای پاکسازی بدن|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+عرق شیرین‌بیان ایرانداد|235000|۱۰۰۰ سی‌سی|سنتی و مفید برای ناراحتی‌های معده|https://images.unsplash.com/photo-1574784267442-70b334164b38?w=500;
+`],
+
+["ادویه‌جات", `
+زردچوبه اعلا|242000|۱۰۰ گرم|خالص، خوش‌رنگ، معطر و پر از خواص آنتی‌اکسیدانی|https://images.unsplash.com/photo-1596040033229-a9821c05d158?w=500;
+زعفران اصیل نیشابوری|1950000|یک مثقال|سرگل ممتاز، عطر بی‌نظیر و رنگ‌دهی فوق‌العاده|https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500;
+چوب دارچین ایرانی|225000|۱۰۰ گرم|معطر، تازه و اصیل برای انواع چای و غذاها|https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=500;
+دارچین سیگاری خارجی|565000|۱۰۰ گرم|لوله‌ای ممتاز، عطر فوق‌العاده قوی و ماندگار|https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=500;
+`],
+
+["حبوبات و اقلام قندی", `
+نبات شاخه زعفرانی|195000|۵۰۰ گرم|شاخه نبات پرزعفران، حل‌شونده سریع و خوش‌طعم در چای|https://images.unsplash.com/photo-1581781083155-83f4f8955f24?w=500;
+`],
+
+["اجناس شرکتی", `
+`]
+];
+
+const products = groups.flatMap(([cat, text]) => 
+    text.split(";").map(s => s.trim()).filter(Boolean).map(s => {
+        const [name, price, unit, desc, img] = s.split("|");
+        return { name, price: Number(price), unit, desc: desc || "محصول باکیفیت و دستچین تقدیسی", img: img || "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500", cat };
+    })
+);
+
+const $ = id => document.getElementById(id), 
+      money = n => new Intl.NumberFormat("fa-IR").format(n), 
+      normalize = s => s.toLowerCase().replace(/[يى]/g, "ی").replace(/ك/g, "ک").replace(/[\u064B-\u065F]/g, "").replace(/\u200c/g, " ").replace(/\s+/g, " ").trim();
+
+let category = "همه", limit = 24, cart = {};
+
+try {
+    const saved = JSON.parse(localStorage.getItem("taghdisi-cart") || "{}");
+    if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+        for (const [key, value] of Object.entries(saved)) {
+            const i = Number(key), q = Number(value);
+            if (Number.isInteger(i) && i >= 0 && i < products.length && Number.isInteger(q) && q > 0 && q <= 999) cart[i] = q;
         }
-        render();
-    </script>
-</body>
-</html>
+    }
+} catch (e) { cart = {}; }
+
+function save() { try { localStorage.setItem("taghdisi-cart", JSON.stringify(cart)); } catch (e) {} }
+
+funct
