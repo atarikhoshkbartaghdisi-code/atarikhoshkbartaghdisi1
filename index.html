@@ -531,4 +531,10 @@ $("concern-search").oninput = () => {
 
 $("more").onclick = () => {
     visibleCount += 16;
-    update
+    updateUI();
+};
+
+$("send").onclick = () => {
+    let text = "سلام، سفارش جدید از سایت عطاری و خشکبار برادران تقدیسی:%0A%0A";
+    let total = 0;
+    for (const [id, qty] of Object.entries(cart)) {
