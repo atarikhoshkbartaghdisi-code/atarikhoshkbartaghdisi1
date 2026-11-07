@@ -1,522 +1,356 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="theme-color" content="#556b2f">
-  <title>عطاری و خشکبار برادران تقدیسی | سفارش آنلاین نارمک</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #556b2f;
-      --primary-dark: #3f511e;
-      --accent: #d97706;
-      --pink: #f4f6ef;
-      --dark: #2c3522;
-      --muted: #6b7260;
-      --bg: #faf8f5;
-      --green: #4d7c0f;
-      --gold: #b45309;
-      --line: #e6e2d6;
-      --card-bg: #ffffff;
-      --radius: 16px;
-      --shadow: 0 4px 20px rgba(85, 107, 47, 0.08);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; -webkit-tap-highlight-color: transparent; }
-    body { background: var(--bg); color: var(--dark); line-height: 1.6; padding-bottom: 90px; }
-    
-    /* Welcome Modal */
-    .welcome-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; backdrop-filter: blur(4px); }
-    .welcome-modal { background: #fff; width: 100%; max-width: 420px; border-radius: 24px; padding: 28px 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); animation: scaleUp 0.3s ease; border: 2px solid var(--primary); }
-    .welcome-modal h2 { color: var(--primary); font-size: 22px; margin-bottom: 10px; font-weight: 800; }
-    .welcome-modal p { font-size: 14px; color: var(--muted); margin-bottom: 20px; line-height: 1.8; }
-    .welcome-btns { display: flex; gap: 10px; }
-    .welcome-btns button { flex: 1; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; transition: 0.2s; }
-    .btn-main { background: var(--primary); color: #fff; }
-    .btn-audio { background: #f0f4e9; color: var(--primary); border: 1px solid var(--primary) !important; }
-
-    /* Top Bar */
-    header { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 99; }
-    .top-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; max-width: 600px; margin: 0 auto; }
-    .store-info { display: flex; align-items: center; gap: 12px; }
-    .store-logo { width: 44px; height: 44px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; box-shadow: 0 2px 8px rgba(85,107,47,0.3); }
-    .store-name h1 { font-size: 16px; font-weight: 800; color: var(--dark); }
-    .store-name span { font-size: 11px; color: var(--muted); display: block; }
-    
-    .header-actions { display: flex; gap: 8px; }
-    .icon-btn { background: var(--pink); border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary); font-size: 18px; position: relative; }
-    .badge-count { position: absolute; top: -2px; left: -2px; background: var(--accent); color: #fff; font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; border: 2px solid #fff; }
-
-    /* Search & Filters */
-    .search-container { padding: 12px 16px; max-width: 600px; margin: 0 auto; background: #fff; border-bottom: 1px solid var(--line); }
-    .search-box { display: flex; align-items: center; background: var(--pink); border-radius: 14px; padding: 0 14px; border: 1px solid var(--line); }
-    .search-box input { width: 100%; padding: 12px 8px; border: none; background: transparent; outline: none; font-size: 14px; color: var(--dark); font-family: inherit; }
-    
-    .tabs-bar { display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px; max-width: 600px; margin: 0 auto; scrollbar-width: none; }
-    .tabs-bar::-webkit-scrollbar { display: none; }
-    .tab-pill { padding: 8px 16px; background: #fff; border: 1px solid var(--line); border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; color: var(--muted); cursor: pointer; transition: 0.2s; }
-    .tab-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-    .main-container { max-width: 600px; margin: 0 auto; padding: 16px; }
-    
-    /* B2B / Wholesale Panel Box */
-    .wholesale-banner { background: linear-gradient(135deg, #3f511e, var(--primary)); color: #fff; border-radius: 20px; padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-    .wholesale-banner h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
-    .wholesale-banner p { font-size: 13px; opacity: 0.9; margin-bottom: 14px; line-height: 1.6; }
-    .wholesale-btn { background: #fff; color: var(--primary); border: none; padding: 8px 16px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; }
-
-    /* Product Grid */
-    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    @media(min-width: 480px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
-    
-    .product-card { background: var(--card-bg); border-radius: var(--radius); padding: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow); transition: 0.2s; position: relative; }
-    .product-img { width: 100%; height: 110px; background: var(--pink); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 38px; margin-bottom: 10px; }
-    .product-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 38px; }
-    .product-weight { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
-    .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
-    .product-price { font-size: 13px; font-weight: 800; color: var(--primary); }
-    .add-btn { background: var(--pink); color: var(--primary); border: none; width: 32px; height: 32px; border-radius: 10px; font-size: 16px; font-weight: 800; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; }
-    .add-btn:active { transform: scale(0.9); background: var(--primary); color: #fff; }
-
-    /* Cart Floating Bar */
-    .cart-float { position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 568px; margin: 0 auto; background: var(--primary); color: #fff; border-radius: 16px; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 25px rgba(85,107,47,0.4); z-index: 90; cursor: pointer; transition: 0.3s; }
-    .cart-float.hidden { display: none; }
-    .cart-float-info { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 14px; }
-    .cart-float-badge { background: #fff; color: var(--primary); padding: 2px 8px; border-radius: 8px; font-size: 12px; }
-
-    /* Modals */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; backdrop-filter: blur(2px); }
-    .modal-backdrop.open { opacity: 1; pointer-events: auto; }
-    .modal-box { background: #fff; width: 100%; max-width: 600px; border-radius: 24px 24px 0 0; max-height: 90vh; overflow-y: auto; padding: 20px; transform: translateY(100%); transition: 0.3s cubic-bezier(0.1, 1, 0.1, 1); }
-    .modal-backdrop.open .modal-box { transform: translateY(0); }
-    .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-    .modal-header h3 { font-size: 16px; font-weight: 800; color: var(--dark); }
-    .close-modal { background: var(--pink); border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; color: var(--dark); }
-
-    /* Forms & Inputs */
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
-    .form-control { width: 100%; padding: 12px; background: var(--pink); border: 1px solid var(--line); border-radius: 12px; font-size: 14px; color: var(--dark); outline: none; font-family: inherit; }
-    .btn-submit { width: 100%; background: var(--primary); color: #fff; border: none; padding: 14px; border-radius: 14px; font-weight: 800; font-size: 15px; cursor: pointer; margin-top: 10px; }
-
-    /* Admin badge */
-    .admin-badge { position: fixed; bottom: 85px; left: 16px; background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; z-index: 80; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عطاری و خشکبار برادران تقدیسی | نارمک</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Vazirmatn', sans-serif; background-color: #faf8f5; color: #2c2c2c; }
+        .bg-olive { background-color: #556b2f; }
+        .text-olive { color: #556b2f; }
+        .border-olive { border-color: #556b2f; }
+        .bg-cream { background-color: #fdfbf7; }
+    </style>
 </head>
-<body>
+<body class="bg-[#faf8f5] min-h-screen pb-28">
 
-  <!-- Welcome Modal -->
-  <div class="welcome-backdrop" id="welcomeModal">
-    <div class="welcome-modal">
-      <div style="font-size: 42px; margin-bottom: 10px;">🌿</div>
-      <h2>عطاری و خشکبار برادران تقدیسی</h2>
-      <p>خوش آمدید! اصیل‌ترین گیاهان دارویی، عرقیجات دوآتیشه و خشکبار اعلا با ارسال رایگان در محدوده نارمک تهران.</p>
-      <div class="welcome-btns">
-        <button class="btn-audio" onclick="playWelcomeAudio()">🔊 پیام صوتی</button>
-        <button class="btn-main" onclick="closeWelcome()">ورود به فروشگاه</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="top-bar">
-      <div class="store-info">
-        <div class="store-logo">ت</div>
-        <div class="store-name">
-          <h1>برادران تقدیسی</h1>
-          <span>نارمک • ارسال رایگان</span>
+    <!-- هدر سایت -->
+    <header class="bg-[#556b2f] text-white shadow-md sticky top-0 z-40">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                    <i class="fa-solid. fa-seedling text-2xl text-amber-300"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">عطاری و خشکبار تقدیسی</h1>
+                    <p class="text-xs text-amber-200 mt-0.5">اصالت، کیفیت و سلامتی در نارمک</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="openAdminModal()" class="bg-white/15 hover:bg-white/25 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1 transition">
+                    <i class="fa-solid fa-lock text-amber-300"></i> مدیریت
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="header-actions">
-        <button class="icon-btn" onclick="openWholesaleModal()" title="فروش عمده">📦</button>
-        <button class="icon-btn" onclick="openCartModal()">
-          🛒
-          <span class="badge-count" id="cartBadge">0</span>
-        </button>
-      </div>
-    </div>
-    
-    <div class="search-container">
-      <div class="search-box">
-        <span>🔍</span>
-        <input type="text" id="searchInput" placeholder="جستجوی گیاه دارویی، خشکبار، ادویه..." oninput="filterProducts()">
-      </div>
-    </div>
+    </header>
 
-    <div class="tabs-bar" id="categoryTabs">
-      <div class="tab-pill active" onclick="setCategory('all', this)">همه محصولات</div>
-      <div class="tab-pill" onclick="setCategory('nuts', this)">خشکبار و آجیل</div>
-      <div class="tab-pill" onclick="setCategory('herbs', this)">گیاهان دارویی</div>
-      <div class="tab-pill" onclick="setCategory('spices', this)">ادویه‌جات</div>
-      <div class="tab-pill" onclick="setCategory('oils', this)">روغن‌ها و عرقیجات</div>
-      <div class="tab-pill" onclick="setCategory('honey', this)">عسل و شیرینی</div>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="main-container">
-    
-    <!-- Wholesale Banner -->
-    <div class="wholesale-banner">
-      <h3>🤝 پنل همکاران و فروش عمده</h3>
-      <p>تامین عمده گیاهان دارویی، ادویه و خشکبار با قیمت همکاری ویژه برای عطاری‌ها، رستوران‌ها و فروشگاه‌ها سراسر کشور.</p>
-      <button class="wholesale-btn" onclick="openWholesaleModal()">استعلام لیست عمده</button>
-    </div>
-
-    <!-- Products Grid -->
-    <div class="products-grid" id="productsGrid"></div>
-  </main>
-
-  <!-- Admin Button -->
-  <div class="admin-badge" onclick="openAdminLogin()">⚙️ مدیریت سایت</div>
-
-  <!-- Cart Float Bar -->
-  <div class="cart-float hidden" id="cartFloat" onclick="openCartModal()">
-    <div class="cart-float-info">
-      <span>🛒 مشاهده سبد خرید</span>
-      <span class="cart-float-badge" id="floatCount">۰ قلم</span>
-    </div>
-    <span id="floatPrice" style="font-weight: 800;">۰ تومان</span>
-  </div>
-
-  <!-- Cart Modal -->
-  <div class="modal-backdrop" id="cartModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3>سبد خرید شما</h3>
-        <button class="close-modal" onclick="closeCartModal()">✕</button>
-      </div>
-      <div id="cartItemsList" style="margin-bottom: 16px;"></div>
-      <div style="border-top: 1px solid var(--line); padding-top: 12px; margin-bottom: 16px;">
-        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px;">
-          <span>مجموع خرید:</span>
-          <span id="cartTotalPrice" style="font-weight: 800;">۰ تومان</span>
+    <!-- نوار اطلاعات و بنر خوش‌آمدگویی -->
+    <div class="max-w-4xl mx-auto px-4 mt-4">
+        <div class="bg-gradient-to-r from-[#556b2f] to-[#3f5223] text-white rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-right">
+                <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full">ارسال رایگان در نارمک</span>
+                <h2 class="font-bold text-base mt-1.5">خوش‌آمدید! بهترین‌های طبیعت نزد شماست</h2>
+                <p class="text-xs text-amber-100 mt-1"><i class="fa-solid fa-location-dot ml-1"></i> نارمک، میدان نبوت، پلاک ۲۴۶ | <i class="fa-solid fa-phone ml-1"></i> ۰۹۱۸۸۰۸۵۳۳۱</p>
+            </div>
+            <button onclick="openWholesaleModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-4 py-2 rounded-xl text-xs shadow transition flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-boxes-stacked"></i> پنل همکاران و عمده
+            </button>
         </div>
-        <div style="display: flex; justify-content: space-between; font-size: 14px; color: var(--green);">
-          <span>ارسال در نارمک:</span>
-          <span>رایگان 🎁</span>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label>نام و نام خانوادگی گیرنده</label>
-        <input type="text" id="orderName" class="form-control" placeholder="مثلاً علی تقدیسی">
-      </div>
-      <div class="form-group">
-        <label>شماره تماس همراه</label>
-        <input type="tel" id="orderPhone" class="form-control" placeholder="0912...">
-      </div>
-      <div class="form-group">
-        <label>آدرس دقیق تحویل (نارمک / سایر مناطق)</label>
-        <textarea id="orderAddress" class="form-control" rows="2" placeholder="خیابان، پلاک، واحد..."></textarea>
-      </div>
-      
-      <button class="btn-submit" onclick="submitWhatsAppOrder()">ثبت نهایی و ارسال به واتساپ 📲</button>
     </div>
-  </div>
 
-  <!-- Wholesale Modal -->
-  <div class="modal-backdrop" id="wholesaleModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3>استعلام قیمت عمده و همکاری</h3>
-        <button class="close-modal" onclick="closeWholesaleModal()">✕</button>
-      </div>
-      <p style="font-size: 13px; color: var(--muted); margin-bottom: 14px;">اطلاعات خود را وارد کنید تا لیست قیمت عمده برای شما ارسال شود.</p>
-      <div class="form-group">
-        <label>نام صنف / فروشگاه / شخص</label>
-        <input type="text" id="wsName" class="form-control" placeholder="عطاری ...">
-      </div>
-      <div class="form-group">
-        <label>شماره تماس</label>
-        <input type="tel" id="wsPhone" class="form-control" placeholder="09...">
-      </div>
-      <div class="form-group">
-        <label>اقلام مورد نیاز عمده</label>
-        <textarea id="wsItems" class="form-control" rows="3" placeholder="نام اقلام و تناژ درخواستی..."></textarea>
-      </div>
-      <button class="btn-submit" onclick="submitWholesaleForm()">ارسال درخواست همکاری 🚀</button>
-    </div>
-  </div>
-
-  <!-- Admin Modal -->
-  <div class="modal-backdrop" id="adminModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3>پنل مدیریت بدون کد</h3>
-        <button class="close-modal" onclick="closeAdminModal()">✕</button>
-      </div>
-      <div id="adminLoginSection">
-        <div class="form-group">
-          <label>رمز عبور مدیریت</label>
-          <input type="password" id="adminPassInput" class="form-control" placeholder="رمز عبور...">
+    <!-- بخش جستجو و فیلتر نیازها -->
+    <div class="max-w-4xl mx-auto px-4 mt-4 space-y-3">
+        <div class="relative">
+            <i class="fa-solid fa-search absolute right-3.5 top-3.5 text-stone-400"></i>
+            <input type="text" id="searchInput" oninput="filterProducts()" placeholder="جستجوی گیاه دارویی، ادویه، خشکبار، دمنوش..." 
+                class="w-full bg-white pr-10 pl-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-[#556b2f] shadow-sm">
         </div>
-        <button class="btn-submit" onclick="verifyAdminPassword()">ورود به پنل</button>
-      </div>
-      <div id="adminPanelSection" style="display: none;">
-        <div style="background: var(--pink); padding: 12px; border-radius: 12px; margin-bottom: 16px;">
-          <h4 style="font-size: 14px; font-weight: 800; color: var(--primary); margin-bottom: 6px;">➕ افزودن محصول جدید</h4>
-          <div class="form-group"><input type="text" id="newProdName" class="form-control" placeholder="نام محصول"></div>
-          <div class="form-group"><input type="text" id="newProdPrice" class="form-control" placeholder="قیمت به تومان (مثلاً 85000)"></div>
-          <div class="form-group"><input type="text" id="newProdCat" class="form-control" placeholder="دسته (nuts, herbs, spices, oils, honey)"></div>
-          <div class="form-group"><input type="text" id="newProdIcon" class="form-control" placeholder="آیکون ایموجی (مثلاً 🌰)"></div>
-          <button class="btn-submit" onclick="addNewProduct()" style="margin-top: 0; padding: 10px;">ذخیره و افزودن محصول</button>
+
+        <!-- فیلترهای سلامت و نیاز -->
+        <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
+            <button onclick="filterByNeed('all')" class="need-btn bg-[#556b2f] text-white px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap shadow-sm transition">همه محصولات</button>
+            <button onclick="filterByNeed('خواب')" class="need-btn bg-white text-stone-700 hover:bg-stone-100 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap border border-stone-200 shadow-sm transition">🌙 خواب راحت</button>
+            <button onclick="filterByNeed('اعصاب')" class="need-btn bg-white text-stone-700 hover:bg-stone-100 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap border border-stone-200 shadow-sm transition">🌿 آرامش اعصاب</button>
+            <button onclick="filterByNeed('ایمنی')" class="need-btn bg-white text-stone-700 hover:bg-stone-100 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap border border-stone-200 shadow-sm transition">🛡️ تقویت ایمنی</button>
+            <button onclick="filterByNeed('گوارش')" class="need-btn bg-white text-stone-700 hover:bg-stone-100 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap border border-stone-200 shadow-sm transition">🍃 گوارش و معده</button>
+            <button onclick="filterByNeed('پوست')" class="need-btn bg-white text-stone-700 hover:bg-stone-100 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap border border-stone-200 shadow-sm transition">✨ پوست و مو</button>
         </div>
-        <h4 style="font-size: 14px; font-weight: 800; margin-bottom: 10px;">📦 مدیریت محصولات موجود</h4>
-        <div id="adminProductsList" style="max-height: 300px; overflow-y: auto;"></div>
-      </div>
     </div>
-  </div>
 
-  <script>
-    // Initial 32 Default Products
-    const defaultProducts = [
-      { id: 1, name: 'گردو با پوست اعلا', price: 280000, category: 'nuts', icon: '🌰', weight: '۱ کیلوگرم' },
-      { id: 2, name: 'مغز بادام درختی درجه یک', price: 650000, category: 'nuts', icon: '🥜', weight: '۱ کیلوگرم' },
-      { id: 3, name: 'پسته احمدآقایی خندان', price: 720000, category: 'nuts', icon: '🟢', weight: '۱ کیلوگرم' },
-      { id: 4, name: 'مغز فندق بوداده', price: 580000, category: 'nuts', icon: '🌰', weight: '۵۰۰ گرم' },
-      { id: 5, name: 'کشمش پلویی طلایی', price: 140000, category: 'nuts', icon: '🍇', weight: '۱ کیلوگرم' },
-      { id: 6, name: 'توت خشک دماوند', price: 320000, category: 'nuts', icon: '🤍', weight: '۵۰۰ گرم' },
-      { id: 7, name: 'انجیر خشک استهبان', price: 390000, category: 'nuts', icon: '🟤', weight: '۵۰۰ گرم' },
-      { id: 8, name: 'مخلوط آجیل چهارمغز', price: 680000, category: 'nuts', icon: '🌟', weight: '۱ کیلوگرم' },
-      
-      { id: 9, name: 'گل گاوزبان اصل کوهی', price: 190000, category: 'herbs', icon: '🌸', weight: '۱۰۰ گرم' },
-      { id: 10, name: 'بابونه معطر ارگانیک', price: 95000, category: 'herbs', icon: '🌼', weight: '۱۰۰ گرم' },
-      { id: 11, name: 'آویشن شیرازی درجه یک', price: 85000, category: 'herbs', icon: '🌿', weight: '۱۰۰ گرم' },
-      { id: 12, name: 'نعناع خشک کوهی', price: 70000, category: 'herbs', icon: '🍃', weight: '۱۰۰ گرم' },
-      { id: 13, name: 'سنتیبل و ریشه سنبل‌الطیب', price: 120000, category: 'herbs', icon: '🌱', weight: '۱۰۰ گرم' },
-      { id: 14, name: 'چای ترش اصل مکی', price: 145000, category: 'herbs', icon: '🌺', weight: '۲۵۰ گرم' },
-      { id: 15, name: 'اسطوخودوس مدیترانه‌ای', price: 110000, category: 'herbs', icon: '💜', weight: '۱۰۰ گرم' },
-      { id: 16, name: 'رزماری خشک طبیعی', price: 80000, category: 'herbs', icon: '🌿', weight: '۱۰۰ گرم' },
+    <!-- لیست محصولات -->
+    <main class="max-w-4xl mx-auto px-4 mt-4">
+        <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- رندر پویا با جاوااسکریپت -->
+        </div>
+    </main>
 
-      { id: 17, name: 'زعفران سرگل قائنات', price: 480000, category: 'spices', icon: '👑', weight: '۴.۶ گرم' },
-      { id: 18, name: 'زردچوبه هندی ممتاز', price: 95000, category: 'spices', icon: '🟡', weight: '۵۰۰ گرم' },
-      { id: 19, name: 'فلفل سیاه سابیده خالص', price: 180000, category: 'spices', icon: '⚫', weight: '۲۵۰ گرم' },
-      { id: 20, name: 'دارچین قلم سیلان', price: 160000, category: 'spices', icon: '🪵', weight: '۲۵۰ گرم' },
-      { id: 21, name: 'پودر زنجبیل تند', price: 130000, category: 'spices', icon: '🥔', weight: '۲۵۰ گرم' },
-      { id: 22, name: 'پودر هل سبز اعلا', price: 380000, category: 'spices', icon: '🟢', weight: '۱۰۰ گرم' },
-      { id: 23, name: 'پودر سیر خالص', price: 90000, category: 'spices', icon: '🧄', weight: '۲۵۰ گرم' },
-      { id: 24, name: 'ادویه کاری مخصوص', price: 95000, category: 'spices', icon: '🍛', weight: '۲۵۰ گرم' },
+    <!-- نوار پایین (سبد خرید ثابت) -->
+    <div id="cartBar" class="fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 p-4 shadow-lg z-30 hidden">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div>
+                <span id="cartCount" class="text-xs text-stone-500 block">۰ قلم کالا</span>
+                <span id="cartTotal" class="font-bold text-base text-[#556b2f]">۰ تومان</span>
+            </div>
+            <button onclick="openCartModal()" class="bg-[#556b2f] hover:bg-[#3f5223] text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow transition flex items-center gap-2">
+                <i class="fa-solid fa-basket-shopping"></i> مشاهده سبد و ثبت سفارش
+            </button>
+        </div>
+    </div>
 
-      { id: 25, name: 'عرقیجات نعناع دوآتیشه', price: 45000, category: 'oils', icon: '🌿', weight: '۱ لیتر' },
-      { id: 26, name: 'عرق بیدمشک اعلا', price: 55000, category: 'oils', icon: '💧', weight: '۱ لیتر' },
-      { id: 27, name: 'گلاب سنگین دوآتیشه قمصر', price: 65000, category: 'oils', icon: '🌹', weight: '۱ لیتر' },
-      { id: 28, name: 'روغن سیاه‌دانه خالص', price: 180000, category: 'oils', icon: '🏺', weight: '۶۰ سی‌سی' },
-      
-      { id: 29, name: 'عسل طبیعی کوهستان با موم', price: 350000, category: 'honey', icon: '🍯', weight: '۱ کیلوگرم' },
-      { id: 30, name: 'نبات چوبی زعفرانی اعلا', price: 85000, category: 'honey', icon: '🟨', weight: '۷۰۰ گرم' },
-      { id: 31, name: 'شیره انگور سنتی ملایر', price: 130000, category: 'honey', icon: '🍇', weight: '۹۰۰ گرم' },
-      { id: 32, name: 'ارده کنجد ممتاز اردکان', price: 160000, category: 'honey', icon: '🥣', weight: '۷۰۰ گرم' }
-    ];
+    <!-- مودال سبد خرید و ثبت سفارش -->
+    <div id="cartModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-slide-up">
+            <div class="p-4 border-b border-stone-100 flex items-center justify-between bg-stone-50">
+                <h3 class="font-bold text-base text-stone-800"><i class="fa-solid fa-basket-shopping text-[#556b2f] ml-2"></i> سبد خرید شما</h3>
+                <button onclick="closeCartModal()" class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 hover:bg-stone-300"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="cartItemsList" class="p-4 overflow-y-auto flex-1 space-y-3">
+                <!-- اقلام سبد -->
+            </div>
+            <div class="p-4 border-t border-stone-100 bg-stone-50 space-y-3">
+                <input type="text" id="customerName" placeholder="نام و نام خانوادگی" class="w-full p-2.5 rounded-xl border border-stone-300 text-xs focus:outline-none focus:border-[#556b2f]">
+                <input type="tel" id="customerPhone" placeholder="شماره تماس (مثلاً ۰۹۱۲...)" class="w-full p-2.5 rounded-xl border border-stone-300 text-xs focus:outline-none focus:border-[#556b2f]">
+                <textarea id="customerAddress" placeholder="آدرس تحویل (نارمک ارسال رایگان است...)" class="w-full p-2.5 rounded-xl border border-stone-300 text-xs focus:outline-none focus:border-[#556b2f] h-20 resize-none"></textarea>
+                
+                <div class="flex gap-2 pt-2">
+                    <button onclick="sendOrderWhatsApp()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow">
+                        <i class="fa-brands. fa-whatsapp text-lg"></i> ثبت سفارش در واتساپ
+                    </button>
+                    <button onclick="sendOrderSms()" class="flex-1 bg-sky-600 hover:bg-sky-700 text-white py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow">
+                        <i class="fa-solid fa-comment-sms"></i> ثبت سفارش پیامکی
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    let products = JSON.parse(localStorage.getItem('taghdisi-products')) || defaultProducts;
-    let cart = JSON.parse(localStorage.getItem('taghdisi-cart')) || [];
-    let currentCategory = 'all';
+    <!-- مودال پنل همکاران و عمده -->
+    <div id="wholesaleModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-2xl space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-base text-[#556b2f]"><i class="fa-solid fa-boxes-stacked ml-2"></i> پنل همکاران و فروش عمده</h3>
+                <button onclick="closeWholesaleModal()" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">ویژه عطاری‌ها، رستوران‌ها و فروشگاه‌های مواد غذایی. تامین عمده انواع ادویه‌جات خالص، خشکبار درجه یک و گیاهان دارویی با قیمت همکاری.</p>
+            <input type="text" id="wsName" placeholder="نام فروشگاه / شخص" class="w-full p-2.5 rounded-xl border border-stone-300 text-xs">
+            <input type="tel" id="wsPhone" placeholder="شماره تماس" class="w-full p-2.5 rounded-xl border border-stone-300 text-xs">
+            <textarea id="wsDetails" placeholder="اقلام مورد نیاز و حجم تقاضا..." class="w-full p-2.5 rounded-xl border border-stone-300 text-xs h-20"></textarea>
+            <button onclick="submitWholesale()" class="w-full bg-[#556b2f] text-white py-3 rounded-xl text-xs font-bold shadow">ارسال درخواست عمده</button>
+        </div>
+    </div>
 
-    function saveProducts() { localStorage.setItem('taghdisi-products', JSON.stringify(products)); }
-    function saveCart() { localStorage.setItem('taghdisi-cart', JSON.stringify(cart)); }
+    <!-- مودال مدیریت (رمز: Mjt_3330) -->
+    <div id="adminModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-2xl space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-base text-[#556b2f]"><i class="fa-solid fa-lock ml-2"></i> ورود به مدیریت</h3>
+                <button onclick="closeAdminModal()" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="adminLoginBox" class="space-y-3">
+                <input type="password" id="adminPass" placeholder="رمز عبور مدیریت" class="w-full p-3 rounded-xl border border-stone-300 text-sm">
+                <button onclick="checkAdminPassword()" class="w-full bg-[#556b2f] text-white py-3 rounded-xl text-sm font-bold">ورود به پنل</button>
+            </div>
+            <div id="adminPanelBox" class="hidden space-y-3">
+                <p class="text-xs text-emerald-600 font-bold">✔ دسترسی مدیریت تایید شد.</p>
+                <div class="border-t pt-3 space-y-2">
+                    <h4 class="font-bold text-xs text-stone-700">افزودن محصول جدید</h4>
+                    <input type="text" id="newTitle" placeholder="نام محصول" class="w-full p-2 rounded-lg border text-xs">
+                    <input type="number" id="newPrice" placeholder="قیمت (تومان)" class="w-full p-2 rounded-lg border text-xs">
+                    <input type="text" id="newUnit" placeholder="واحد (مثلاً بسته ۱۰۰ گرمی)" class="w-full p-2 rounded-lg border text-xs">
+                    <input type="text" id="newCategory" placeholder="دسته/نیاز (مثلاً خواب یا اعصاب)" class="w-full p-2 rounded-lg border text-xs">
+                    <button onclick="addNewProduct()" class="w-full bg-emerald-600 text-white py-2 rounded-lg text-xs font-bold">ثبت محصول در فروشگاه</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    function renderProducts(list = products) {
-      const grid = document.getElementById('productsGrid');
-      grid.innerHTML = '';
-      if(list.length === 0) {
-        grid.innerHTML = '<div style="grid-column: span 2; text-align: center; padding: 40px; color: var(--muted);">محصولی یافت نشد.</div>';
-        return;
-      }
-      list.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <div>
-            <div class="product-img">${p.icon || '🌿'}</div>
-            <div class="product-title">${p.name}</div>
-            <div class="product-weight">${p.weight || 'بسته‌بندی'}</div>
-          </div>
-          <div class="product-footer">
-            <div class="product-price">${Number(p.price).toLocaleString()} ت</div>
-            <button class="add-btn" onclick="addToCart(${p.id})">+</button>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
+    <!-- جاوااسکریپت فروشگاه -->
+    <script>
+        let products = JSON.parse(localStorage.getItem('taghdisi_products')) || [
+            { id: 1, title: 'گل گاوزبان اعلا', price: 98000, unit: 'بسته ۱۰۰ گرمی', category: 'اعصاب', need: 'اعصاب' },
+            { id: 2, title: 'بابونه شیرازی خالص', price: 75000, unit: 'بسته ۸۰ گرمی', category: 'خواب', need: 'خواب' },
+            { id: 3, title: 'عرق بیدمشک و بهارنارنج', price: 65000, unit: 'بطری ۱ لیتری', category: 'اعصاب', need: 'اعصاب' },
+            { id: 4, title: 'دمنوش آرامش بخش تقدیسی', price: 110000, unit: 'بسته ویژه', category: 'اعصاب', need: 'اعصاب' },
+            { id: 5, title: 'زعفران سرگل ممتاز', price: 380000, unit: 'مثقالی', category: 'زعفران و ادویه', need: 'ایمنی' },
+            { id: 6, title: 'زنجبیل قلم درجه یک', price: 45000, unit: 'بسته ۱۰۰ گرمی', category: 'ادویه‌جات', need: 'ایمنی' },
+            { id: 7, title: 'عسل طبیعی کوهستان', price: 290000, unit: 'شیشه ۹۰۰ گرمی', category: 'عسل و شیرینی', need: 'ایمنی' },
+            { id: 8, title: 'چای ترش اصل', price: 85000, unit: 'بسته ۲۰۰ گرمی', category: 'دمنوش', need: 'گوارش' },
+            { id: 9, title: 'روغن سیاهدانه اصل', price: 140000, unit: 'بطری ۶۰ میل', category: 'روغن‌ها', need: 'پوست' },
+            { id: 10, title: 'خاکشیر اعلا تازه', price: 60000, unit: 'بسته ۲۵۰ گرمی', category: 'خشکبار', need: 'گوارش' }
+        ];
 
-    function setCategory(cat, el) {
-      currentCategory = cat;
-      document.querySelectorAll('.tab-pill').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-      filterProducts();
-    }
+        let cart = {};
+        let currentNeedFilter = 'all';
 
-    function filterProducts() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = products.filter(p => {
-        const matchCat = currentCategory === 'all' || p.category === currentCategory;
-        const matchQuery = p.name.toLowerCase().includes(query);
-        return matchCat && matchQuery;
-      });
-      renderProducts(filtered);
-    }
+        function renderProducts(list = products) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            list.forEach(p => {
+                let qty = cart[p.id] || 0;
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl p-3 shadow-sm border border-stone-100 flex flex-col justify-between">
+                        <div>
+                            <div class="w-full h-28 bg-stone-100 rounded-xl mb-2 flex items-center justify-center text-stone-400">
+                                <i class="fa-solid fa-seedling text-3xl text-olive"></i>
+                            </div>
+                            <h4 class="font-bold text-xs text-stone-800 line-clamp-1">${p.title}</h4>
+                            <span class="text-[10px] text-stone-400 block mt-0.5">${p.unit}</span>
+                        </div>
+                        <div class="mt-3">
+                            <span class="font-bold text-xs text-[#556b2f] block mb-2">${p.price.toLocaleString()} تومان</span>
+                            ${qty === 0 ? `
+                                <button onclick="updateCart(${p.id}, 1)" class="w-full bg-[#556b2f] hover:bg-[#3f5223] text-white py-1.5 rounded-xl text-xs font-medium transition shadow-sm">
+                                    افزودن به سبد
+                                </button>
+                            ` : `
+                                <div class="flex items-center justify-between bg-stone-100 rounded-xl p-1">
+                                    <button onclick="updateCart(${p.id}, -1)" class="w-7 h-7 bg-white rounded-lg shadow-sm text-stone-700 font-bold">-</button>
+                                    <span class="text-xs font-bold">${qty}</span>
+                                    <button onclick="updateCart(${p.id}, 1)" class="w-7 h-7 bg-[#556b2f] text-white rounded-lg shadow-sm font-bold">+</button>
+                                </div>
+                            `}
+                        </div>
+                    </div>
+                `;
+            });
+        }
 
-    function addToCart(id) {
-      const prod = products.find(p => p.id === id);
-      if(!prod) return;
-      const exist = cart.find(item => item.id === id);
-      if(exist) {
-        exist.qty++;
-      } else {
-        cart.push({ ...prod, qty: 1 });
-      }
-      saveCart();
-      updateCartUI();
-    }
+        function updateCart(id, change) {
+            cart[id] = (cart[id] || 0) + change;
+            if (cart[id] <= 0) delete cart[id];
+            renderProducts(getFilteredList());
+            updateCartBar();
+        }
 
-    function updateCartUI() {
-      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      
-      document.getElementById('cartBadge').innerText = totalCount;
-      document.getElementById('floatCount').innerText = totalCount + ' قلم';
-      document.getElementById('floatPrice').innerText = totalPrice.toLocaleString() + ' تومان';
-      
-      const floatBar = document.getElementById('cartFloat');
-      if(totalCount > 0) {
-        floatBar.classList.remove('hidden');
-      } else {
-        floatBar.classList.add('hidden');
-      }
-      renderCartList();
-    }
+        function getFilteredList() {
+            let query = document.getElementById('searchInput').value.trim().toLowerCase();
+            return products.filter(p => {
+                let matchQuery = p.title.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
+                let matchNeed = currentNeedFilter === 'all' || p.need === currentNeedFilter;
+                return matchQuery && matchNeed;
+            });
+        }
 
-    function renderCartList() {
-      const list = document.getElementById('cartItemsList');
-      const totalPriceEl = document.getElementById('cartTotalPrice');
-      list.innerHTML = '';
-      if(cart.length === 0) {
-        list.innerHTML = '<p style="text-align: center; color: var(--muted); padding: 20px;">سبد خرید شما خالی است.</p>';
-        totalPriceEl.innerText = '۰ تومان';
-        return;
-      }
-      let sum = 0;
-      cart.forEach((item, index) => {
-        sum += item.price * item.qty;
-        const div = document.createElement('div');
-        div.style.cssText = 'display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; background: var(--pink); padding: 8px 12px; border-radius: 10px; font-size: 13px;';
-        div.innerHTML = `
-          <div><b>${item.name}</b><div style="font-size: 11px; color: var(--muted);">${(item.price * item.qty).toLocaleString()} ت</div></div>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <button onclick="changeQty(${index}, -1)" style="width: 24px; height: 24px; border: none; border-radius: 6px; background: #fff; font-weight: bold; cursor: pointer;">-</button>
-            <span>${item.qty}</span>
-            <button onclick="changeQty(${index}, 1)" style="width: 24px; height: 24px; border: none; border-radius: 6px; background: #fff; font-weight: bold; cursor: pointer;">+</button>
-          </div>
-        `;
-        list.appendChild(div);
-      });
-      totalPriceEl.innerText = sum.toLocaleString() + ' تومان';
-    }
+        function filterProducts() {
+            renderProducts(getFilteredList());
+        }
 
-    function changeQty(index, delta) {
-      cart[index].qty += delta;
-      if(cart[index].qty <= 0) {
-        cart.splice(index, 1);
-      }
-      saveCart();
-      updateCartUI();
-    }
+        function filterByNeed(need) {
+            currentNeedFilter = need;
+            document.querySelectorAll('.need-btn').forEach(btn => {
+                btn.classList.remove('bg-[#556b2f]', 'text-white');
+                btn.classList.add('bg-white', 'text-stone-700');
+            });
+            event.target.classList.remove('bg-white', 'text-stone-700');
+            event.target.classList.add('bg-[#556b2f]', 'text-white');
+            renderProducts(getFilteredList());
+        }
 
-    function openCartModal() { document.getElementById('cartModal').classList.add('open'); renderCartList(); }
-    function closeCartModal() { document.getElementById('cartModal').classList.remove('open'); }
+        function updateCartBar() {
+            let totalCount = Object.values(cart).reduce((a, b) => a + b, 0);
+            let totalPrice = Object.entries(cart).reduce((sum, [id, qty]) => {
+                let p = products.find(x => x.id == id);
+                return sum + (p ? p.price * qty : 0);
+            }, 0);
 
-    function openWholesaleModal() { document.getElementById('wholesaleModal').classList.add('open'); }
-    function closeWholesaleModal() { document.getElementById('wholesaleModal').classList.remove('open'); }
+            const bar = document.getElementById('cartBar');
+            if (totalCount > 0) {
+                bar.classList.remove('hidden');
+                document.getElementById('cartCount').innerText = `${totalCount} قلم کالا`;
+                document.getElementById('cartTotal').innerText = `${totalPrice.toLocaleString()} تومان`;
+            } else {
+                bar.classList.add('hidden');
+            }
+        }
 
-    function submitWhatsAppOrder() {
-      const name = document.getElementById('orderName').value.trim();
-      const phone = document.getElementById('orderPhone').value.trim();
-      const address = document.getElementById('orderAddress').value.trim();
-      if(!name || !phone || !address) {
-        alert('لطفاً مشخصات، شماره تماس و آدرس را کامل وارد کنید.');
-        return;
-      }
-      let text = `📦 *سفارش جدید سایت - عطاری برادران تقدیسی*%0A%0A`;
-      text += `👤 نام: ${name}%0A📞 تلفن: ${phone}%0A📍 آدرس: ${address}%0A%0A🛒 *اقلام سفارش:*%0A`;
-      let total = 0;
-      cart.forEach(i => {
-        text += `• ${i.name} (${i.qty} عدد) - ${(i.price * i.qty).toLocaleString()} ت%0A`;
-        total += i.price * i.qty;
-      });
-      text += `%0A💰 *مجموع کل:* ${total.toLocaleString()} تومان%0A🚚 ارسال رایگان در نارمک`;
-      window.open(`https://wa.me/989188085331?text=${text}`, '_blank');
-    }
+        function openCartModal() {
+            let listDiv = document.getElementById('cartItemsList');
+            listDiv.innerHTML = '';
+            let totalPrice = 0;
 
-    function submitWholesaleForm() {
-      const name = document.getElementById('wsName').value.trim();
-      const phone = document.getElementById('wsPhone').value.trim();
-      const items = document.getElementById('wsItems').value.trim();
-      if(!name || !phone) {
-        alert('لطفاً نام و شماره تماس خود را وارد کنید.');
-        return;
-      }
-      let text = `🤝 *درخواست استعلام قیمت عمده*%0A%0A👤 نام صنف: ${name}%0A📞 تلفن: ${phone}%0A📝 اقلام درخواستی: ${items}`;
-      window.open(`https://wa.me/989188085331?text=${text}`, '_blank');
-      closeWholesaleModal();
-    }
+            Object.entries(cart).forEach(([id, qty]) => {
+                let p = products.find(x => x.id == id);
+                if (!p) return;
+                totalPrice += p.price * qty;
+                listDiv.innerHTML += `
+                    <div class="flex justify-between items-center bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+                        <div>
+                            <h5 class="font-bold text-xs text-stone-800">${p.title}</h5>
+                            <span class="text-[10px] text-stone-500">${(p.price * qty).toLocaleString()} تومان</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateCart(${p.id}, -1); openCartModal();" class="w-6 h-6 bg-white rounded border text-xs">-</button>
+                            <span class="text-xs font-bold">${qty}</span>
+                            <button onclick="updateCart(${p.id}, 1); openCartModal();" class="w-6 h-6 bg-[#556b2f] text-white rounded text-xs">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
 
-    // Welcome Audio & Modal
-    function closeWelcome() { document.getElementById('welcomeModal').style.display = 'none'; }
-    function playWelcomeAudio() {
-      if ('speechSynthesis' in window) {
-        const msg = new SpeechSynthesisUtterance('به عطاری و خشکبار برادران تقدیسی خوش آمدید. اصیل‌ترین گیاهان دارویی با ارسال رایگان در نارمک.');
-        msg.lang = 'fa-IR';
-        window.speechSynthesis.speak(msg);
-      } else {
-        alert('مرورگر شما از پخش صوتی پشتیبانی نمی‌کند.');
-      }
-    }
+        function closeCartModal() { document.getElementById('cartModal').classList.add('hidden'); }
+        function openWholesaleModal() { document.getElementById('wholesaleModal').classList.remove('hidden'); }
+        function closeWholesaleModal() { document.getElementById('wholesaleModal').classList.add('hidden'); }
+        function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
+        function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
 
-    // Admin Panel
-    function openAdminLogin() { document.getElementById('adminModal').classList.add('open'); }
-    function closeAdminModal() { document.getElementById('adminModal').classList.remove('open'); }
+        function checkAdminPassword() {
+            let pass = document.getElementById('adminPass').value;
+            if (pass === 'Mjt_3330') {
+                document.getElementById('adminLoginBox').classList.add('hidden');
+                document.getElementById('adminPanelBox').classList.remove('hidden');
+            } else {
+                alert('رمز عبور اشتباه است!');
+            }
+        }
 
-    function verifyAdminPassword() {
-      const pass = document.getElementById('adminPassInput').value;
-      if(pass === 'Mjt_3330') {
-        document.getElementById('adminLoginSection').style.display = 'none';
-        document.getElementById('adminPanelSection').style.display = 'block';
-        renderAdminProductsList();
-      } else {
-        alert('رمز عبور اشتباه است.');
-      }
-    }
+        function addNewProduct() {
+            let title = document.getElementById('newTitle').value;
+            let price = parseInt(document.getElementById('newPrice').value);
+            let unit = document.getElementById('newUnit').value;
+            let category = document.getElementById('newCategory').value;
+            if (!title || !price) {
+                alert('لطفاً عنوان و قیمت را وارد کنید.');
+                return;
+            }
+            let newP = { id: Date.now(), title, price, unit: unit || 'بسته', category: category || 'عمومی', need: 'ایمنی' };
+            products.unshift(newP);
+            localStorage.setItem('taghdisi_products', JSON.stringify(products));
+            renderProducts();
+            closeAdminModal();
+            alert('محصول جدید با موفقیت اضافه شد!');
+        }
 
-    function addNewProduct() {
-      const name = document.getElementById('newProdName').value.trim();
-      const price = Number(document.getElementById('newProdPrice').value);
-      const category = document.getElementById('newProdCat').value.trim() || 'nuts';
-      const icon = document.getElementById('newProdIcon').value.trim() || '🌿';
-      if(!name || !price) {
-        alert('نام و قیمت محصول الزامی است.');
-        return;
-      }
-      const newP = { id: Date.now(), name, price, category, icon, weight: 'بسته‌بندی' };
-      products.unshift(newP);
-      saveProducts();
-      renderProducts();
-      renderAdminProductsList();
-      document.getElementById('newProdName').value = '';
-      document.getElementById('newProdPrice').value = '';
-      alert('محصول با موفقیت اضافه شد!');
-    }
+        function sendOrderWhatsApp() {
+            let name = document.getElementById('customerName').value;
+            let phone = document.getElementById('customerPhone').value;
+            let address = document.getElementById('customerAddress').value;
+            if(!name || !phone) { alert('لطفاً نام و شماره تماس را وارد کنید.'); return; }
+            
+            let msg = `🛒 سفارش جدید از سایت عطاری تقدیسی\n👤 نام: ${name}\n📞 تلفن: ${phone}\n📍 آدرس: ${address}\n\nسفارشات:\n`;
+            Object.entries(cart).forEach(([id, qty]) => {
+                let p = products.find(x => x.id == id);
+                if(p) msg += `- ${p.title} (${qty} ${p.unit})\n`;
+            });
+            window.open(`https://wa.me/989188085331?text=${encodeURIComponent(msg)}`, '_blank');
+        }
 
-    function renderAdminProductsList() {
-      const list = document.getElementById('adminProductsList');
-      list.innerHTML = '';
-      products.forEach((p, idx) => {
-        const div = document.createElement('div');
-        div.style.cssText = 'display: flex; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid var(--line); font-size: 13px;';
-        div.innerHTML = `
-          <span>${p.icon} ${p.name} 
+        function sendOrderSms() {
+            let name = document.getElementById('customerName').value;
+            let phone = document.getElementById('customerPhone').value;
+            let address = document.getElementById('customerAddress').value;
+            if(!name || !phone) { alert('لطفاً نام و شماره تماس را وارد کنید.'); return; }
+            
+            let msg = `سفاری عطاری تقدیسی - نام: ${name} - تلفن: ${phone} - آدرس: ${address}`;
+            window.location.href = `sms:09188085331?body=${encodeURIComponent(msg)}`;
+        }
+
+        function submitWholesale() {
+            let name = document.getElementById('wsName').value;
+            let phone = document.getElementById('wsPhone').value;
+            let details = document.getElementById('wsDetails').value;
+            if(!name || !phone) { alert('نام و شماره تماس الزامی است.'); return; }
+            let msg = `درخواست همکاران/عمده:\nنام: ${name}\nتلفن: ${phone}\nتوضیحات: ${details}`;
+            window.open(`https://wa.me/989188085331?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        renderProducts();
+    </script>
+</body>
+</html>
