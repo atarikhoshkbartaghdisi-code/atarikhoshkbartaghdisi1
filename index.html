@@ -2,686 +2,902 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#237a40">
-  <meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران؛ انواع گیاهان دارویی، دمنوش و خشکبار. سفارش از طریق واتس‌اپ.">
-  <title>عطاری و خشکبار برادران تقدیسی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#ff00a6">
+  <title>عطاری و خشکبار برادران تقدیسی | سفارش آنلاین نارمک</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --green: #237a40;
-      --green-dark: #185c32;
-      --green-light: #eaf5ed;
-      --ink: #202820;
-      --muted: #667168;
-      --line: #e4e9e3;
-      --bg: #f7f9f6;
-      --white: #fff;
+      --primary: #ff0a54;
+      --primary-hover: #e00045;
+      --primary-light: #fff0f3;
+      --green-badge: #00875a;
+      --green-light: #e3fcef;
+      --dark: #1f2937;
+      --muted: #6b7280;
+      --bg: #f7f7f9;
+      --white: #ffffff;
+      --border: #f0f1f5;
+      --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     body {
       margin: 0;
-      color: var(--ink);
       background: var(--bg);
-      font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.7;
+      color: var(--dark);
+      font-family: 'Vazirmatn', -apple-system, sans-serif;
+      padding-bottom: 90px;
     }
-    button, input, select { font: inherit; }
-    button { cursor: pointer; }
-    a { color: inherit; text-decoration: none; }
-    [hidden] { display: none !important; }
-    .wrap { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
-    .top {
-      position: sticky; top: 0; z-index: 20;
-      background: var(--green); color: white;
-      box-shadow: 0 2px 12px #173b2230;
+
+    /* هدر اسنپ‌فودی */
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--border);
     }
-    .top-inner {
-      min-height: 66px; display: flex; align-items: center;
-      justify-content: space-between; gap: 12px;
+    .header-top {
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
-    .brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
-    .brand-mark {
-      width: 39px; height: 39px; display: grid; place-items: center;
-      border: 1px solid #ffffff80; border-radius: 50%; font-size: 22px;
-      flex: none;
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--dark);
     }
-    .brand strong { font-size: 16px; line-height: 1.45; }
-    .header-actions { display: flex; gap: 8px; align-items: center; }
-    .icon-button {
-      border: 0; background: #ffffff24; color: inherit;
-      width: 42px; height: 42px; border-radius: 6px; font-size: 22px;
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ff0a54, #ff5480);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(255,10,84,0.3);
+    }
+    .brand-title {
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .header-call-btn {
+      background: var(--green-light);
+      color: var(--green-badge);
+      border: 1px solid #b3eccf;
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* کادر معرفی فروشگاه (Vendor Info) */
+    .vendor-card {
+      max-width: 1100px;
+      margin: 16px auto;
+      padding: 0 16px;
+    }
+    .vendor-inner {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+    .vendor-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .badge-green { background: var(--green-light); color: var(--green-badge); }
+    .badge-pink { background: var(--primary-light); color: var(--primary); }
+
+    /* جستجوبار مدرن اسنپ‌فود */
+    .search-wrapper {
+      max-width: 1100px;
+      margin: 12px auto;
+      padding: 0 16px;
+    }
+    .search-bar {
       position: relative;
     }
-    .count {
-      position: absolute; top: -5px; right: -5px;
-      min-width: 19px; height: 19px; padding: 0 4px;
-      border-radius: 20px; background: #dc4a47; color: white;
-      font-size: 11px; line-height: 19px;
+    .search-bar input {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid #e2e4e9;
+      border-radius: 16px;
+      padding: 14px 44px 14px 16px;
+      font-size: 14px;
+      box-shadow: var(--shadow-sm);
+      outline: none;
+      transition: 0.2s;
     }
-    .hero {
-      min-height: 270px; display: flex; align-items: center;
-      margin-top: 16px; overflow: hidden; border-radius: 8px;
-      background:
-        linear-gradient(90deg, #e9d6a4d9, #f8efdc 58%, #e3efdb),
-        #e9eedf;
-      position: relative;
+    .search-bar input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255,10,84,0.1);
     }
-    .hero::after {
-      content: "🍵🌿";
-      position: absolute; left: 5%; bottom: 0;
-      font-size: clamp(82px, 15vw, 170px);
-      line-height: 1.4; pointer-events: none;
+    .search-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: var(--muted);
     }
-    .hero-content { padding: 28px; position: relative; z-index: 1; max-width: 62%; }
-    .hero h1 { margin: 0 0 7px; font-size: clamp(25px, 4vw, 42px); line-height: 1.5; }
-    .hero p { margin: 0 0 18px; font-size: 15px; }
-    .primary, .secondary {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 40px; padding: 8px 16px; border-radius: 5px;
-      font-size: 14px; font-weight: bold; border: 1px solid var(--green);
+
+    /* بخش ویژه: انتخاب بر اساس بیماری و مشکل سلامتی */
+    .section-container {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
     }
-    .primary { background: var(--green); color: white; }
-    .primary:hover { background: var(--green-dark); }
-    .secondary { background: white; color: var(--green); }
-    .benefits {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 10px; margin: 16px 0 28px;
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .benefit {
-      min-height: 90px; padding: 11px 6px; border-radius: 7px;
-      background: var(--green-light); text-align: center;
-      font-size: 12px; font-weight: bold;
+    .illness-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
     }
-    .benefit span { display: block; font-size: 25px; line-height: 1.5; }
-    .section-head {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 12px; margin: 26px 0 12px;
-    }
-    .section-head h2 { margin: 0; font-size: 20px; }
-    .section-head small { color: var(--muted); }
-    .finder {
-      padding: 18px; background: white;
-      border: 1px solid var(--line); border-radius: 8px;
-    }
-    .finder p { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
-    .field {
-      width: 100%; min-height: 44px; padding: 9px 12px;
-      border: 1px solid #cdd8cd; border-radius: 5px;
-      background: white; color: var(--ink); outline-color: var(--green);
-    }
-    .chips, .categories { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chips { margin-top: 13px; }
-    .chip {
-      padding: 7px 12px; border-radius: 5px;
-      border: 1px solid #cbd8ce; background: white; color: var(--ink);
+    .illness-scroll::-webkit-scrollbar { display: none; }
+    .illness-chip {
+      flex: 0 0 auto;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
     }
-    .chip.active { background: var(--green); border-color: var(--green); color: white; }
-    .notice {
-      margin: 12px 0 0; padding: 10px 12px;
-      border-right: 3px solid #bb9234; background: #fff9e8;
-      color: #594d31; font-size: 12px;
+    .illness-chip.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(255,10,84,0.25);
     }
-    .categories { margin: 12px 0 17px; }
-    .catalog-tools {
-      display: grid; grid-template-columns: minmax(0, 1fr) auto;
-      gap: 9px; align-items: center;
+
+    /* دسته‌بندی‌های تصویری اسنپ‌فودی */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
     }
-    .grid {
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px; padding-bottom: 20px;
+    @media(min-width: 768px) {
+      .cat-grid { grid-template-columns: repeat(6, 1fr); gap: 14px; }
     }
-    .product {
-      display: flex; flex-direction: column; min-width: 0;
-      background: white; border: 1px solid var(--line);
-      border-radius: 7px; overflow: hidden;
+    .cat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 8px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
     }
-    .product-art {
-      height: 150px; display: grid; place-items: center;
-      background: #f0f5ed; font-size: 67px;
+    .cat-card:hover, .cat-card.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
     }
-    .product-body { padding: 11px; display: flex; flex: 1; flex-direction: column; }
-    .product h3 { font-size: 14px; margin: 0 0 5px; }
-    .product small { color: var(--muted); }
-    .price { color: var(--green-dark); font-weight: bold; margin: 6px 0 10px; font-size: 13px; }
-    .product .primary { width: 100%; margin-top: auto; }
-    .empty { text-align: center; padding: 30px; color: var(--muted); }
-    .about { background: #eaf3e9; margin-top: 24px; padding: 20px 0; }
-    .about h2 { font-size: 19px; margin: 0 0 8px; }
-    .about p { margin: 5px 0; font-size: 14px; }
-    footer { padding: 18px 0 90px; font-size: 13px; color: var(--muted); }
-    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .bottom-nav { display: none; }
-    .backdrop {
-      position: fixed; inset: 0; z-index: 40;
-      background: #0008; display: grid; place-items: center; padding: 14px;
+    .cat-icon {
+      font-size: 30px;
+      margin-bottom: 6px;
+      display: block;
     }
-    .dialog {
-      background: white; width: min(480px, 100%);
-      max-height: min(90vh, 800px); overflow: auto;
-      border-radius: 8px; padding: 18px;
+    .cat-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
     }
-    .dialog-header { display: flex; justify-content: space-between; align-items: center; }
-    .dialog-header h2 { font-size: 19px; margin: 0 0 12px; }
-    .close {
-      width: 35px; height: 35px; border: 0;
-      background: #eef2ee; border-radius: 5px; font-size: 24px;
+
+    /* لیست محصولات */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
-    .cart-row {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 12px; border-bottom: 1px solid var(--line); padding: 11px 0;
+    @media(min-width: 768px) {
+      .products-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
     }
-    .cart-row strong { font-size: 14px; }
-    .qty { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
-    .qty button { width: 30px; height: 30px; border: 1px solid var(--line); background: white; border-radius: 4px; }
-    .total { font-weight: bold; padding: 12px 0; }
-    .dialog .primary { width: 100%; }
-    .hint { color: var(--muted); font-size: 12px; }
-    .admin-form { display: grid; gap: 9px; }
-    .admin-form label { font-size: 13px; }
-    @media (max-width: 800px) {
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .product-card {
+      background: var(--white);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
     }
-    @media (max-width: 600px) {
-      .wrap { width: min(100% - 20px, 500px); }
-      .top-inner { min-height: 59px; }
-      .brand strong { font-size: 13px; }
-      .brand-mark { width: 33px; height: 33px; font-size: 19px; }
-      .hero { margin-top: 10px; min-height: 215px; }
-      .hero-content { padding: 15px; max-width: 68%; }
-      .hero h1 { font-size: 21px; }
-      .hero p { font-size: 12px; }
-      .hero::after { left: 0; font-size: 73px; }
-      .benefits { gap: 6px; }
-      .benefit { min-height: 77px; font-size: 10px; }
-      .benefit span { font-size: 20px; }
-      .section-head h2 { font-size: 17px; }
-      .product-art { height: 122px; font-size: 53px; }
-      .bottom-nav {
-        position: fixed; bottom: 0; right: 0; left: 0; z-index: 25;
-        display: grid; grid-template-columns: repeat(4, 1fr);
-        background: white; box-shadow: 0 -2px 12px #0002;
-        padding-bottom: env(safe-area-inset-bottom);
-      }
-      .bottom-nav a, .bottom-nav button {
-        border: 0; background: white; color: #5b665e;
-        text-align: center; padding: 6px 1px; font-size: 11px;
-      }
-      .bottom-nav span { display: block; font-size: 20px; line-height: 1.3; }
-      footer { padding-bottom: 95px; }
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .product-thumb {
+      height: 110px;
+      background: #fbfbfd;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 46px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .p-tag {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(255,255,255,0.9);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .product-name {
+      font-size: 13px;
+      font-weight: 800;
+      margin: 0 0 4px;
+      line-height: 1.4;
+      min-height: 38px;
+    }
+    .product-prop {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+      gap: 4px;
+    }
+    .product-price {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--primary);
+    }
+    .add-btn {
+      background: var(--white);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .add-btn:active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* نوار پایین شبیه اپ اسنپ‌فود */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 90;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.06);
+    }
+    .cart-summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cart-icon-wrap {
+      position: relative;
+      background: var(--primary-light);
+      color: var(--primary);
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+    }
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--primary);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 10px;
+      padding: 1px 6px;
+      border: 2px solid white;
+    }
+    .cart-price-sum {
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .order-submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(255,10,84,0.3);
+    }
+
+    /* مودال سبد خرید و پرداخت آنلاین */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 200;
+      display: none;
+      backdrop-filter: blur(3px);
+    }
+    .modal-overlay.active { display: block; }
+    .checkout-modal {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-radius: 28px 28px 0 0;
+      z-index: 210;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 24px 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+    }
+    .checkout-modal.active { transform: translateY(0); }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .modal-close {
+      background: #f0f1f4;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      border: 1px solid #dcdfe6;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+    .pay-btn-gateway {
+      width: 100%;
+      background: linear-gradient(135deg, #ff0a54, #d90429);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(255,10,84,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .pay-btn-wa {
+      width: 100%;
+      background: #25d366;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
   </style>
 </head>
 <body>
-  <header class="top">
-    <div class="wrap top-inner">
-      <a class="brand" href="#home" aria-label="صفحه اصلی فروشگاه">
-        <span class="brand-mark">🌿</span>
-        <strong>عطاری و خشکبار<br>برادران تقدیسی</strong>
+
+  <!-- هدر اپلیکیشنی -->
+  <header>
+    <div class="header-top">
+      <a href="#" class="brand-box">
+        <div class="brand-logo">🌿</div>
+        <div>
+          <div class="brand-title">عطاری برادران تقدیسی</div>
+          <div class="brand-subtitle">نارمک، میدان نبوت (هفت‌حوض)</div>
+        </div>
       </a>
-      <div class="header-actions">
-        <button class="icon-button" id="searchButton" aria-label="رفتن به جست‌وجو" title="جست‌وجو">⌕</button>
-        <button class="icon-button" data-open-cart aria-label="سبد خرید" title="سبد خرید">
-          🛒<span class="count" data-cart-count hidden>0</span>
-        </button>
-      </div>
+      <a href="tel:09188085331" class="header-call-btn">
+        <span>📞</span> تماس: ۰۹۱۸۸۰۸۵۳۳۱
+      </a>
     </div>
   </header>
 
-  <main id="home" class="wrap">
-    <section class="hero" aria-label="معرفی فروشگاه">
-      <div class="hero-content">
-        <h1>طعم سلامتی<br>در دل طبیعت</h1>
-        <p>گیاهان، دمنوش و خشکبار در نارمک تهران</p>
-        <a class="primary" href="#products">مشاهده محصولات ←</a>
+  <!-- معرفی فروشگاه به سبک وندور اسنپ‌فود -->
+  <div class="vendor-card">
+    <div class="vendor-inner">
+      <div>
+        <div style="font-weight:800; font-size:16px; margin-bottom:6px;">عطاری و خشکبار برادران تقدیسی</div>
+        <div class="vendor-meta">
+          <span class="badge badge-green">🚀 ارسال رایگان در محدوده نارمک</span>
+          <span class="badge badge-pink">⭐ کیفیت تضمینی و اعلا</span>
+          <span>ساعت کار: ۹:۰۰ تا ۲۲:۰۰</span>
+        </div>
       </div>
-    </section>
-
-    <div class="benefits" aria-label="ویژگی‌های فروشگاه">
-      <div class="benefit"><span>🚚</span>ارسال رایگان در نارمک</div>
-      <div class="benefit"><span>💬</span>ثبت سفارش واتساپی</div>
-      <div class="benefit"><span>🕘</span>هر روز ۹ تا ۲۲</div>
-      <div class="benefit"><span>🌿</span>تنوع گیاه و خشکبار</div>
+      <div style="font-size:12px; color:var(--muted); line-height:1.8;">
+        📍 پلاک ۲۴۶، جنب نان برکت (روبروی آموزشگاه سفیر)<br>
+        📱 تماس سریع: ۰۹۹۲۱۹۷۱۴۲۳
+      </div>
     </div>
-
-    <section id="finder">
-      <div class="section-head">
-        <h2>جست‌وجو بر اساس نیاز و علائم</h2>
-      </div>
-      <div class="finder">
-        <p>علامت یا نیازتان را بنویسید، یا یکی از گزینه‌ها را انتخاب کنید.</p>
-        <input class="field" id="symptomInput" type="search"
-          placeholder="مثلاً: بی‌خوابی، سرماخوردگی، استرس یا گوارش"
-          aria-label="جست‌وجوی نیاز یا علامت">
-        <div class="chips" id="symptomChips"></div>
-        <p class="notice" id="medicalNote">
-          این بخش فقط محصولات مرتبط را پیدا می‌کند؛ تشخیص یا توصیهٔ درمانی نیست.
-          برای بیماری، بارداری، مصرف دارو یا علائم شدید با پزشک مشورت کنید.
-        </p>
-      </div>
-    </section>
-
-    <section id="products">
-      <div class="section-head">
-        <h2>محصولات فروشگاه</h2>
-        <small id="resultCount"></small>
-      </div>
-      <div class="catalog-tools">
-        <input class="field" id="productSearch" type="search"
-          placeholder="جست‌وجوی نام محصول..."
-          aria-label="جست‌وجوی نام محصول">
-        <button class="secondary" id="clearFilters" type="button">پاک‌کردن فیلتر</button>
-      </div>
-      <div class="categories" id="categoryChips" aria-label="دسته‌بندی محصولات"></div>
-      <div class="grid" id="productGrid"></div>
-      <p class="empty" id="emptyMessage" hidden>محصولی با این جست‌وجو پیدا نشد.</p>
-    </section>
-  </main>
-
-  <section class="about" id="contact">
-    <div class="wrap">
-      <h2>عطاری و خشکبار برادران تقدیسی</h2>
-      <p>تهران، نارمک، آیت شمالی، روبه‌روی آموزشگاه زبان سفیر، کنار نان برکت، پلاک ۲۴۶</p>
-      <p>ساعت کاری: همه‌روزه ۹:۰۰ تا ۲۲:۰۰ | ارسال رایگان در محدودهٔ نارمک</p>
-      <p>
-        <a href="tel:09188085331">۰۹۱۸۸۰۸۵۳۳۱</a>
-        ·
-        <a href="tel:09921971423">۰۹۹۲۱۹۷۱۴۲۳</a>
-        ·
-        <a href="https://www.instagram.com/atarikhoshkbartaghdisi/" target="_blank" rel="noopener noreferrer">اینستاگرام فروشگاه</a>
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© عطاری و خشکبار برادران تقدیسی</span>
-      <button id="adminButton" type="button" class="chip">مدیریت محصولات این مرورگر</button>
-    </div>
-  </footer>
-
-  <nav class="bottom-nav" aria-label="ناوبری اصلی">
-    <a href="#home"><span>⌂</span>خانه</a>
-    <a href="#products"><span>▦</span>محصولات</a>
-    <a href="#finder"><span>⌕</span>جست‌وجوی علائم</a>
-    <button data-open-cart type="button"><span>🛒</span>سبد خرید</button>
-  </nav>
-
-  <div id="cartModal" class="backdrop" hidden>
-    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-      <div class="dialog-header">
-        <h2 id="cartTitle">سبد خرید</h2>
-        <button class="close" data-close="cartModal" aria-label="بستن">×</button>
-      </div>
-      <div id="cartItems"></div>
-      <div id="cartTotal" class="total"></div>
-      <p class="hint">قیمت محصولات بدون قیمت درج‌شده، هنگام هماهنگی سفارش اعلام می‌شود.</p>
-      <button id="checkoutButton" class="primary" type="button">ارسال سفارش در واتس‌اپ</button>
-    </section>
   </div>
 
-  <div id="adminModal" class="backdrop" hidden>
-    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
-      <div class="dialog-header">
-        <h2 id="adminTitle">مدیریت محلی محصولات</h2>
-        <button class="close" data-close="adminModal" aria-label="بستن">×</button>
+  <!-- سرچ‌بار اسنپ‌فودی -->
+  <div class="search-wrapper">
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="searchInput" placeholder="جستجوی گیاه دارویی، پسته، عرق نعنا یا بیماری...">
+    </div>
+  </div>
+
+  <!-- بخش اختصاصی و هوشمند: انتخاب بر اساس بیماری یا نیاز سلامتی -->
+  <div class="section-container">
+    <div class="section-title">
+      <span>💊 درمان سنتی بر اساس بیماری و نیاز:</span>
+      <small style="color:var(--primary); font-size:11px; cursor:pointer;" onclick="resetFilter()">مشاهده همه</small>
+    </div>
+    <div class="illness-scroll" id="illnessList">
+      <!-- چیپ‌های بیماری به صورت داینامیک اضافه می‌شوند -->
+    </div>
+  </div>
+
+  <!-- دسته‌بندی‌های آیکونی مانند اسنپ‌فود -->
+  <div class="section-container">
+    <div class="section-title">
+      <span>دسته‌بندی محصولات</span>
+    </div>
+    <div class="cat-grid" id="catGrid">
+      <!-- دسته‌بندی‌ها -->
+    </div>
+  </div>
+
+  <!-- فهرست محصولات -->
+  <div class="section-container">
+    <div class="section-title">
+      <span id="listTitle">همه محصولات</span>
+      <span style="font-size:12px; color:var(--muted);" id="productCount"></span>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+
+  <!-- نوار سبد خرید پایین صفحه -->
+  <div class="bottom-bar">
+    <div class="cart-summary" onclick="openCheckout()">
+      <div class="cart-icon-wrap">
+        🛒
+        <span class="cart-badge" id="cartBadge">۰</span>
       </div>
-      <p class="notice">
-        تغییرات این بخش فقط در مرورگر فعلی ذخیره می‌شود و در سایت عمومی یا دستگاه
-        مشتریان نمایش داده نمی‌شود. برای تغییر محصولات عمومی باید کد سایت را در GitHub ویرایش کنید.
-      </p>
-      <form id="adminForm" class="admin-form">
-        <label for="adminName">نام محصول</label>
-        <input class="field" id="adminName" required maxlength="70">
-        <label for="adminCategory">دسته‌بندی</label>
-        <select class="field" id="adminCategory">
-          <option>گیاهان دارویی</option>
-          <option>دمنوش</option>
-          <option>خشکبار</option>
-          <option>ادویه</option>
-          <option>عرقیات</option>
-        </select>
-        <label for="adminPrice">قیمت به تومان (اختیاری)</label>
-        <input class="field" id="adminPrice" type="number" min="0" step="1000" placeholder="خالی = استعلام قیمت">
-        <button class="primary" type="submit">افزودن در این مرورگر</button>
-        <button class="secondary" id="resetCatalog" type="button">بازگرداندن محصولات نمونه</button>
-      </form>
-    </section>
+      <div>
+        <div style="font-size:11px; color:var(--muted);">جمع سبد خرید</div>
+        <div class="cart-price-sum" id="bottomTotal">۰ تومان</div>
+      </div>
+    </div>
+    <button class="order-submit-btn" onclick="openCheckout()">تسویه و پرداخت ←</button>
+  </div>
+
+  <!-- مودال نهایی‌سازی سفارش و درگاه پرداخت -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeCheckout()"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="modal-header">
+      <h3 style="margin:0; font-size:16px;">سبد خرید و درگاه پرداخت آنلاین</h3>
+      <button class="modal-close" onclick="closeCheckout()">✕</button>
+    </div>
+
+    <!-- اقلام سبد -->
+    <div id="cartItemsList" style="margin-bottom:15px; max-height:180px; overflow-y:auto;"></div>
+
+    <div style="background:#f8f9fc; border-radius:14px; padding:12px; margin-bottom:16px; font-size:13px;">
+      <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+        <span>مبلغ کالاها:</span>
+        <span id="modalSubtotal">۰ تومان</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-bottom:6px; color:var(--green-badge);">
+        <span>هزینه ارسال (محدوده نارمک):</span>
+        <span>رایگان</span>
+      </div>
+      <hr style="border:0; border-top:1px dashed #d5d9e2; margin:8px 0;">
+      <div style="display:flex; justify-content:space-between; font-weight:800; font-size:15px; color:var(--primary);">
+        <span>مبلغ نهایی قابل پرداخت:</span>
+        <span id="modalFinalTotal">۰ تومان</span>
+      </div>
+    </div>
+
+    <!-- فرم اطلاعات مشتری برای درگاه -->
+    <div class="form-group">
+      <label>نام و نام خانوادگی:</label>
+      <input type="text" id="custName" placeholder="مثال: علی تقدیسی">
+    </div>
+    <div class="form-group">
+      <label>شماره تماس (جهت پیامک پیگیری و درگاه):</label>
+      <input type="tel" id="custPhone" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+    </div>
+    <div class="form-group">
+      <label>آدرس دقیق تحویل سفارش در نارمک یا تهران:</label>
+      <textarea id="custAddress" rows="2" placeholder="خیابان، کوچه، پلاک، واحد"></textarea>
+    </div>
+
+    <!-- دکمه پرداخت آنلاین شاپرک / زرین‌پال -->
+    <button class="pay-btn-gateway" onclick="handleOnlinePay()">
+      💳 پرداخت آنلاین امن با کارت بانکی (شتاب)
+    </button>
+
+    <!-- دکمه جایگزین واتساپ -->
+    <button class="pay-btn-wa" onclick="handleWhatsAppOrder()">
+      💬 ثبت سریع و ارسال در واتساپ فروشگاه
+    </button>
   </div>
 
   <script>
-    "use strict";
-
-    /*
-      محصولات پیش‌فرض سایت همین‌جا قرار دارند.
-      برای تغییر عمومی محصول، نام، دسته‌بندی، نماد یا قیمت را در این فهرست
-      ویرایش کنید و فایل index.html را دوباره در GitHub ثبت کنید.
-      price: null یعنی «استعلام قیمت».
-    */
-    const DEFAULT_PRODUCTS = [
-      { id: 1,  name: "غنچه گل محمدی",    category: "گیاهان دارویی", emoji: "🌹", price: null, tags: ["آرامش", "دمنوش"] },
-      { id: 2,  name: "برگه زردآلو خشک",   category: "خشکبار",         emoji: "🍑", price: null, tags: [] },
-      { id: 3,  name: "گردو",              category: "خشکبار",         emoji: "🌰", price: null, tags: [] },
-      { id: 4,  name: "عناب خشک",          category: "گیاهان دارویی", emoji: "🍒", price: null, tags: ["گلو", "سرماخوردگی"] },
-      { id: 5,  name: "بابونه",            category: "گیاهان دارویی", emoji: "🌼", price: null, tags: ["آرامش", "خواب", "گوارش"] },
-      { id: 6,  name: "به‌لیمو",           category: "دمنوش",          emoji: "🍃", price: null, tags: ["آرامش", "خواب"] },
-      { id: 7,  name: "گل گاوزبان",        category: "گیاهان دارویی", emoji: "🌸", price: null, tags: ["آرامش"] },
-      { id: 8,  name: "آویشن",             category: "گیاهان دارویی", emoji: "🌿", price: null, tags: ["گلو", "سرماخوردگی"] },
-      { id: 9,  name: "نعناع خشک",         category: "گیاهان دارویی", emoji: "🌱", price: null, tags: ["گوارش"] },
-      { id: 10, name: "زنجبیل",            category: "ادویه",          emoji: "🫚", price: null, tags: ["سرماخوردگی", "گوارش"] },
-      { id: 11, name: "دارچین",            category: "ادویه",          emoji: "🪵", price: null, tags: ["دمنوش"] },
-      { id: 12, name: "هل سبز",            category: "ادویه",          emoji: "🫛", price: null, tags: ["دمنوش"] },
-      { id: 13, name: "زعفران",            category: "ادویه",          emoji: "🌺", price: null, tags: [] },
-      { id: 14, name: "زردچوبه",           category: "ادویه",          emoji: "🟡", price: null, tags: [] },
-      { id: 15, name: "پسته",              category: "خشکبار",         emoji: "🥜", price: null, tags: [] },
-      { id: 16, name: "بادام درختی",       category: "خشکبار",         emoji: "🥜", price: null, tags: [] },
-      { id: 17, name: "فندق",              category: "خشکبار",         emoji: "🌰", price: null, tags: [] },
-      { id: 18, name: "کشمش",              category: "خشکبار",         emoji: "🍇", price: null, tags: [] },
-      { id: 19, name: "مویز",              category: "خشکبار",         emoji: "🍇", price: null, tags: [] },
-      { id: 20, name: "انجیر خشک",         category: "خشکبار",         emoji: "🟣", price: null, tags: [] },
-      { id: 21, name: "توت خشک",           category: "خشکبار",         emoji: "🤍", price: null, tags: [] },
-      { id: 22, name: "خرما",              category: "خشکبار",         emoji: "🟤", price: null, tags: [] },
-      { id: 23, name: "چای ترش",           category: "دمنوش",          emoji: "🫖", price: null, tags: ["دمنوش"] },
-      { id: 24, name: "چای سبز",           category: "دمنوش",          emoji: "🍵", price: null, tags: ["دمنوش"] },
-      { id: 25, name: "دمنوش آرامش",       category: "دمنوش",          emoji: "☕", price: null, tags: ["آرامش", "خواب"] },
-      { id: 26, name: "دمنوش زمستانی",     category: "دمنوش",          emoji: "🫖", price: null, tags: ["سرماخوردگی"] },
-      { id: 27, name: "عرق نعناع",         category: "عرقیات",         emoji: "🧴", price: null, tags: ["گوارش"] },
-      { id: 28, name: "گلاب",              category: "عرقیات",         emoji: "🧴", price: null, tags: ["آرامش"] },
-      { id: 29, name: "عرق بیدمشک",        category: "عرقیات",         emoji: "🧴", price: null, tags: ["آرامش"] },
-      { id: 30, name: "اسطوخودوس",         category: "گیاهان دارویی", emoji: "💜", price: null, tags: ["آرامش", "خواب"] },
-      { id: 31, name: "رازیانه",           category: "گیاهان دارویی", emoji: "🌾", price: null, tags: ["گوارش"] },
-      { id: 32, name: "زیره سبز",          category: "ادویه",          emoji: "🌿", price: null, tags: ["گوارش"] }
+    // اطلاعات محصولات با دسته‌بندی و ارتباط با بیماری‌ها
+    const categories = [
+      { id: 'all', name: 'همه', icon: '✨' },
+      { id: 'nuts', name: 'خشکبار و پسته', icon: '🥜' },
+      { id: 'herbal', name: 'گیاهان دارویی', icon: '🌿' },
+      { id: 'aragh', name: 'عرقیجات اعلا', icon: '🫗' },
+      { id: 'spices', name: 'ادویه و چاشنی', icon: '🧂' },
+      { id: 'sweet', name: 'شیرینی و نبات', icon: '🍬' }
     ];
 
-    const SYMPTOMS = [
-      { label: "بی‌خوابی", words: ["بی خوابی", "بی‌خوابی", "خواب", "کم خوابی"], tag: "خواب" },
-      { label: "استرس و اضطراب", words: ["استرس", "اضطراب", "آرامش", "تنش"], tag: "آرامش" },
-      { label: "سرماخوردگی", words: ["سرماخوردگی", "سرما خوردگی", "گلو", "سرفه"], tag: "سرماخوردگی" },
-      { label: "مشکلات گوارشی", words: ["گوارش", "نفخ", "معده", "هضم"], tag: "گوارش" }
+    const illnesses = [
+      { id: 'relax', name: '😴 خواب‌آور و آرامبخش اعصاب', tags: ['گاوزبان', 'بهار نارنج', 'بیدمشک'] },
+      { id: 'stomach', name: '🫄 گوارش، معده و نفخ', tags: ['عرق نعنا', 'زنیان', 'آویشن'] },
+      { id: 'cold', name: '🤒 سرماخوردگی و تقویت ایمنی', tags: ['آویشن', 'گل گاوزبان', 'دارچین', 'زردچوبه'] },
+      { id: 'liver', name: '🩸 کبد چرب و تصفیه خون', tags: ['کاسنی', 'شاطره'] },
+      { id: 'energy', name: '⚡ ضعف جسمانی و حافظه', tags: ['پسته', 'بادام', 'مویز', 'گردو', 'خرما'] },
+      { id: 'heart', name: '❤️ فشار خون و سلامت قلب', tags: ['بیدمشک', 'بادام', 'کشمش'] }
     ];
 
-    const HIGH_RISK_WORDS = [
-      "فشار خون", "فشارخون", "دیابت", "قند خون", "قلب",
-      "بارداری", "باردار", "درد سینه", "تنگی نفس"
+    const products = [
+      { id: 1, cat: 'nuts', name: 'پسته اکبری درجه یک', price: 493000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'ویژه' },
+      { id: 2, cat: 'nuts', name: 'بادام هندی زعفرانی', price: 395000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'پرفروش' },
+      { id: 3, cat: 'nuts', name: 'مغز گردوی ایرانی توسکان', price: 275000, unit: '۱۰۰ گرم', icon: '🌰', tag: '' },
+      { id: 4, cat: 'nuts', name: 'مغز بادام درختی اعلا', price: 430000, unit: '۱۰۰ گرم', icon: '🥜', tag: '' },
+      { id: 5, cat: 'nuts', name: 'انجیر خشک استهبان', price: 120000, unit: '۱۰۰ گرم', icon: '🍯', tag: '' },
+      { id: 6, cat: 'nuts', name: 'مویز درجه یک افغان', price: 110000, unit: '۱۰۰ گرم', icon: '🍇', tag: 'خون‌ساز' },
+      { id: 7, cat: 'herbal', name: 'گل گاوزبان اصل', price: 137000, unit: '۲۰ گرم', icon: '🌸', tag: 'آرامبخش' },
+      { id: 8, cat: 'aragh', name: 'گلاب دوآتیشه اصل', price: 650000, unit: '۱ لیتری', icon: '🌹', tag: 'صادراتی' },
+      { id: 9, cat: 'aragh', name: 'عرق نعنا دوآتیشه ایرانداد', price: 230000, unit: '۱ لیتری', icon: '🌿', tag: 'ضدنفخ' },
+      { id: 10, cat: 'aragh', name: 'عرق بهار نارنج ایرانداد', price: 267000, unit: '۱ لیتری', icon: '🍊', tag: 'اعصاب' },
+      { id: 11, cat: 'aragh', name: 'عرق کاسنی ممتاز', price: 175000, unit: '۱ لیتری', icon: '🌱', tag: 'کبد چرب' },
+      { id: 12, cat: 'aragh', name: 'عرق شاطره مصفا', price: 175000, unit: '۱ لیتری', icon: '🌾', tag: 'خنک‌کننده' },
+      { id: 13, cat: 'aragh', name: 'عرق بیدمشک ناب', price: 267000, unit: '۱ لیتری', icon: '🎋', tag: 'تقویت قلب' },
+      { id: 14, cat: 'spices', name: 'زعفران قائنات اصیل', price: 1950000, unit: 'یک مثقال', icon: '✨', tag: 'ممتاز' },
+      { id: 15, cat: 'spices', name: 'زردچوبه اعلای هندی', price: 242000, unit: '۱۰۰ گرم', icon: '🧂', tag: '' },
+      { id: 16, cat: 'spices', name: 'دارچین سیگاری معطر', price: 565000, unit: '۱۰۰ گرم', icon: '🪵', tag: '' },
+      { id: 17, cat: 'sweet', name: 'نبات شاخه زعفرانی اعلا', price: 195000, unit: '۵۰۰ گرم', icon: '🍬', tag: '' }
     ];
 
-    const PRODUCT_KEY = "taghdisi-products-v2";
-    const CART_KEY = "taghdisi-cart-v2";
-    const money = new Intl.NumberFormat("fa-IR");
+    let cart = {};
+    let activeCat = 'all';
+    let activeIllness = null;
 
-    function loadStorage(key, fallback) {
-      try {
-        const raw = localStorage.getItem(key);
-        return raw === null ? fallback : JSON.parse(raw);
-      } catch {
-        return fallback;
-      }
+    // رندر دسته‌ها
+    function renderCategories() {
+      const el = document.getElementById('catGrid');
+      el.innerHTML = categories.map(c => `
+        <div class="cat-card ${activeCat === c.id ? 'active' : ''}" onclick="selectCat('${c.id}')">
+          <span class="cat-icon">${c.icon}</span>
+          <div class="cat-title">${c.name}</div>
+        </div>
+      `).join('');
     }
 
-    function saveStorage(key, value) {
-      try { localStorage.setItem(key, JSON.stringify(value)); }
-      catch { /* The page remains usable when storage is blocked. */ }
+    // رندر بیماری‌ها
+    function renderIllnesses() {
+      const el = document.getElementById('illnessList');
+      el.innerHTML = illnesses.map(item => `
+        <div class="illness-chip ${activeIllness === item.id ? 'active' : ''}" onclick="selectIllness('${item.id}')">
+          ${item.name}
+        </div>
+      `).join('');
     }
 
-    function normalize(value) {
-      return String(value ?? "")
-        .replace(/ي/g, "ی").replace(/ك/g, "ک")
-        .replace(/\u200c/g, " ")
-        .replace(/[ًٌٍَُِّ]/g, "")
-        .replace(/\s+/g, " ").trim().toLowerCase();
-    }
-
-    function validProduct(p) {
-      return p && typeof p === "object"
-        && Number.isSafeInteger(p.id)
-        && typeof p.name === "string" && p.name.trim()
-        && typeof p.category === "string" && p.category.trim();
-    }
-
-    function readProducts() {
-      const stored = loadStorage(PRODUCT_KEY, null);
-      if (!Array.isArray(stored) || !stored.some(validProduct)) {
-        return DEFAULT_PRODUCTS.map(p => ({ ...p, tags: [...p.tags] }));
-      }
-      return stored.filter(validProduct);
-    }
-
-    let products = readProducts();
-    const savedCart = loadStorage(CART_KEY, {});
-    let cart = savedCart && typeof savedCart === "object" && !Array.isArray(savedCart)
-      ? savedCart : {};
-    let selectedCategory = "همه";
-    let selectedSymptom = null;
-
-    const grid = document.getElementById("productGrid");
-    const productSearch = document.getElementById("productSearch");
-    const symptomInput = document.getElementById("symptomInput");
-    const medicalNote = document.getElementById("medicalNote");
-
-    function matchingSymptom() {
-      if (selectedSymptom) return selectedSymptom;
-      const query = normalize(symptomInput.value);
-      if (!query) return null;
-      return SYMPTOMS.find(item =>
-        item.words.some(word =>
-          normalize(word).includes(query) || query.includes(normalize(word))
-        )
-      ) || null;
-    }
-
-    function isHighRisk() {
-      const query = normalize(symptomInput.value);
-      return HIGH_RISK_WORDS.some(word => query.includes(normalize(word)));
-    }
-
-    function renderSymptomChips() {
-      const holder = document.getElementById("symptomChips");
-      holder.replaceChildren();
-      for (const item of SYMPTOMS) {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "chip" + (selectedSymptom === item ? " active" : "");
-        button.textContent = item.label;
-        button.setAttribute("aria-pressed", String(selectedSymptom === item));
-        button.addEventListener("click", () => {
-          selectedSymptom = selectedSymptom === item ? null : item;
-          symptomInput.value = "";
-          renderAll();
-          document.getElementById("products").scrollIntoView({ behavior: "smooth" });
-        });
-        holder.append(button);
-      }
-    }
-
-    function renderCategoryChips() {
-      const holder = document.getElementById("categoryChips");
-      holder.replaceChildren();
-      const categories = ["همه", ...new Set(products.map(p => p.category))];
-      if (!categories.includes(selectedCategory)) selectedCategory = "همه";
-      for (const category of categories) {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "chip" + (selectedCategory === category ? " active" : "");
-        button.textContent = category;
-        button.setAttribute("aria-pressed", String(selectedCategory === category));
-        button.addEventListener("click", () => {
-          selectedCategory = category;
-          renderCategoryChips();
-          renderProducts();
-        });
-        holder.append(button);
-      }
-    }
-
-    function makeProductCard(product) {
-      const article = document.createElement("article");
-      article.className = "product";
-
-      const art = document.createElement("div");
-      art.className = "product-art";
-      art.textContent = typeof product.emoji === "string" ? product.emoji : "🌿";
-      art.setAttribute("aria-hidden", "true");
-
-      const body = document.createElement("div");
-      body.className = "product-body";
-
-      const title = document.createElement("h3");
-      title.textContent = product.name;
-
-      const category = document.createElement("small");
-      category.textContent = product.category;
-
-      const price = document.createElement("div");
-      price.className = "price";
-      price.textContent = Number.isFinite(product.price) && product.price > 0
-        ? money.format(product.price) + " تومان"
-        : "استعلام قیمت";
-
-      const add = document.createElement("button");
-      add.type = "button";
-      add.className = "primary";
-      add.textContent = "افزودن به سبد +";
-      add.setAttribute("aria-label", "افزودن " + product.name + " به سبد");
-      add.addEventListener("click", () => {
-        const key = String(product.id);
-        const current = Number(cart[key]) || 0;
-        cart[key] = Math.min(99, current + 1);
-        saveStorage(CART_KEY, cart);
-        updateCartCount();
-        add.textContent = "اضافه شد ✓";
-        setTimeout(() => { add.textContent = "افزودن به سبد +"; }, 1100);
-      });
-
-      body.append(title, category, price, add);
-      article.append(art, body);
-      return article;
-    }
-
+    // فیلتر و رندر محصولات
     function renderProducts() {
-      const nameQuery = normalize(productSearch.value);
-      const symptomQuery = normalize(symptomInput.value);
-      const symptom = matchingSymptom();
-      const highRisk = isHighRisk();
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      let list = products;
 
-      if (highRisk) {
-        medicalNote.textContent =
-          "برای این موضوع پیشنهاد محصول یا درمان ارائه نمی‌شود. لطفاً با پزشک یا داروساز مشورت کنید؛ در صورت علائم شدید، کمک فوری پزشکی بگیرید.";
-      } else if (symptom) {
-        medicalNote.textContent =
-          "این‌ها فقط محصولات مرتبط با عبارت انتخابی هستند و به معنی اثربخشی یا مناسب‌بودن برای شما نیستند. پیش از مصرف، به‌ویژه همراه دارو، با پزشک یا داروساز مشورت کنید.";
-      } else {
-        medicalNote.textContent =
-          "این بخش فقط محصولات مرتبط را پیدا می‌کند؛ تشخیص یا توصیهٔ درمانی نیست. برای بیماری، بارداری، مصرف دارو یا علائم شدید با پزشک مشورت کنید.";
+      if (activeCat !== 'all') {
+        list = list.filter(p => p.cat === activeCat);
       }
 
-      const filtered = highRisk ? [] : products.filter(product => {
-        const nameMatch = !nameQuery
-          || normalize(product.name).includes(nameQuery)
-          || normalize(product.category).includes(nameQuery);
-        const categoryMatch = selectedCategory === "همه"
-          || product.category === selectedCategory;
-        const tags = Array.isArray(product.tags) ? product.tags : [];
-        const symptomMatch = symptom
-          ? tags.some(tag => normalize(tag) === normalize(symptom.tag))
-          : !symptomQuery || normalize(product.name).includes(symptomQuery)
-            || tags.some(tag => normalize(tag).includes(symptomQuery));
-        return nameMatch && categoryMatch && symptomMatch;
-      });
+      if (activeIllness) {
+        const illObj = illnesses.find(i => i.id === activeIllness);
+        if (illObj) {
+          list = list.filter(p => illObj.tags.some(t => p.name.includes(t) || (p.tag && p.tag.includes(t))));
+        }
+      }
 
-      grid.replaceChildren(...filtered.map(makeProductCard));
-      document.getElementById("resultCount").textContent =
-        money.format(filtered.length) + " محصول";
-      document.getElementById("emptyMessage").hidden = filtered.length > 0 || highRisk;
+      if (query) {
+        list = list.filter(p => p.name.toLowerCase().includes(query) || (p.tag && p.tag.includes(query)));
+      }
+
+      document.getElementById('productCount').textContent = list.length + ' کالا';
+      const el = document.getElementById('productsGrid');
+
+      if (list.length === 0) {
+        el.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:#888;">محصولی مرتبط با این انتخاب پیدا نشد.</div>';
+        return;
+      }
+
+      el.innerHTML = list.map(p => `
+        <div class="product-card">
+          <div>
+            <div class="product-thumb">
+              ${p.icon}
+              ${p.tag ? `<span class="p-tag">${p.tag}</span>` : ''}
+            </div>
+            <h4 class="product-name">${p.name}</h4>
+            <div class="product-prop">${p.unit}</div>
+          </div>
+          <div class="product-bottom">
+            <div class="product-price">${p.price.toLocaleString('fa-IR')} <small style="font-size:10px; color:#888;">تومان</small></div>
+            <button class="add-btn" onclick="addToCart(${p.id})">+</button>
+          </div>
+        </div>
+      `).join('');
     }
 
-    function renderAll() {
-      renderSymptomChips();
-      renderCategoryChips();
+    function selectCat(id) {
+      activeCat = id;
+      activeIllness = null;
+      renderCategories();
+      renderIllnesses();
       renderProducts();
-      updateCartCount();
     }
 
-    function cartEntries() {
-      return Object.entries(cart)
-        .map(([id, quantity]) => ({
-          product: products.find(p => String(p.id) === id),
-          quantity: Math.min(99, Math.max(0, Math.floor(Number(quantity) || 0)))
-        }))
-        .filter(row => row.product && row.quantity > 0);
+    function selectIllness(id) {
+      activeIllness = activeIllness === id ? null : id;
+      activeCat = 'all';
+      renderCategories();
+      renderIllnesses();
+      renderProducts();
     }
 
-    function updateCartCount() {
-      const count = cartEntries().reduce((sum, row) => sum + row.quantity, 0);
-      for (const badge of document.querySelectorAll("[data-cart-count]")) {
-        badge.textContent = money.format(count);
-        badge.hidden = count === 0;
+    function resetFilter() {
+      activeCat = 'all';
+      activeIllness = null;
+      document.getElementById('searchInput').value = '';
+      renderCategories();
+      renderIllnesses();
+      renderProducts();
+    }
+
+    // سبد خرید
+    function addToCart(id) {
+      cart[id] = (cart[id] || 0) + 1;
+      updateCartUI();
+    }
+
+    function removeFromCart(id) {
+      if (cart[id]) {
+        cart[id]--;
+        if (cart[id] <= 0) delete cart[id];
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      let count = 0;
+      let total = 0;
+      for (const id in cart) {
+        const p = products.find(x => x.id == id);
+        if (p) {
+          count += cart[id];
+          total += (p.price * cart[id]);
+        }
+      }
+
+      document.getElementById('cartBadge').textContent = count.toLocaleString('fa-IR');
+      document.getElementById('bottomTotal').textContent = total.toLocaleString('fa-IR') + ' تومان';
+      document.getElementById('modalSubtotal').textContent = total.toLocaleString('fa-IR') + ' تومان';
+      document.getElementById('modalFinalTotal').textContent = total.toLocaleString('fa-IR') + ' تومان';
+
+      // نمایش اقلام داخل مودال
+      const listEl = document.getElementById('cartItemsList');
+      if (count === 0) {
+        listEl.innerHTML = '<div style="text-align:center; color:#999; padding:20px;">سبد خرید شما خالی است.</div>';
+      } else {
+        listEl.innerHTML = Object.keys(cart).map(id => {
+          const p = products.find(x => x.id == id);
+          return `
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f1f1f1;">
+              <div>
+                <div style="font-weight:700; font-size:13px;">${p.name}</div>
+                <div style="font-size:11px; color:#888;">${(p.price * cart[id]).toLocaleString('fa-IR')} تومان</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button onclick="removeFromCart(${p.id})" style="border:1px solid #ddd; background:white; width:26px; height:26px; border-radius:6px;">-</button>
+                <span style="font-weight:bold; font-size:13px;">${cart[id]}</span>
+                <button onclick="addToCart(${p.id})" style="border:1px solid #ddd; background:white; width:26px; height:26px; border-radius:6px;">+</button>
+              </div>
+            </div>
+          `;
+        }).join('');
       }
     }
 
-    function renderCart() {
-      const holder = document.getElementById("cartItems");
-      holder.replaceChildren();
-      const entries = cartEntries();
-
-      if (!entries.length) {
-        const empty = document.createElement("p");
-        empty.className = "empty";
-        empty.textContent = "سبد خرید شما خالی است.";
-        holder.append(empty);
-      }
-
-      for (const { product, quantity } of entries) {
-        const row = document.createElement("div");
-        row.className = "cart-row";
-
-        const name = document.createElement("strong");
-        name.textContent = product.name;
-
-        const controls = document.createElement("div");
-        controls.className = "qty";
-
-        const minus = document.createElement("button");
-        minus.type = "button";
-        minus.textContent = "−";
-        minus.setAttribute("aria-label", "کاهش تعداد " + product.name);
-
-        const number = document.createElement("span");
-        number.textContent = money.format(quantity);
-
-        const plus = document.createElement("button");
-        plus.type = "button";
-        plus.textContent = "+";
-        plus.setAttribute("aria-label", "افزایش تعداد " + product.name);
-
-        minus.addEventListener("click", () => changeQuantity(product.id, -1));
-        plus.addEventListener("click", () => changeQuantity(product.id, 1));
-        controls.append(minus, number, plus);
-        row.append(name, controls);
-        holder.append(row);
-      }
-
-      const total = entries.reduce((sum, row) =>
-        sum + (Number(row.product.price) > 0
-          ? Number(row.product.price) * row.quantity : 0), 0);
-      const hasUnknownPrice = entries.some(row => !(Number(row.product.price) > 0));
-      document.getElementById("cartTotal").textContent =
-        hasUnknownPrice
-          ? "جمع اقلام دارای قیمت: " + money.format(total) + " تومان؛ قیمت بقیه با استعلام"
-          : "جمع کل: " + money.format(total) + " تومان";
-      document.getElementById("checkoutButton").disabled = entries.length === 0;
+    function openCheckout() {
+      updateCartUI();
+      document.getElementById('modalOverlay').classList.add('active');
+      document.getElementById('checkoutModal').classList.add('active');
     }
 
-    function changeQuantity(id, delta) {
-      const key = String(id);
-      const next = (Number(cart[key]) || 0) + delta;
-      if (next <= 0) delete cart[key];
-      else cart[key] = Math.min(next, 99);
-      saveStorage(CART_KEY, cart);
-      updateCartCount();
-      renderCart();
+    function closeCheckout() {
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.getElementById('checkoutModal').classList.remove('active');
     }
 
-    function openModal(id) {
-      document.getElementById(id).hidden = false;
-      if (id === "cartModal") renderCart();
+    // هدایت به درگاه پرداخت آنلاین
+    function handleOnlinePay() {
+      const totalKeys = Object.keys(cart).length;
+      if (totalKeys === 0) {
+        alert('لطفاً ابتدا حداقل یک محصول به سبد خرید اضافه کنید.');
+        return;
+      }
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+
+      if (!phone || phone.length < 10) {
+        alert('لطفاً شماره تماس معتبر خود را وارد نمایید.');
+        return;
+      }
+
+      // محاسبه جمع کل
+      let total = 0;
+      for (const id in cart) {
+        const p = products.find(x => x.id == id);
+        if (p) total += (p.price * cart[id]);
+      }
+
+      // پیام هدایت امن به درگاه شاپرک/زرین‌پال
+      alert(`در حال اتصال امن به درگاه پرداخت بانکی شاپرک...\nمبلغ: ${total.toLocaleString('fa-IR')} تومان\nسفارش‌دهنده: ${name || 'مشتری گرامی'}\n(توجه: پس از اتصال مرچنت کد اختصاصی زرین‌پال، انتقال به صفحه شاپرک صورت می‌پذیرد).`);
+      
+      // هدایت به درگاه زرین‌پال (برای اتصال نهایی کافیست لینک درگاه خود را قرار دهید)
+      // window.location.href = "https://www.zarinpal.com/pg/StartPay/YOUR_AUTHORITY";
+    }
+
+    // سفارش در واتساپ
+    function handleWhatsAppOrder() {
+      const totalKeys = Object.keys(cart).length;
+      if (totalKeys === 0) {
+        alert('سبد خرید شما خالی است.');
+        return;
+      }
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+
+      let text = `سلام، سفارش جدید از سایت ثبت شد:\n`;
+      if (name) text += `👤 نام: ${name}\n`;
+      if (phone) text += `📱 همراه: ${phone}\n`;
+      if (address) text += `📍 آدرس: ${address}\n`;
+      text += `\n🛒 اقلام انتخابی:\n`;
+
+      let total = 0;
+      for (const id in cart) {
+        const p = products.find(x => x.id == id);
+        if (p) {
+          const itemTotal = p.price * cart[id];
+          total += itemTotal;
+          text += `▪️ ${p.name} (${p.unit}) × ${cart[id]} = ${itemTotal.toLocaleString('fa-IR')} تومان\n`;
+        }
+      }
+      text += `\n💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
+      text += `\n🚚 ارسال به نارمک (رایگان)`;
+
+      window.open(`https://wa.me/989188085331?text=${encodeURIComponent(text)}`);
+    }
+
+    document.getElementById('searchInput').addEventListener('input', renderProducts);
+
+    // شروع اولیه
+    renderCategories();
+    renderIllnesses();
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
