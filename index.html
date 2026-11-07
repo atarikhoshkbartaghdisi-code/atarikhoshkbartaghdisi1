@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="theme-color" content="#ff00a6">
+  <meta name="theme-color" content="#ff0a54">
   <title>عطاری و خشکبار برادران تقدیسی | سفارش آنلاین نارمک</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,8 @@
       --primary: #ff0a54;
       --primary-hover: #e00045;
       --primary-light: #fff0f3;
+      --gold: #d97706;
+      --gold-light: #fef3c7;
       --green-badge: #00875a;
       --green-light: #e3fcef;
       --dark: #1f2937;
@@ -30,7 +32,27 @@
       background: var(--bg);
       color: var(--dark);
       font-family: 'Vazirmatn', -apple-system, sans-serif;
-      padding-bottom: 90px;
+      padding-bottom: 95px;
+    }
+
+    /* دکمه شناور کنترل صدا */
+    .audio-toggle-btn {
+      position: fixed;
+      left: 14px;
+      bottom: 85px;
+      z-index: 95;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      color: var(--dark);
     }
 
     /* هدر اسنپ‌فودی */
@@ -45,11 +67,11 @@
     .header-top {
       max-width: 1100px;
       margin: auto;
-      padding: 12px 16px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
     .brand-box {
       display: flex;
@@ -80,30 +102,66 @@
       color: var(--muted);
       font-weight: 500;
     }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .header-call-btn {
       background: var(--green-light);
       color: var(--green-badge);
       border: 1px solid #b3eccf;
       border-radius: 12px;
-      padding: 8px 14px;
+      padding: 7px 12px;
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+    }
+    .admin-open-btn {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      color: #374151;
+      padding: 7px 11px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    /* کادر معرفی فروشگاه (Vendor Info) */
+    /* بنر همکاری و عمده */
+    .wholesale-banner {
+      max-width: 1100px;
+      margin: 10px auto 0;
+      padding: 0 16px;
+    }
+    .wholesale-box {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 1px dashed var(--gold);
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    /* کادر معرفی فروشگاه */
     .vendor-card {
       max-width: 1100px;
-      margin: 16px auto;
+      margin: 14px auto 10px;
       padding: 0 16px;
     }
     .vendor-inner {
       background: var(--white);
       border-radius: 20px;
-      padding: 20px;
+      padding: 18px;
       border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
       display: flex;
@@ -115,10 +173,11 @@
     .vendor-meta {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-size: 12px;
       color: var(--muted);
       flex-wrap: wrap;
+      margin-top: 6px;
     }
     .badge {
       display: inline-flex;
@@ -132,21 +191,19 @@
     .badge-green { background: var(--green-light); color: var(--green-badge); }
     .badge-pink { background: var(--primary-light); color: var(--primary); }
 
-    /* جستجوبار مدرن اسنپ‌فود */
+    /* سرچ‌بار مدرن اسنپ‌فود */
     .search-wrapper {
       max-width: 1100px;
-      margin: 12px auto;
+      margin: 10px auto;
       padding: 0 16px;
     }
-    .search-bar {
-      position: relative;
-    }
+    .search-bar { position: relative; }
     .search-bar input {
       width: 100%;
       background: var(--white);
       border: 1px solid #e2e4e9;
       border-radius: 16px;
-      padding: 14px 44px 14px 16px;
+      padding: 13px 44px 13px 16px;
       font-size: 14px;
       box-shadow: var(--shadow-sm);
       outline: none;
@@ -165,14 +222,14 @@
       color: var(--muted);
     }
 
-    /* بخش ویژه: انتخاب بر اساس بیماری و مشکل سلامتی */
+    /* درمان بیماری و چیپ‌ها */
     .section-container {
       max-width: 1100px;
-      margin: 24px auto;
+      margin: 20px auto;
       padding: 0 16px;
     }
     .section-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       margin-bottom: 12px;
       display: flex;
@@ -209,7 +266,7 @@
       box-shadow: 0 4px 12px rgba(255,10,84,0.25);
     }
 
-    /* دسته‌بندی‌های تصویری اسنپ‌فودی */
+    /* دسته‌بندی‌ها */
     .cat-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -217,13 +274,13 @@
       margin-bottom: 24px;
     }
     @media(min-width: 768px) {
-      .cat-grid { grid-template-columns: repeat(6, 1fr); gap: 14px; }
+      .cat-grid { grid-template-columns: repeat(7, 1fr); gap: 14px; }
     }
     .cat-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 14px 8px;
+      padding: 12px 6px;
       text-align: center;
       cursor: pointer;
       box-shadow: var(--shadow-sm);
@@ -233,16 +290,8 @@
       border-color: var(--primary);
       background: var(--primary-light);
     }
-    .cat-icon {
-      font-size: 30px;
-      margin-bottom: 6px;
-      display: block;
-    }
-    .cat-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dark);
-    }
+    .cat-icon { font-size: 26px; margin-bottom: 4px; display: block; }
+    .cat-title { font-size: 12px; font-weight: 700; color: var(--dark); }
 
     /* لیست محصولات */
     .products-grid {
@@ -269,25 +318,33 @@
       box-shadow: var(--shadow-md);
     }
     .product-thumb {
-      height: 110px;
+      height: 115px;
       background: #fbfbfd;
       border-radius: 14px;
       display: grid;
       place-items: center;
-      font-size: 46px;
       margin-bottom: 10px;
       position: relative;
+      overflow: hidden;
     }
+    .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+    .product-thumb .emoji-icon { font-size: 46px; }
     .p-tag {
       position: absolute;
       top: 6px;
       right: 6px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       font-size: 10px;
       padding: 2px 6px;
       border-radius: 6px;
       font-weight: 700;
       color: var(--muted);
+      z-index: 2;
     }
     .product-name {
       font-size: 13px;
@@ -332,7 +389,7 @@
       color: white;
     }
 
-    /* نوار پایین شبیه اپ اسنپ‌فود */
+    /* نوار پایین اسنپ‌فود */
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -351,6 +408,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      cursor: pointer;
     }
     .cart-icon-wrap {
       position: relative;
@@ -391,7 +449,7 @@
       box-shadow: 0 4px 14px rgba(255,10,84,0.3);
     }
 
-    /* مودال سبد خرید و پرداخت آنلاین */
+    /* مودال‌ها */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -411,7 +469,7 @@
       z-index: 210;
       max-height: 88vh;
       overflow-y: auto;
-      padding: 24px 20px;
+      padding: 22px 18px;
       transform: translateY(100%);
       transition: transform 0.3s ease;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
@@ -421,9 +479,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
+      padding-bottom: 10px;
     }
     .modal-close {
       background: #f0f1f4;
@@ -435,7 +493,7 @@
       cursor: pointer;
     }
     .form-group {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .form-group label {
       display: block;
@@ -444,13 +502,14 @@
       margin-bottom: 6px;
       color: var(--dark);
     }
-    .form-group input, .form-group textarea {
+    .form-group input, .form-group textarea, .form-group select {
       width: 100%;
       border: 1px solid #dcdfe6;
       border-radius: 12px;
       padding: 10px 12px;
       font-size: 13px;
       font-family: inherit;
+      outline: none;
     }
     .pay-btn-gateway {
       width: 100%;
@@ -485,9 +544,49 @@
       justify-content: center;
       gap: 6px;
     }
+
+    /* استایل اختصاصی پنل مدیریت */
+    .admin-card-item {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .admin-del-btn {
+      background: #fee2e2;
+      color: #dc2626;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .preview-box {
+      width: 70px;
+      height: 70px;
+      border: 2px dashed #d1d5db;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+    .preview-box img { width: 100%; height: 100%; object-fit: cover; }
   </style>
 </head>
 <body>
+
+  <!-- دکمه شناور صوت خوش‌آمدگویی -->
+  <div class="audio-toggle-btn" id="soundBtn" onclick="toggleAudio()">
+    <span id="soundIcon">🔊</span>
+    <span id="soundText">خوش‌آمدگویی صوتی</span>
+  </div>
 
   <!-- هدر اپلیکیشنی -->
   <header>
@@ -499,17 +598,34 @@
           <div class="brand-subtitle">نارمک، میدان نبوت (هفت‌حوض)</div>
         </div>
       </a>
-      <a href="tel:09188085331" class="header-call-btn">
-        <span>📞</span> تماس: ۰۹۱۸۸۰۸۵۳۳۱
-      </a>
+      <div class="header-actions">
+        <button class="admin-open-btn" onclick="openAdminModal()">⚙️ مدیریت</button>
+        <a href="tel:09188085331" class="header-call-btn">
+          <span>📞</span> تماس
+        </a>
+      </div>
     </div>
   </header>
+
+  <!-- بنر فروش همکاری و عمده -->
+  <div class="wholesale-banner">
+    <div class="wholesale-box" onclick="openWholesaleModal()">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:26px;">📦</span>
+        <div>
+          <div style="font-weight:800; font-size:13px; color:#92400e;">پخش و فروش همکاری و عمده عطاری</div>
+          <div style="font-size:11px; color:#b45309;">تخفیف ویژه همکاران، عطاری‌ها، رستوران‌ها و ارسال به سراسر کشور</div>
+        </div>
+      </div>
+      <span style="background:var(--gold); color:white; padding:6px 12px; border-radius:10px; font-size:11px; font-weight:800;">مشاهده و استعلام ←</span>
+    </div>
+  </div>
 
   <!-- معرفی فروشگاه به سبک وندور اسنپ‌فود -->
   <div class="vendor-card">
     <div class="vendor-inner">
       <div>
-        <div style="font-weight:800; font-size:16px; margin-bottom:6px;">عطاری و خشکبار برادران تقدیسی</div>
+        <div style="font-weight:800; font-size:16px; margin-bottom:4px;">عطاری و خشکبار برادران تقدیسی</div>
         <div class="vendor-meta">
           <span class="badge badge-green">🚀 ارسال رایگان در محدوده نارمک</span>
           <span class="badge badge-pink">⭐ کیفیت تضمینی و اعلا</span>
@@ -518,7 +634,7 @@
       </div>
       <div style="font-size:12px; color:var(--muted); line-height:1.8;">
         📍 پلاک ۲۴۶، جنب نان برکت (روبروی آموزشگاه سفیر)<br>
-        📱 تماس سریع: ۰۹۹۲۱۹۷۱۴۲۳
+        📱 تماس سریع: ۰۹۱۸۸۰۸۵۳۳۱ / ۰۹۹۲۱۹۷۱۴۲۳
       </div>
     </div>
   </div>
@@ -531,25 +647,21 @@
     </div>
   </div>
 
-  <!-- بخش اختصاصی و هوشمند: انتخاب بر اساس بیماری یا نیاز سلامتی -->
+  <!-- بخش اختصاصی: درمان سنتی بر اساس بیماری و نیاز -->
   <div class="section-container">
     <div class="section-title">
       <span>💊 درمان سنتی بر اساس بیماری و نیاز:</span>
       <small style="color:var(--primary); font-size:11px; cursor:pointer;" onclick="resetFilter()">مشاهده همه</small>
     </div>
-    <div class="illness-scroll" id="illnessList">
-      <!-- چیپ‌های بیماری به صورت داینامیک اضافه می‌شوند -->
-    </div>
+    <div class="illness-scroll" id="illnessList"></div>
   </div>
 
-  <!-- دسته‌بندی‌های آیکونی مانند اسنپ‌فود -->
+  <!-- دسته‌بندی‌های آیکونی -->
   <div class="section-container">
     <div class="section-title">
       <span>دسته‌بندی محصولات</span>
     </div>
-    <div class="cat-grid" id="catGrid">
-      <!-- دسته‌بندی‌ها -->
-    </div>
+    <div class="cat-grid" id="catGrid"></div>
   </div>
 
   <!-- فهرست محصولات -->
@@ -576,15 +688,15 @@
     <button class="order-submit-btn" onclick="openCheckout()">تسویه و پرداخت ←</button>
   </div>
 
-  <!-- مودال نهایی‌سازی سفارش و درگاه پرداخت -->
-  <div class="modal-overlay" id="modalOverlay" onclick="closeCheckout()"></div>
+  <!-- مودال سبد خرید و پرداخت آنلاین -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeAllModals()"></div>
+  
   <div class="checkout-modal" id="checkoutModal">
     <div class="modal-header">
       <h3 style="margin:0; font-size:16px;">سبد خرید و درگاه پرداخت آنلاین</h3>
-      <button class="modal-close" onclick="closeCheckout()">✕</button>
+      <button class="modal-close" onclick="closeAllModals()">✕</button>
     </div>
 
-    <!-- اقلام سبد -->
     <div id="cartItemsList" style="margin-bottom:15px; max-height:180px; overflow-y:auto;"></div>
 
     <div style="background:#f8f9fc; border-radius:14px; padding:12px; margin-bottom:16px; font-size:13px;">
@@ -603,13 +715,12 @@
       </div>
     </div>
 
-    <!-- فرم اطلاعات مشتری برای درگاه -->
     <div class="form-group">
       <label>نام و نام خانوادگی:</label>
       <input type="text" id="custName" placeholder="مثال: علی تقدیسی">
     </div>
     <div class="form-group">
-      <label>شماره تماس (جهت پیامک پیگیری و درگاه):</label>
+      <label>شماره تماس (جهت پیامک پیگیری و تحویل):</label>
       <input type="tel" id="custPhone" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
     </div>
     <div class="form-group">
@@ -617,28 +728,138 @@
       <textarea id="custAddress" rows="2" placeholder="خیابان، کوچه، پلاک، واحد"></textarea>
     </div>
 
-    <!-- دکمه پرداخت آنلاین شاپرک / زرین‌پال -->
     <button class="pay-btn-gateway" onclick="handleOnlinePay()">
       💳 پرداخت آنلاین امن با کارت بانکی (شتاب)
     </button>
-
-    <!-- دکمه جایگزین واتساپ -->
     <button class="pay-btn-wa" onclick="handleWhatsAppOrder()">
       💬 ثبت سریع و ارسال در واتساپ فروشگاه
     </button>
   </div>
 
+  <!-- مودال فروش عمده و همکاری -->
+  <div class="checkout-modal" id="wholesaleModal">
+    <div class="modal-header">
+      <h3 style="margin:0; font-size:16px; color:#92400e;">📦 فروش همکاری و پخش عمده برادران تقدیسی</h3>
+      <button class="modal-close" onclick="closeAllModals()">✕</button>
+    </div>
+    <div style="font-size:13px; line-height:1.9; color:var(--dark); margin-bottom:15px;">
+      همکاران گرامی، عطاری‌ها، کارگاه‌ها و کافه‌رستوران‌ها می‌توانند کلیه اجناس عطاری و خشکبار (گیاهان فله، عرقیجات گالنی، ادویه‌جات کیسه‌ای و آجیل دستچین) را با قیمت پخش همکاری تهیه نمایند.
+      <ul style="padding-right:20px; margin:8px 0;">
+        <li>تضمین بالاترین درجه کیفیت و تازگی بار</li>
+        <li>ارسال سریع باربری به تمام نقاط کشور و پیک اختصاصی تهران</li>
+        <li>صدور فاکتور رسمی و قیمت رقابتی عمده</li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <label>نام فروشگاه / خریدار عمده:</label>
+      <input type="text" id="whName" placeholder="مثال: عطاری شفا / آقای تقدیسی">
+    </div>
+    <div class="form-group">
+      <label>شماره تماس مستقیم:</label>
+      <input type="tel" id="whPhone" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+    </div>
+    <div class="form-group">
+      <label>اقلام و حجم مورد نظر (مثال: ۱۰ کیلو اسطوخودوس، ۳ کیسه پسته):</label>
+      <textarea id="whItems" rows="3" placeholder="نام اجناس و مقدار تقریبی را بنویسید..."></textarea>
+    </div>
+
+    <button class="pay-btn-gateway" style="background:#d97706;" onclick="submitWholesale()">
+      📱 ارسال مستقیم درخواست به واحد فروش عمده (واتساپ)
+    </button>
+    <a href="tel:09188085331" style="display:block; text-align:center; margin-top:10px; text-decoration:none; font-size:12px; font-weight:700; color:var(--muted);">
+      یا تماس مستقیم با مدیر پخش: ۰۹۱۸۸۰۸۵۳۳۱
+    </a>
+  </div>
+
+  <!-- مودال لاگین و پنل مدیریت پیشرفته با رمز Mjt_3330 -->
+  <div class="checkout-modal" id="adminModal">
+    <div class="modal-header">
+      <h3 style="margin:0; font-size:16px;">⚙️ پنل مدیریت هوشمند محصولات</h3>
+      <button class="modal-close" onclick="closeAllModals()">✕</button>
+    </div>
+
+    <!-- فرم لاگین -->
+    <div id="adminLoginForm">
+      <div style="text-align:center; padding:15px 0;">
+        <div style="font-size:40px; margin-bottom:10px;">🔒</div>
+        <div style="font-size:13px; color:var(--muted); margin-bottom:14px;">لطفاً رمز عبور مدیریت را وارد کنید:</div>
+        <input type="password" id="adminPasswordInput" placeholder="رمز عبور مدیریت..." style="width:80%; padding:10px; border-radius:12px; border:1px solid #d1d5db; text-align:center; font-size:16px; outline:none;">
+        <button onclick="checkAdminPassword()" style="display:block; width:80%; margin:12px auto 0; background:var(--primary); color:white; border:none; padding:12px; border-radius:12px; font-weight:bold; cursor:pointer;">
+          ورود به پنل
+        </button>
+      </div>
+    </div>
+
+    <!-- بخش اصلی پنل پس از ورود -->
+    <div id="adminPanelArea" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; background:#ecfdf5; padding:8px 12px; border-radius:10px;">
+        <span style="font-size:12px; color:#065f46; font-weight:bold;">مدیریت فعال است</span>
+        <button onclick="logoutAdmin()" style="background:none; border:none; color:#dc2626; font-size:11px; cursor:pointer; font-weight:bold;">خروج</button>
+      </div>
+
+      <h4 style="margin:10px 0; font-size:14px;">➕ افزودن محصول جدید</h4>
+      <div class="form-group">
+        <label>نام محصول:</label>
+        <input type="text" id="newProdName" placeholder="مثال: زعفران یک مثقالی کادویی">
+      </div>
+      <div class="form-group">
+        <label>دسته‌بندی:</label>
+        <select id="newProdCat">
+          <option value="nuts">خشکبار و پسته</option>
+          <option value="herbal">گیاهان دارویی</option>
+          <option value="aragh">عرقیجات اعلا</option>
+          <option value="spices">ادویه و چاشنی</option>
+          <option value="sweet">شیرینی و نبات</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>قیمت (تومان):</label>
+        <input type="number" id="newProdPrice" placeholder="مثال: 350000">
+      </div>
+      <div class="form-group">
+        <label>وزن یا بسته (واحد):</label>
+        <input type="text" id="newProdUnit" placeholder="مثال: ۱۰۰ گرم / ۱ لیتری">
+      </div>
+      <div class="form-group">
+        <label>برچسب / خاصیت درمانی (اختیاری):</label>
+        <input type="text" id="newProdTag" placeholder="مثال: آرامبخش، اعصاب، کبد، ویژه">
+      </div>
+      <div class="form-group">
+        <label>تصویر محصول از گالری گوشی:</label>
+        <input type="file" id="newProdImage" accept="image/*" onchange="previewUploadImage(event)">
+        <div class="preview-box" id="imagePreviewBox">
+          <span style="font-size:10px; color:#aaa;">پیش‌نمایش</span>
+        </div>
+      </div>
+
+      <button onclick="saveNewProduct()" style="width:100%; background:var(--green-badge); color:white; border:none; padding:12px; border-radius:12px; font-weight:bold; font-size:14px; cursor:pointer; margin-top:8px;">
+        ✅ ثبت و افزودن محصول به سایت
+      </button>
+
+      <hr style="margin:20px 0; border:0; border-top:1px solid var(--border);">
+
+      <h4 style="margin:10px 0; font-size:14px;">📋 مدیریت و حذف محصولات فعلی:</h4>
+      <div id="adminProductList" style="max-height:220px; overflow-y:auto;"></div>
+    </div>
+  </div>
+
   <script>
-    // اطلاعات محصولات با دسته‌بندی و ارتباط با بیماری‌ها
+    // کلید رمز مدیریت
+    const ADMIN_PASS = "Mjt_3330";
+
+    // دسته‌ها
     const categories = [
       { id: 'all', name: 'همه', icon: '✨' },
       { id: 'nuts', name: 'خشکبار و پسته', icon: '🥜' },
       { id: 'herbal', name: 'گیاهان دارویی', icon: '🌿' },
       { id: 'aragh', name: 'عرقیجات اعلا', icon: '🫗' },
       { id: 'spices', name: 'ادویه و چاشنی', icon: '🧂' },
-      { id: 'sweet', name: 'شیرینی و نبات', icon: '🍬' }
+      { id: 'sweet', name: 'شیرینی و نبات', icon: '🍬' },
+      { id: 'wholesale', name: 'پخش عمده', icon: '📦' }
     ];
 
+    // نیازها و بیماری‌ها
     const illnesses = [
       { id: 'relax', name: '😴 خواب‌آور و آرامبخش اعصاب', tags: ['گاوزبان', 'بهار نارنج', 'بیدمشک'] },
       { id: 'stomach', name: '🫄 گوارش، معده و نفخ', tags: ['عرق نعنا', 'زنیان', 'آویشن'] },
@@ -648,256 +869,22 @@
       { id: 'heart', name: '❤️ فشار خون و سلامت قلب', tags: ['بیدمشک', 'بادام', 'کشمش'] }
     ];
 
-    const products = [
-      { id: 1, cat: 'nuts', name: 'پسته اکبری درجه یک', price: 493000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'ویژه' },
-      { id: 2, cat: 'nuts', name: 'بادام هندی زعفرانی', price: 395000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'پرفروش' },
-      { id: 3, cat: 'nuts', name: 'مغز گردوی ایرانی توسکان', price: 275000, unit: '۱۰۰ گرم', icon: '🌰', tag: '' },
-      { id: 4, cat: 'nuts', name: 'مغز بادام درختی اعلا', price: 430000, unit: '۱۰۰ گرم', icon: '🥜', tag: '' },
-      { id: 5, cat: 'nuts', name: 'انجیر خشک استهبان', price: 120000, unit: '۱۰۰ گرم', icon: '🍯', tag: '' },
-      { id: 6, cat: 'nuts', name: 'مویز درجه یک افغان', price: 110000, unit: '۱۰۰ گرم', icon: '🍇', tag: 'خون‌ساز' },
-      { id: 7, cat: 'herbal', name: 'گل گاوزبان اصل', price: 137000, unit: '۲۰ گرم', icon: '🌸', tag: 'آرامبخش' },
-      { id: 8, cat: 'aragh', name: 'گلاب دوآتیشه اصل', price: 650000, unit: '۱ لیتری', icon: '🌹', tag: 'صادراتی' },
-      { id: 9, cat: 'aragh', name: 'عرق نعنا دوآتیشه ایرانداد', price: 230000, unit: '۱ لیتری', icon: '🌿', tag: 'ضدنفخ' },
-      { id: 10, cat: 'aragh', name: 'عرق بهار نارنج ایرانداد', price: 267000, unit: '۱ لیتری', icon: '🍊', tag: 'اعصاب' },
-      { id: 11, cat: 'aragh', name: 'عرق کاسنی ممتاز', price: 175000, unit: '۱ لیتری', icon: '🌱', tag: 'کبد چرب' },
-      { id: 12, cat: 'aragh', name: 'عرق شاطره مصفا', price: 175000, unit: '۱ لیتری', icon: '🌾', tag: 'خنک‌کننده' },
-      { id: 13, cat: 'aragh', name: 'عرق بیدمشک ناب', price: 267000, unit: '۱ لیتری', icon: '🎋', tag: 'تقویت قلب' },
-      { id: 14, cat: 'spices', name: 'زعفران قائنات اصیل', price: 1950000, unit: 'یک مثقال', icon: '✨', tag: 'ممتاز' },
-      { id: 15, cat: 'spices', name: 'زردچوبه اعلای هندی', price: 242000, unit: '۱۰۰ گرم', icon: '🧂', tag: '' },
-      { id: 16, cat: 'spices', name: 'دارچین سیگاری معطر', price: 565000, unit: '۱۰۰ گرم', icon: '🪵', tag: '' },
-      { id: 17, cat: 'sweet', name: 'نبات شاخه زعفرانی اعلا', price: 195000, unit: '۵۰۰ گرم', icon: '🍬', tag: '' }
-    ];
-
-    let cart = {};
-    let activeCat = 'all';
-    let activeIllness = null;
-
-    // رندر دسته‌ها
-    function renderCategories() {
-      const el = document.getElementById('catGrid');
-      el.innerHTML = categories.map(c => `
-        <div class="cat-card ${activeCat === c.id ? 'active' : ''}" onclick="selectCat('${c.id}')">
-          <span class="cat-icon">${c.icon}</span>
-          <div class="cat-title">${c.name}</div>
-        </div>
-      `).join('');
-    }
-
-    // رندر بیماری‌ها
-    function renderIllnesses() {
-      const el = document.getElementById('illnessList');
-      el.innerHTML = illnesses.map(item => `
-        <div class="illness-chip ${activeIllness === item.id ? 'active' : ''}" onclick="selectIllness('${item.id}')">
-          ${item.name}
-        </div>
-      `).join('');
-    }
-
-    // فیلتر و رندر محصولات
-    function renderProducts() {
-      const query = document.getElementById('searchInput').value.trim().toLowerCase();
-      let list = products;
-
-      if (activeCat !== 'all') {
-        list = list.filter(p => p.cat === activeCat);
-      }
-
-      if (activeIllness) {
-        const illObj = illnesses.find(i => i.id === activeIllness);
-        if (illObj) {
-          list = list.filter(p => illObj.tags.some(t => p.name.includes(t) || (p.tag && p.tag.includes(t))));
-        }
-      }
-
-      if (query) {
-        list = list.filter(p => p.name.toLowerCase().includes(query) || (p.tag && p.tag.includes(query)));
-      }
-
-      document.getElementById('productCount').textContent = list.length + ' کالا';
-      const el = document.getElementById('productsGrid');
-
-      if (list.length === 0) {
-        el.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:#888;">محصولی مرتبط با این انتخاب پیدا نشد.</div>';
-        return;
-      }
-
-      el.innerHTML = list.map(p => `
-        <div class="product-card">
-          <div>
-            <div class="product-thumb">
-              ${p.icon}
-              ${p.tag ? `<span class="p-tag">${p.tag}</span>` : ''}
-            </div>
-            <h4 class="product-name">${p.name}</h4>
-            <div class="product-prop">${p.unit}</div>
-          </div>
-          <div class="product-bottom">
-            <div class="product-price">${p.price.toLocaleString('fa-IR')} <small style="font-size:10px; color:#888;">تومان</small></div>
-            <button class="add-btn" onclick="addToCart(${p.id})">+</button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function selectCat(id) {
-      activeCat = id;
-      activeIllness = null;
-      renderCategories();
-      renderIllnesses();
-      renderProducts();
-    }
-
-    function selectIllness(id) {
-      activeIllness = activeIllness === id ? null : id;
-      activeCat = 'all';
-      renderCategories();
-      renderIllnesses();
-      renderProducts();
-    }
-
-    function resetFilter() {
-      activeCat = 'all';
-      activeIllness = null;
-      document.getElementById('searchInput').value = '';
-      renderCategories();
-      renderIllnesses();
-      renderProducts();
-    }
-
-    // سبد خرید
-    function addToCart(id) {
-      cart[id] = (cart[id] || 0) + 1;
-      updateCartUI();
-    }
-
-    function removeFromCart(id) {
-      if (cart[id]) {
-        cart[id]--;
-        if (cart[id] <= 0) delete cart[id];
-      }
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      let count = 0;
-      let total = 0;
-      for (const id in cart) {
-        const p = products.find(x => x.id == id);
-        if (p) {
-          count += cart[id];
-          total += (p.price * cart[id]);
-        }
-      }
-
-      document.getElementById('cartBadge').textContent = count.toLocaleString('fa-IR');
-      document.getElementById('bottomTotal').textContent = total.toLocaleString('fa-IR') + ' تومان';
-      document.getElementById('modalSubtotal').textContent = total.toLocaleString('fa-IR') + ' تومان';
-      document.getElementById('modalFinalTotal').textContent = total.toLocaleString('fa-IR') + ' تومان';
-
-      // نمایش اقلام داخل مودال
-      const listEl = document.getElementById('cartItemsList');
-      if (count === 0) {
-        listEl.innerHTML = '<div style="text-align:center; color:#999; padding:20px;">سبد خرید شما خالی است.</div>';
-      } else {
-        listEl.innerHTML = Object.keys(cart).map(id => {
-          const p = products.find(x => x.id == id);
-          return `
-            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f1f1f1;">
-              <div>
-                <div style="font-weight:700; font-size:13px;">${p.name}</div>
-                <div style="font-size:11px; color:#888;">${(p.price * cart[id]).toLocaleString('fa-IR')} تومان</div>
-              </div>
-              <div style="display:flex; align-items:center; gap:8px;">
-                <button onclick="removeFromCart(${p.id})" style="border:1px solid #ddd; background:white; width:26px; height:26px; border-radius:6px;">-</button>
-                <span style="font-weight:bold; font-size:13px;">${cart[id]}</span>
-                <button onclick="addToCart(${p.id})" style="border:1px solid #ddd; background:white; width:26px; height:26px; border-radius:6px;">+</button>
-              </div>
-            </div>
-          `;
-        }).join('');
-      }
-    }
-
-    function openCheckout() {
-      updateCartUI();
-      document.getElementById('modalOverlay').classList.add('active');
-      document.getElementById('checkoutModal').classList.add('active');
-    }
-
-    function closeCheckout() {
-      document.getElementById('modalOverlay').classList.remove('active');
-      document.getElementById('checkoutModal').classList.remove('active');
-    }
-
-    // هدایت به درگاه پرداخت آنلاین
-    function handleOnlinePay() {
-      const totalKeys = Object.keys(cart).length;
-      if (totalKeys === 0) {
-        alert('لطفاً ابتدا حداقل یک محصول به سبد خرید اضافه کنید.');
-        return;
-      }
-      const name = document.getElementById('custName').value.trim();
-      const phone = document.getElementById('custPhone').value.trim();
-      const address = document.getElementById('custAddress').value.trim();
-
-      if (!phone || phone.length < 10) {
-        alert('لطفاً شماره تماس معتبر خود را وارد نمایید.');
-        return;
-      }
-
-      // محاسبه جمع کل
-      let total = 0;
-      for (const id in cart) {
-        const p = products.find(x => x.id == id);
-        if (p) total += (p.price * cart[id]);
-      }
-
-      // پیام هدایت امن به درگاه شاپرک/زرین‌پال
-      alert(`در حال اتصال امن به درگاه پرداخت بانکی شاپرک...\nمبلغ: ${total.toLocaleString('fa-IR')} تومان\nسفارش‌دهنده: ${name || 'مشتری گرامی'}\n(توجه: پس از اتصال مرچنت کد اختصاصی زرین‌پال، انتقال به صفحه شاپرک صورت می‌پذیرد).`);
-      
-      // هدایت به درگاه زرین‌پال (برای اتصال نهایی کافیست لینک درگاه خود را قرار دهید)
-      // window.location.href = "https://www.zarinpal.com/pg/StartPay/YOUR_AUTHORITY";
-    }
-
-    // سفارش در واتساپ
-    function handleWhatsAppOrder() {
-      const totalKeys = Object.keys(cart).length;
-      if (totalKeys === 0) {
-        alert('سبد خرید شما خالی است.');
-        return;
-      }
-      const name = document.getElementById('custName').value.trim();
-      const phone = document.getElementById('custPhone').value.trim();
-      const address = document.getElementById('custAddress').value.trim();
-
-      let text = `سلام، سفارش جدید از سایت ثبت شد:\n`;
-      if (name) text += `👤 نام: ${name}\n`;
-      if (phone) text += `📱 همراه: ${phone}\n`;
-      if (address) text += `📍 آدرس: ${address}\n`;
-      text += `\n🛒 اقلام انتخابی:\n`;
-
-      let total = 0;
-      for (const id in cart) {
-        const p = products.find(x => x.id == id);
-        if (p) {
-          const itemTotal = p.price * cart[id];
-          total += itemTotal;
-          text += `▪️ ${p.name} (${p.unit}) × ${cart[id]} = ${itemTotal.toLocaleString('fa-IR')} تومان\n`;
-        }
-      }
-      text += `\n💰 جمع کل: ${total.toLocaleString('fa-IR')} تومان`;
-      text += `\n🚚 ارسال به نارمک (رایگان)`;
-
-      window.open(`https://wa.me/989188085331?text=${encodeURIComponent(text)}`);
-    }
-
-    document.getElementById('searchInput').addEventListener('input', renderProducts);
-
-    // شروع اولیه
-    renderCategories();
-    renderIllnesses();
-    renderProducts();
-    updateCartUI();
-  </script>
-</body>
-</html>
+    // محصولات پیش‌فرض
+    const initialProducts = [
+      { id: 1, cat: 'nuts', name: 'پسته اکبری درجه یک', price: 493000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'ویژه', image: '' },
+      { id: 2, cat: 'nuts', name: 'بادام هندی زعفرانی', price: 395000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'پرفروش', image: '' },
+      { id: 3, cat: 'nuts', name: 'مغز گردوی ایرانی توسکان', price: 275000, unit: '۱۰۰ گرم', icon: '🌰', tag: '', image: '' },
+      { id: 4, cat: 'nuts', name: 'مغز بادام درختی اعلا', price: 430000, unit: '۱۰۰ گرم', icon: '🥜', tag: '', image: '' },
+      { id: 5, cat: 'nuts', name: 'انجیر خشک استهبان', price: 120000, unit: '۱۰۰ گرم', icon: '🍯', tag: '', image: '' },
+      { id: 6, cat: 'nuts', name: 'مویز درجه یک افغان', price: 110000, unit: '۱۰۰ گرم', icon: '🍇', tag: 'خون‌ساز', image: '' },
+      { id: 7, cat: 'herbal', name: 'گل گاوزبان اصل', price: 137000, unit: '۲۰ گرم', icon: '🌸', tag: 'آرامبخش', image: '' },
+      { id: 8, cat: 'aragh', name: 'گلاب دوآتیشه اصل', price: 650000, unit: '۱ لیتری', icon: '🌹', tag: 'صادراتی', image: '' },
+      { id: 9, cat: 'aragh', name: 'عرق نعنا دوآتیشه ایرانداد', price: 230000, unit: '۱ لیتری', icon: '🌿', tag: 'ضدنفخ', image: '' },
+      { id: 10, cat: 'aragh', name: 'عرق بهار نارنج ایرانداد', price: 267000, unit: '۱ لیتری', icon: '🍊', tag: 'اعصاب', image: '' },
+      { id: 11, cat: 'aragh', name: 'عرق کاسنی ممتاز', price: 175000, unit: '۱ لیتری', icon: '🌱', tag: 'کبد چرب', image: '' },
+      { id: 12, cat: 'aragh', name: 'عرق شاطره مصفا', price: 175000, unit: '۱ لیتری', icon: '🌾', tag: 'خنک‌کننده', image: '' },
+      { id: 13, cat: 'aragh', name: 'عرق بیدمشک ناب', price: 267000, unit: '۱ لیتری', icon: '🎋', tag: 'تقویت قلب', image: '' },
+      { id: 14, cat: 'spices', name: 'زعفران قائنات اصیل', price: 1950000, unit: 'یک مثقال', icon: '✨', tag: 'ممتاز', image: '' },
+      { id: 15, cat: 'spices', name: 'زردچوبه اعلای هندی', price: 242000, unit: '۱۰۰ گرم', icon: '🧂', tag: '', image: '' },
+      { id: 16, cat: 'spices', name: 'دارچین سیگاری معطر', price: 565000, unit: '۱۰۰ گرم', icon: '🪵', tag: '', image: '' },
+      { id: 17, cat: 'sweet', name: 'نبات شاخه زعفرانی اعلا', price: 195000, unit: '۵۰۰ گرم', icon: '�
