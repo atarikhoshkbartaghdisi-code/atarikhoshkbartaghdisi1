@@ -1,282 +1,280 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عطاری و خشکبار برادران تقدیسی | نارمک</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#15803d">
+    <title>عطاری و خشکبار برادران تقدیسی</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Vazirmatn', sans-serif; background-color: #faf8f5; }
-        .bg-olive { background-color: #556b2f; }
-        .text-olive { color: #556b2f; }
+        :root{--p:#15803d;--green:#15803d;--dark:#1f2937;--muted:#6b7280;--bg:#f7f7f9;--gold:#d97706;--line:#eceef2}
+        *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        body{margin:0;padding-bottom:95px;background:var(--bg);color:var(--dark);font-family:Tahoma,Arial,sans-serif}
+        button,input,textarea,select{font:inherit}
+        button{cursor:pointer}
+        .wrap{max-width:1100px;margin:auto;padding:0 16px}
+        header{position:sticky;top:0;z-index:10;background:white;box-shadow:0 2px 8px #0001}
+        .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;max-width:1100px;margin:auto}
+        .brand{display:flex;align-items:center;gap:9px;color:inherit;text-decoration:none}
+        .logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#15803d,#86efac);display:grid;place-items:center;font-size:24px;box-shadow:0 4px 10px #15803d44}
+        .title{font-weight:800;font-size:14px;line-height:1.5}
+        .sub{font-size:10px;color:var(--muted)}
+        .actions{display:flex;gap:7px}
+        .smallbtn,.callbtn{border:1px solid #ddd;border-radius:11px;padding:8px 10px;background:white;font-weight:700;font-size:12px;text-decoration:none;color:inherit}
+        .callbtn{background:var(--p);color:white;border-color:var(--p)}
+        .hero{background:linear-gradient(135deg,#15803d,#166534);color:white;padding:24px 16px;text-align:center;border-radius:0 0 24px 24px;margin-bottom:16px}
+        .hero h2{margin:0 0 8px;font-size:18px}
+        .hero p{margin:0;font-size:12px;opacity:.9}
+        .searchbox{padding:0 16px;margin-bottom:14px}
+        .searchbox input{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:14px;outline:none;font-size:13px;background:white}
+        .cats{display:flex;gap:8px;overflow-x:auto;padding:0 16px 8px;margin-bottom:12px;scrollbar-width:none}
+        .cats::-webkit-scrollbar{display:none}
+        .catbtn{white-space:nowrap;border:1px solid #ddd;background:white;padding:8px 14px;border-radius:20px;font-size:12px;font-weight:700;color:var(--muted)}
+        .catbtn.active{background:var(--p);color:white;border-color:var(--p)}
+        .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 16px}
+        @media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}
+        @media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+        .card{background:white;border-radius:16px;padding:12px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+        .card img{width:100%;height:120px;object-fit:cover;border-radius:10px;background:#eee}
+        .card h3{font-size:13px;margin:8px 0 4px;font-weight:700}
+        .price{font-weight:800;color:var(--p);font-size:13px;margin-bottom:8px}
+        .addbtn{width:100%;background:#eef2ff;color:var(--p);border:none;border-radius:10px;padding:8px;font-weight:700;font-size:12px}
+        .cartbar{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #ddd;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;z-index:20;box-shadow:0 -4px 12px #0001}
+        .modal{position:fixed;inset:0;background:#0008;z-index:100;display:none;align-items:center;justify-content:center;padding:16px}
+        .modal.open{display:flex}
+        .modalbox{background:white;width:100%;max-width:400px;border-radius:20px;padding:20px;max-height:90vh;overflow-y:auto}
     </style>
 </head>
-<body class="bg-[#faf8f5] min-h-screen pb-32">
+<body>
 
-    <!-- هدر سایت -->
-    <header class="bg-[#556b2f] text-white shadow-md sticky top-0 z-40">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center font-bold">ت</div>
-                <div>
-                    <h1 class="font-bold text-sm sm:text-base">عطاری و خشکبار تقدیسی</h1>
-                    <p class="text-[10px] text-amber-200">تهران، نارمک، میدان نبوت</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-2">
-                <button onclick="openAdminModal()" class="bg-white/15 hover:bg-white/25 px-3 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1 transition">
-                    <i class="fa-solid fa-lock text-[10px]"></i> مدیریت
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- بنر خوش‌آمدگویی غیرمسدودکننده -->
-    <div class="max-w-4xl mx-auto px-4 mt-4">
-        <div class="bg-gradient-to-r from-[#556b2f] to-[#6b8e23] text-white p-4 sm:p-5 rounded-2xl shadow-md flex flex-col sm:flex-row justify-between items-center gap-3">
+<header>
+    <div class="head">
+        <a href="#" class="brand">
+            <div class="logo">🌿</div>
             <div>
-                <h2 class="font-bold text-base sm:text-lg">🌿 به عطاری و خشکبار برادران تقدیسی خوش آمدید</h2>
-                <p class="text-xs text-amber-100 mt-1">ارسال رایگان در محدوده نارمک | محصولات ارگانیک، گیاهان دارویی و خشکبار اعلا</p>
+                <div class="title">عطاری برادران تقدیسی</div>
+                <div class="sub">نارمک، میدان نبوت</div>
             </div>
-            <a href="tel:09188085331" class="bg-white text-[#556b2f] px-4 py-2 rounded-xl text-xs font-bold shadow hover:bg-amber-50 transition shrink-0">
-                <i class="fa-solid fa-phone ml-1"></i> تماس فوری
-            </a>
+        </a>
+        <div class="actions">
+            <a href="tel:09188085331" class="callbtn">📞 تماس</a>
+            <button class="smallbtn" onclick="openAdmin()">⚙️ مدیریت</button>
         </div>
     </div>
+</header>
 
-    <!-- جستجو و فیلترهای پیشرفته بیماری و سلامت -->
-    <div class="max-w-4xl mx-auto px-4 mt-4 space-y-3">
-        <div class="relative">
-            <input type="text" id="searchInput" oninput="renderProducts()" placeholder="جستجوی گیاه دارویی، ادویه، خشکبار یا مشکل (مثلا خواب، اعصاب، گوارش)..." class="w-full bg-white p-3.5 pr-11 rounded-2xl border border-stone-200 text-sm shadow-sm focus:outline-none focus:border-[#556b2f]">
-            <i class="fa-solid fa-search absolute right-4 top-4 text-stone-400"></i>
-        </div>
+<div class="hero">
+    <h2>سلامتی و اصالت در دل طبیعت</h2>
+    <p>ارگانیک، گیاهان دارویی، خشکبار و ادویه‌جات اعلا | ارسال رایگان در نارمک</p>
+</div>
 
-        <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
-            <button onclick="setFilter('all')" class="cat-btn bg-[#556b2f] text-white px-4 py-2 rounded-xl text-xs font-medium shrink-0 transition">همه محصولات</button>
-            <button onclick="setFilter('خواب')" class="cat-btn bg-white text-stone-700 border border-stone-200 px-4 py-2 rounded-xl text-xs font-medium shrink-0 transition">🌙 خواب راحت</button>
-            <button onclick="setFilter('اعصاب')" class="cat-btn bg-white text-stone-700 border border-stone-200 px-4 py-2 rounded-xl text-xs font-medium shrink-0 transition">🌿 آرامش اعصاب</button>
-            <button onclick="setFilter('ایمنی')" class="cat-btn bg-white text-stone-700 border border-stone-200 px-4 py-2 rounded-xl text-xs font-medium shrink-0 transition">🛡️ تقویت ایمنی</button>
-            <button onclick="setFilter('گوارش')" class="cat-btn bg-white text-stone-700 border border-stone-200 px-4 py-2 rounded-xl text-xs font-medium shrink-0 transition">🍃 گوارش و معده</button>
-            <button onclick="setFilter('خشکبار')" class="cat-btn bg-white text-stone-700 border border-stone-200 px-4 py-2 rounded-xl text-xs font-medium shrink-0 transition">🥜 خشکبار اعلا</button>
-        </div>
+<div class="searchbox wrap">
+    <input type="text" id="searchInput" placeholder="جستجوی محصول، گیاه دارویی، یا مشکل (خواب، اعصاب، گوارش)..." oninput="filterProducts()">
+</div>
+
+<div class="cats wrap" id="catContainer">
+    <button class="catbtn active" onclick="setCat('all', this)">همه محصولات</button>
+    <button class="catbtn" onclick="setCat('اعصاب', this)">🌿 آرامش و اعصاب</button>
+    <button class="catbtn" onclick="setCat('خواب', this)">🌙 خواب راحت</button>
+    <button class="catbtn" onclick="setCat('گوارش', this)">🍃 گوارش و معده</button>
+    <button class="catbtn" onclick="setCat('ایمنی', this)">🛡️ تقویت ایمنی</button>
+    <button class="catbtn" onclick="setCat('خشکبار', this)">🥜 خشکبار و آجیل</button>
+</div>
+
+<div class="wrap">
+    <div class="grid" id="productGrid"></div>
+</div>
+
+<div class="cartbar" id="cartBar" style="display:none">
+    <div>
+        <div style="font-size:11px;color:var(--muted)">مجموع سبد خرید:</div>
+        <div id="cartTotal" style="font-weight:800;font-size:14px;color:var(--p)">۰ تومان</div>
     </div>
+    <button class="callbtn" onclick="checkout()">تکمیل سفارش (واتساپ)</button>
+</div>
 
-    <!-- لیست محصولات -->
-    <main class="max-w-4xl mx-auto px-4 mt-3">
-        <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
-    </main>
-
-    <!-- سبد خرید شناور پایین صفحه -->
-    <div id="cartBar" class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 p-4 shadow-lg z-30 hidden">
-        <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <div>
-                <span class="text-xs text-stone-500">مجموع سبد خرید:</span>
-                <div id="cartTotal" class="font-bold text-sm text-[#556b2f]">۰ تومان</div>
-            </div>
-            <button onclick="checkout()" class="bg-[#556b2f] hover:bg-[#4a5e28] text-white px-6 py-2.5 rounded-xl text-xs font-bold shadow transition">
-                تکمیل سفارش (واتساپ / پیامک)
-            </button>
+<!-- Modal مدیریت -->
+<div class="modal" id="adminModal">
+    <div class="modalbox">
+        <h3>پنل مدیریت عطاری</h3>
+        <div id="adminLogin">
+            <input type="password" id="adminPass" placeholder="رمز عبور مدیریت" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;margin-bottom:10px">
+            <button class="callbtn" style="width:100%" onclick="loginAdmin()">ورود</button>
         </div>
-    </div>
-
-    <!-- پنل مدیریت -->
-    <div id="adminModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center border-b pb-3">
-                <h3 class="font-bold text-sm text-stone-800">پنل مدیریت عطاری تقدیسی</h3>
-                <button onclick="closeAdminModal()" class="text-stone-400 hover:text-stone-600"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-
-            <!-- بخش رمز عبور -->
-            <div id="loginSection" class="space-y-3">
-                <input type="password" id="adminPass" placeholder="رمز عبور مدیریت" class="w-full p-3 border rounded-xl text-sm">
-                <button onclick="checkAdminLogin()" class="w-full bg-[#556b2f] text-white py-2.5 rounded-xl text-xs font-bold">ورود به پنل</button>
-            </div>
-
-            <!-- بخش مدیریت و افزودن محصول -->
-            <div id="manageSection" class="hidden space-y-3">
-                <div class="bg-stone-50 p-3 rounded-xl border space-y-2">
-                    <h4 class="font-bold text-xs text-[#556b2f]">افزودن محصول جدید</h4>
-                    <input type="text" id="newTitle" placeholder="نام محصول" class="w-full p-2.5 bg-white border rounded-xl text-xs">
-                    <input type="number" id="newPrice" placeholder="قیمت (تومان)" class="w-full p-2.5 bg-white border rounded-xl text-xs">
-                    <input type="text" id="newImage" placeholder="لینک عکس محصول (URL)" class="w-full p-2.5 bg-white border rounded-xl text-xs">
-                    <input type="text" id="newCat" placeholder="دسته‌بندی (مثلا: خواب، اعصاب، گوارش، خشکبار)" class="w-full p-2.5 bg-white border rounded-xl text-xs">
-                    <button onclick="addNewProduct()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-2.5 rounded-xl text-xs font-bold transition">ثبت و افزودن محصول</button>
-                </div>
-                <div class="pt-2">
-                    <h4 class="font-bold text-xs text-stone-700 mb-2">محصولات موجود (قابلیت حذف)</h4>
-                    <div id="adminProductList" class="space-y-2 max-h-48 overflow-y-auto"></div>
-                </div>
-            </div>
+        <div id="adminPanel" style="display:none">
+            <h4 style="margin:10px 0 5px;font-size:13px">افزودن محصول جدید</h4>
+            <input type="text" id="newTitle" placeholder="نام محصول" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;margin-bottom:8px">
+            <input type="number" id="newPrice" placeholder="قیمت (تومان)" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;margin-bottom:8px">
+            <input type="text" id="newImage" placeholder="لینک عکس محصول (URL)" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;margin-bottom:8px">
+            <input type="text" id="newCat" placeholder="دسته (اعصاب، خواب، خشکبار...)" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;margin-bottom:10px">
+            <button class="callbtn" style="width:100%;margin-bottom:15px" onclick="addProduct()">افزودن به فروشگاه</button>
+            <h4 style="margin:10px 0 5px;font-size:13px">حذف محصولات</h4>
+            <div id="adminList" style="max-height:150px;overflow-y:auto;border:1px solid #ddd;border-radius:8px;padding:8px"></div>
         </div>
+        <button style="width:100%;margin-top:15px;background:#eee;border:none;padding:8px;border-radius:8px" onclick="closeAdmin()">بستن</button>
     </div>
+</div>
 
-    <script>
-        // داده‌های اولیه محصولات
-        let defaultProducts = [
-            { id: 1, title: 'گل گاوزبان اعلا', price: 98000, image: '', cat: 'اعصاب' },
-            { id: 2, title: 'دمنوش آرامبخش خواب', price: 85000, image: '', cat: 'خواب' },
-            { id: 3, title: 'عرق نعناع اصل ارگانیک', price: 45000, image: '', cat: 'گوارش' },
-            { id: 4, title: 'معجون تقویت سیستم ایمنی', price: 125000, image: '', cat: 'ایمنی' },
-            { id: 5, title: 'مغز بادام درختی اعلا', price: 420000, image: '', cat: 'خشکبار' }
-        ];
+<script>
+    let products = JSON.parse(localStorage.getItem('taghdisi_products')) || [
+        {id: 1, title: 'گل گاوزبان اعلا', price: 98000, image: '', cat: 'اعصاب'},
+        {id: 2, title: 'دمنوش آرامبخش خواب', price: 85000, image: '', cat: 'خواب'},
+        {id: 3, title: 'عرق نعناع اصل ارگانیک', price: 45000, image: '', cat: 'گوارش'},
+        {id: 4, title: 'معجون تقویت ایمنی', price: 125000, image: '', cat: 'ایمنی'},
+        {id: 5, title: 'مغز بادام درختی اعلا', price: 420000, image: 'https://images.unsplash.com/photo-1508061253366-f7da15bbf6e5?auto=format&fit=crop&w=400&q=80', cat: 'خشکبار'}
+    ];
 
-        let products = JSON.parse(localStorage.getItem('taghdisi_products')) || defaultProducts;
-        let cart = {};
-        let currentFilter = 'all';
+    let cart = {};
+    let currentCat = 'all';
 
-        function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            grid.innerHTML = '';
+    function renderProducts() {
+        let grid = document.getElementById('productGrid');
+        let search = document.getElementById('searchInput').value.toLowerCase();
+        grid.innerHTML = '';
 
-            let filtered = products.filter(p => {
-                let matchCat = (currentFilter === 'all' || p.cat === currentFilter);
-                let matchSearch = p.title.toLowerCase().includes(search) || (p.cat && p.cat.toLowerCase().includes(search));
-                return matchCat && matchSearch;
-            });
+        let filtered = products.filter(p => {
+            let matchCat = (currentCat === 'all' || p.cat === currentCat);
+            let matchSearch = p.title.toLowerCase().includes(search) || (p.cat && p.cat.toLowerCase().includes(search));
+            return matchCat && matchSearch;
+        });
 
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-10 text-stone-400 text-xs">محصولی یافت نشد.</div>`;
-                return;
-            }
+        if (filtered.length === 0) {
+            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:var(--muted)">محصولی یافت نشد.</div>';
+            return;
+        }
 
-            filtered.forEach(p => {
-                let qty = cart[p.id] || 0;
-                grid.innerHTML += `
-                    <div class="bg-white rounded-2xl p-3 shadow-sm border border-stone-200 flex flex-col justify-between">
-                        <div>
-                            <img src="${p.image || 'https://via.placeholder.com/200?text=Taghdisi'}" class="w-full h-28 object-cover rounded-xl mb-2 bg-stone-100" onerror="this.src='https://via.placeholder.com/200?text=Taghdisi'">
-                            <span class="text-[10px] bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md font-medium">${p.cat || 'عطاری'}</span>
-                            <h4 class="font-bold text-xs text-stone-800 mt-1.5 line-clamp-1">${p.title}</h4>
-                        </div>
-                        <div class="mt-3">
-                            <div class="text-[#556b2f] font-bold text-xs mb-2">${p.price.toLocaleString()} تومان</div>
-                            ${qty === 0 ? `
-                                <button onclick="updateCart(${p.id}, 1)" class="w-full bg-[#556b2f]/10 hover:bg-[#556b2f] hover:text-white text-[#556b2f] py-1.5 rounded-xl text-xs font-bold transition">افزودن به سبد</button>
-                            ` : `
-                                <div class="flex items-center justify-between bg-stone-100 rounded-xl p-1">
-                                    <button onclick="updateCart(${p.id}, -1)" class="w-7 h-7 bg-white rounded-lg shadow-sm text-xs font-bold">-</button>
-                                    <span class="text-xs font-bold">${qty}</span>
-                                    <button onclick="updateCart(${p.id}, 1)" class="w-7 h-7 bg-[#556b2f] text-white rounded-lg shadow-sm text-xs font-bold">+</button>
-                                </div>
-                            `}
-                        </div>
+        filtered.forEach(p => {
+            let qty = cart[p.id] || 0;
+            grid.innerHTML += `
+                <div class="card">
+                    <div>
+                        <img src="${p.image || 'https://via.placeholder.com/200?text=Taghdisi'}" onerror="this.src='https://via.placeholder.com/200?text=Taghdisi'">
+                        <h3>${p.title}</h3>
                     </div>
-                `;
-            });
+                    <div>
+                        <div class="price">${p.price.toLocaleString()} تومان</div>
+                        ${qty === 0 ? `
+                            <button class="addbtn" onclick="updateCart(${p.id}, 1)">افزودن به سبد</button>
+                        ` : `
+                            <div style="display:flex;align-items:center;justify-content:space-between;background:#f0fdf4;padding:4px 8px;border-radius:8px">
+                                <button onclick="updateCart(${p.id}, -1)" style="border:none;background:white;width:24px;height:24px;border-radius:6px;font-weight:bold">-</button>
+                                <span style="font-weight:bold;font-size:13px">${qty}</span>
+                                <button onclick="updateCart(${p.id}, 1)" style="border:none;background:var(--p);color:white;width:24px;height:24px;border-radius:6px;font-weight:bold">+</button>
+                            </div>
+                        `}
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function setCat(cat, btn) {
+        currentCat = cat;
+        document.querySelectorAll('.catbtn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProducts();
+    }
+
+    function filterProducts() {
+        renderProducts();
+    }
+
+    function updateCart(id, change) {
+        cart[id] = (cart[id] || 0) + change;
+        if (cart[id] <= 0) delete cart[id];
+        
+        let totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
+        let totalPrice = 0;
+        for (let id in cart) {
+            let p = products.find(x => x.id == id);
+            if (p) totalPrice += p.price * cart[id];
         }
 
-        function setFilter(cat) {
-            currentFilter = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.classList.remove('bg-[#556b2f]', 'text-white');
-                btn.classList.add('bg-white', 'text-stone-700');
-            });
-            event.target.classList.remove('bg-white', 'text-stone-700');
-            event.target.classList.add('bg-[#556b2f]', 'text-white');
-            renderProducts();
+        let cartBar = document.getElementById('cartBar');
+        if (totalItems > 0) {
+            cartBar.style.display = 'flex';
+            document.getElementById('cartTotal').innerText = totalPrice.toLocaleString() + ' تومان';
+        } else {
+            cartBar.style.display = 'none';
         }
+        renderProducts();
+    }
 
-        function updateCart(id, change) {
-            cart[id] = (cart[id] || 0) + change;
-            if (cart[id] <= 0) delete cart[id];
-            
-            let totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
-            let totalPrice = 0;
-            for (let id in cart) {
-                let p = products.find(x => x.id == id);
-                if (p) totalPrice += p.price * cart[id];
-            }
-
-            const cartBar = document.getElementById('cartBar');
-            if (totalItems > 0) {
-                cartBar.classList.remove('hidden');
-                document.getElementById('cartTotal').innerText = totalPrice.toLocaleString() + ' تومان';
-            } else {
-                cartBar.classList.add('hidden');
-            }
-            renderProducts();
-        }
-
-        function checkout() {
-            let text = "سلام، سفارش خود از عطاری برادران تقدیسی:\n\n";
-            let totalPrice = 0;
-            for (let id in cart) {
-                let p = products.find(x => x.id == id);
-                if (p) {
-                    text += `- ${p.title} (${cart[id]} عدد): ${(p.price * cart[id]).toLocaleString()} تومان\n`;
-                    totalPrice += p.price * cart[id];
-                }
-            }
-            text += `\nمجموع قابل پرداخت: ${totalPrice.toLocaleString()} تومان\nارسال به نارمک`;
-            window.open(`https://wa.me/989188085331?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        // پنل مدیریت
-        function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
-        function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
-
-        function checkAdminLogin() {
-            let pass = document.getElementById('adminPass').value;
-            if (pass === 'GAPGPTMASKTOKENs2f5qegxdvpX0X' || pass === 'Mjt_3330') {
-                document.getElementById('loginSection').classList.add('hidden');
-                document.getElementById('manageSection').classList.remove('hidden');
-                renderAdminList();
-            } else {
-                alert('رمز عبور اشتباه است!');
+    function checkout() {
+        let text = "سلام، سفارش خود از عطاری برادران تقدیسی:\n\n";
+        let totalPrice = 0;
+        for (let id in cart) {
+            let p = products.find(x => x.id == id);
+            if (p) {
+                text += `- ${p.title} (${cart[id]} عدد): ${(p.price * cart[id]).toLocaleString()} تومان\n`;
+                totalPrice += p.price * cart[id];
             }
         }
+        text += `\nمجموع: ${totalPrice.toLocaleString()} تومان\nارسال به نارمک`;
+        window.open(`https://wa.me/989188085331?text=${encodeURIComponent(text)}`, '_blank');
+    }
 
-        function addNewProduct() {
-            let title = document.getElementById('newTitle').value;
-            let price = parseInt(document.getElementById('newPrice').value);
-            let image = document.getElementById('newImage').value;
-            let cat = document.getElementById('newCat').value || 'عمومی';
+    function openAdmin() { document.getElementById('adminModal').classList.add('open'); }
+    function closeAdmin() { document.getElementById('adminModal').classList.remove('open'); }
 
-            if (!title || !price) {
-                alert('لطفا نام و قیمت را وارد کنید.');
-                return;
-            }
-
-            products.unshift({ id: Date.now(), title, price, image, cat });
-            localStorage.setItem('taghdisi_products', JSON.stringify(products));
-            
-            document.getElementById('newTitle').value = '';
-            document.getElementById('newPrice').value = '';
-            document.getElementById('newImage').value = '';
-            document.getElementById('newCat').value = '';
-
-            renderProducts();
+    function loginAdmin() {
+        let pass = document.getElementById('adminPass').value;
+        if (pass === 'Mjt_3330') {
+            document.getElementById('adminLogin').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
             renderAdminList();
-            alert('محصول با موفقیت اضافه شد!');
+        } else {
+            alert('رمز عبور اشتباه است!');
+        }
+    }
+
+    function addProduct() {
+        let title = document.getElementById('newTitle').value;
+        let price = parseInt(document.getElementById('newPrice').value);
+        let image = document.getElementById('newImage').value;
+        let cat = document.getElementById('newCat').value || 'عمومی';
+
+        if (!title || !price) {
+            alert('لطفا نام و قیمت را وارد کنید.');
+            return;
         }
 
-        function deleteProduct(id) {
-            if (confirm('آیا از حذف این محصول اطمینان دارید؟')) {
-                products = products.filter(p => p.id !== id);
-                localStorage.setItem('taghdisi_products', JSON.stringify(products));
-                renderProducts();
-                renderAdminList();
-            }
-        }
-
-        function renderAdminList() {
-            const list = document.getElementById('adminProductList');
-            list.innerHTML = '';
-            products.forEach(p => {
-                list.innerHTML += `
-                    <div class="flex justify-between items-center bg-white p-2 rounded-xl border text-xs">
-                        <span class="font-medium truncate max-w-[180px]">${p.title} - ${p.price.toLocaleString()} تومان</span>
-                        <button onclick="deleteProduct(${p.id})" class="bg-rose-100 text-rose-700 px-2.5 py-1 rounded-lg font-bold">حذف</button>
-                    </div>
-                `;
-            });
-        }
+        products.unshift({ id: Date.now(), title, price, image, cat });
+        localStorage.setItem('taghdisi_products', JSON.stringify(products));
+        
+        document.getElementById('newTitle').value = '';
+        document.getElementById('newPrice').value = '';
+        document.getElementById('newImage').value = '';
+        document.getElementById('newCat').value = '';
 
         renderProducts();
-    </script>
+        renderAdminList();
+        alert('محصول اضافه شد!');
+    }
+
+    function deleteProduct(id) {
+        if (confirm('حذف شود؟')) {
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('taghdisi_products', JSON.stringify(products));
+            renderProducts();
+            renderAdminList();
+        }
+    }
+
+    function renderAdminList() {
+        let list = document.getElementById('adminList');
+        list.innerHTML = '';
+        products.forEach(p => {
+            list.innerHTML += `
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+                    <span>${p.title}</span>
+                    <button onclick="deleteProduct(${p.id})" style="background:#fee2e2;color:#991b1b;border:none;padding:2px 6px;border-radius:4px;font-size:11px">حذف</button>
+                </div>
+            `;
+        });
+    }
+
+    renderProducts();
+</script>
+
 </body>
 </html>
