@@ -3,41 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#18382d">
-  <meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران؛ خرید خشکبار، آجیل، ادویه، گیاهان و عرقیجات با ثبت سفارش از طریق واتساپ.">
-  <title>عطاری و خشکبار برادران تقدیسی | نارمک تهران</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "عطاری و خشکبار برادران تقدیسی",
-    "description": "فروشگاه عطاری و خشکبار در نارمک تهران",
-    "telephone": ["+989188085331", "+989921971423"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IR",
-      "addressRegion": "تهران",
-      "addressLocality": "تهران",
-      "streetAddress": "نارمک، میدان نبوت، به سمت چهارراه تلفن‌خانه، روبه‌روی آموزشگاه زبان سفیر، جنب نان برکت، پلاک ۲۴۶"
-    },
-    "openingHours": "Mo-Su 09:00-22:00",
-    "sameAs": ["https://www.instagram.com/atarikhoshkbartaghdisi/"]
-  }
-  </script>
-
+  <meta name="theme-color" content="#17362c">
+  <title>عطاری و خشکبار برادران تقدیسی | شیک و مدرن</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --forest: #18382d;
-      --forest-2: #244a39;
-      --leaf: #708d55;
-      --cream: #faf8f2;
-      --paper: #fffefa;
-      --sand: #eee9db;
-      --gold: #e9b65a;
-      --orange: #c87540;
-      --ink: #...
+      --green:#17362c; --cream:#f7f4eb; --gold:#c69454; --ink:#24342b;
+      --paper:#fffcf6; --line:#e8e6dc; --shadow:0 12px 30px rgba(23,54,44,0.1);
+    }
+    body {margin:0; background:var(--cream); color:var(--ink); font-family:Vazirmatn, Tahoma, sans-serif; line-height:1.6;}
+    .wrap {width:min(1100px, calc(100% - 30px)); margin:auto;}
+    
+    /* Header */
+    header {background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:100; padding:15px 0;}
+    .header-inner {display:flex; justify-content:space-between; align-items:center;}
+    .logo {font-weight:bold; color:var(--green); font-size:1.2rem;}
+    .cart-btn {background:var(--green); color:white; border:0; padding:8px 15px; border-radius:10px; font-weight:bold;}
+
+    /* Hero */
+    .hero {background:var(--green); color:white; padding:60px 0; text-align:center; border-radius:0 0 40px 40px;}
+    .hero h1 {font-size:2.5rem; margin-bottom:10px;}
+    .hero p {opacity:0.9; font-size:1.1rem;}
+
+    /* Products Grid */
+    .catalog {padding:40px 0;}
+    .grid {display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px;}
+    .card {background:var(--paper); border:1px solid var(--line); border-radius:20px; overflow:hidden; transition:0.3s;}
+    .card:hover {transform:translateY(-5px); box-shadow:var(--shadow);}
+    .card-img {height:150px; background:#eee; display:grid; place-items:center; font-size:3rem;}
+    .card-body {padding:15px; text-align:center;}
+    .card h3 {font-size:1rem; margin:10px 0;}
+    .price {font-weight:bold; color:var(--green); font-size:1.1rem; margin-bottom:15px;}
+    .add-btn {background:var(--gold); border:0; width:100%; padding:10px; border-radius:12px; font-weight:bold; cursor:pointer;}
+
+    /* Footer */
+    footer {background:var(--ink); color:white; padding:40px 0; text-align:center; margin-top:50px;}
+
+    /* Cart Drawer */
+    #drawer {position:fixed; top:0; left:0; width:min(400px, 100%); height:100%; background:white; z-index:200; box-shadow:5px 0 20px rgba(0,0,0,0.2); padding:20px; transition:0.3s; transform:translateX(-100%);}
+    #drawer.open {transform:translateX(0);}
+    .close-btn {background:#eee; border:0; padding:5px 10px; border-radius:5px;}
+    .cart-item {display:flex; justify-content:space-between; 
