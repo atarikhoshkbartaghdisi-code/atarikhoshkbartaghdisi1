@@ -55,7 +55,7 @@
       color: var(--dark);
     }
 
-    /* هدر اسنپ‌فودی */
+    /* هدر */
     header {
       background: var(--white);
       position: sticky;
@@ -191,7 +191,7 @@
     .badge-green { background: var(--green-light); color: var(--green-badge); }
     .badge-pink { background: var(--primary-light); color: var(--primary); }
 
-    /* سرچ‌بار مدرن اسنپ‌فود */
+    /* سرچ‌بار */
     .search-wrapper {
       max-width: 1100px;
       margin: 10px auto;
@@ -389,7 +389,7 @@
       color: white;
     }
 
-    /* نوار پایین اسنپ‌فود */
+    /* نوار پایین */
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -621,7 +621,7 @@
     </div>
   </div>
 
-  <!-- معرفی فروشگاه به سبک وندور اسنپ‌فود -->
+  <!-- معرفی فروشگاه به سبک وندور -->
   <div class="vendor-card">
     <div class="vendor-inner">
       <div>
@@ -639,7 +639,7 @@
     </div>
   </div>
 
-  <!-- سرچ‌بار اسنپ‌فودی -->
+  <!-- سرچ‌بار -->
   <div class="search-wrapper">
     <div class="search-bar">
       <span class="search-icon">🔍</span>
@@ -772,7 +772,7 @@
     </a>
   </div>
 
-  <!-- مودال لاگین و پنل مدیریت پیشرفته با رمز Mjt_3330 -->
+  <!-- مودال پنل مدیریت -->
   <div class="checkout-modal" id="adminModal">
     <div class="modal-header">
       <h3 style="margin:0; font-size:16px;">⚙️ پنل مدیریت هوشمند محصولات</h3>
@@ -845,10 +845,8 @@
   </div>
 
   <script>
-    // کلید رمز مدیریت
     const ADMIN_PASS = "Mjt_3330";
 
-    // دسته‌ها
     const categories = [
       { id: 'all', name: 'همه', icon: '✨' },
       { id: 'nuts', name: 'خشکبار و پسته', icon: '🥜' },
@@ -859,7 +857,6 @@
       { id: 'wholesale', name: 'پخش عمده', icon: '📦' }
     ];
 
-    // نیازها و بیماری‌ها
     const illnesses = [
       { id: 'relax', name: '😴 خواب‌آور و آرامبخش اعصاب', tags: ['گاوزبان', 'بهار نارنج', 'بیدمشک'] },
       { id: 'stomach', name: '🫄 گوارش، معده و نفخ', tags: ['عرق نعنا', 'زنیان', 'آویشن'] },
@@ -869,7 +866,6 @@
       { id: 'heart', name: '❤️ فشار خون و سلامت قلب', tags: ['بیدمشک', 'بادام', 'کشمش'] }
     ];
 
-    // محصولات پیش‌فرض
     const initialProducts = [
       { id: 1, cat: 'nuts', name: 'پسته اکبری درجه یک', price: 493000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'ویژه', image: '' },
       { id: 2, cat: 'nuts', name: 'بادام هندی زعفرانی', price: 395000, unit: '۱۰۰ گرم', icon: '🥜', tag: 'پرفروش', image: '' },
@@ -887,4 +883,31 @@
       { id: 14, cat: 'spices', name: 'زعفران قائنات اصیل', price: 1950000, unit: 'یک مثقال', icon: '✨', tag: 'ممتاز', image: '' },
       { id: 15, cat: 'spices', name: 'زردچوبه اعلای هندی', price: 242000, unit: '۱۰۰ گرم', icon: '🧂', tag: '', image: '' },
       { id: 16, cat: 'spices', name: 'دارچین سیگاری معطر', price: 565000, unit: '۱۰۰ گرم', icon: '🪵', tag: '', image: '' },
-      { id: 17, cat: 'sweet', name: 'نبات شاخه زعفرانی اعلا', price: 195000, unit: '۵۰۰ گرم', icon: '�
+      { id: 17, cat: 'sweet', name: 'نبات شاخه زعفرانی اعلا', price: 195000, unit: '۵۰۰ گرم', icon: '🍬', tag: 'ویژه', image: '' }
+    ];
+
+    let products = JSON.parse(localStorage.getItem('taghdisi_products')) || initialProducts;
+    let cart = JSON.parse(localStorage.getItem('taghdisi_cart')) || {};
+    let activeCat = 'all';
+    let activeIllness = null;
+    let uploadedImageBase64 = '';
+
+    function formatNumber(num) {
+      return Number(num).toLocaleString('fa-IR');
+    }
+
+    function renderCategories() {
+      const catGrid = document.getElementById('catGrid');
+      catGrid.innerHTML = categories.map(c => `
+        <div class="cat-card ${c.id === activeCat ? 'active' : ''}" onclick="selectCategory('${c.id}')">
+          <span class="cat-icon">${c.icon}</span>
+          <span class="cat-title">${c.name}</span>
+        </div>
+      `).join('');
+    }
+
+    function renderIllnesses() {
+      const list = document.getElementById('illnessList');
+      list.innerHTML = illnesses.map(i => `
+        <div class="illness-chip ${i.id === activeIllness ? 'active' : ''}" onclick="selectIllness('${i.id}')">
+          <span>${i.name}</span>
