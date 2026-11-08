@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عطاری و خشکبار برادران تقدیسی</title>
-    <meta name="google-site-verification" content="GAPGPTMASKTOKEN3xrnnea1wlX0X" />
+    <meta name="google-site-verification" content="GAPGPTMASKTOKEN6j60rq8z468X0X" />
     <style>
         :root {
             --primary: #556B2F; /* Olive Green */
@@ -18,44 +18,49 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, Arial, sans-serif; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header h1 { font-size: 1.5rem; margin-bottom: 5px; }
+        header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 25px 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 1.6rem; margin-bottom: 5px; }
         header p { font-size: 0.9rem; opacity: 0.9; }
         .container { max-width: 1200px; margin: 0 auto; padding: 15px; }
         
-        /* Search Sections */
+        /* Search & Health Filter Boxes */
         .search-box { background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border); }
         .search-box h3 { font-size: 1rem; margin-bottom: 10px; color: var(--primary-dark); }
         .search-box input, .search-box select { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; outline: none; }
         .search-box input:focus { border-color: var(--primary); }
 
-        /* Health symptoms quick filters */
         .health-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .health-tag { background: #E8ECE1; border: 1px solid var(--border); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; color: var(--primary-dark); transition: 0.2s; }
         .health-tag:hover, .health-tag.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
+        /* Categories Bar */
+        .categories { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 15px; }
+        .cat-chip { background: #fff; border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; white-space: nowrap; color: var(--primary-dark); }
+        .cat-chip.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
         /* Product Grid */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-        .product-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-3px); }
-        .product-img { width: 100%; height: 130px; background: #EAEFE5; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary); position: relative; }
+        .product-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; }
+        .product-img { width: 100%; height: 130px; background: #EAEFE5; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary); }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
         .product-info { padding: 10px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
         .product-title { font-size: 0.95rem; font-weight: bold; margin-bottom: 4px; color: var(--text); }
         .product-weight { font-size: 0.75rem; color: #666; margin-bottom: 6px; }
         .product-price { font-size: 0.9rem; font-weight: bold; color: var(--primary-dark); margin-bottom: 8px; }
-        .btn { background: var(--primary); color: #fff; border: none; padding: 8px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; width: 100%; text-align: center; transition: 0.2s; }
+        
+        .btn { background: var(--primary); color: #fff; border: none; padding: 8px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; width: 100%; text-align: center; }
         .btn:hover { background: var(--primary-dark); }
-        .btn-inquiry { background: #A0A89B; }
+        .btn-inquiry { background: #A0A89B; text-decoration: none; display: block; }
 
         /* Cart Floating bar */
         .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--primary-dark); color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 10px rgba(0,0,0,0.1); z-index: 100; }
         .cart-btn { background: #fff; color: var(--primary-dark); padding: 6px 14px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
 
-        /* Admin Section */
-        .admin-panel { background: #fff; padding: 15px; border-radius: 12px; margin-top: 20px; border: 1px dashed var(--primary); }
+        /* Admin Panel */
+        .admin-panel { background: #fff; padding: 15px; border-radius: 12px; margin-top: 25px; border: 1px dashed var(--primary); }
         .admin-panel h3 { margin-bottom: 10px; color: var(--primary-dark); }
-        .admin-inputs input { width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid var(--border); border-radius: 6px; }
-
+        .admin-inputs input, .admin-inputs select { width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid var(--border); border-radius: 6px; }
+        
         footer { text-align: center; padding: 30px 15px 80px; font-size: 0.85rem; color: #666; }
     </style>
 </head>
@@ -70,7 +75,6 @@
         <!-- Health Search strictly ABOVE product search -->
         <div class="search-box">
             <h3>🌿 جست‌وجوی درمانی و خواص گیاهان</h3>
-            <p style="font-size: 0.8rem; color: #666; margin-bottom: 8px;">روی خواص مورد نظر کلیک کنید تا محصولات مرتبط نمایش داده شوند:</p>
             <div class="health-tags" id="healthTags">
                 <span class="health-tag" onclick="filterByHealth('تقویت قوای جسمی')">💪 تقویت قوای جسمی</span>
                 <span class="health-tag" onclick="filterByHealth('آرامبخش')">🍵 آرامبخش و خواب</span>
@@ -81,10 +85,19 @@
             </div>
         </div>
 
-        <!-- Product Search & Filter -->
+        <!-- Product Search -->
         <div class="search-box">
             <h3>🔍 جست‌وجوی محصولات</h3>
             <input type="text" id="searchInput" placeholder="نام محصول، ادویه، آجیل..." oninput="renderProducts()">
+        </div>
+
+        <!-- Categories Filter -->
+        <div class="categories" id="categoryChips">
+            <div class="cat-chip active" onclick="filterCategory('همه')">همه محصولات</div>
+            <div class="cat-chip" onclick="filterCategory('خشکبار')">خشکبار و آجیل</div>
+            <div class="cat-chip" onclick="filterCategory('گیاهان دارویی')">گیاهان دارویی</div>
+            <div class="cat-chip" onclick="filterCategory('ادویه و زعفران')">ادویه و زعفران</div>
+            <div class="cat-chip" onclick="filterCategory('حبوبات و غلات')">حبوبات و غلات</div>
         </div>
 
         <!-- Products Grid -->
@@ -92,14 +105,28 @@
 
         <!-- Admin Control Panel -->
         <div class="admin-panel">
-            <h3>⚙️ پنل مدیریت ساده</h3>
+            <h3>⚙️ پنل مدیریت (رمز عبور: Mjt_3330)</h3>
             <div id="adminLogin">
                 <input type="password" id="adminPass" placeholder="رمز عبور مدیریت">
                 <button class="btn" onclick="checkAdmin()">ورود به پنل</button>
             </div>
             <div id="adminControls" style="display:none; margin-top: 10px;">
                 <p style="color: green; font-size: 0.85rem; margin-bottom: 8px;">✅ مدیریت فعال است</p>
-                <button class="btn" onclick="resetDefaults()" style="background:#b22222;">بازنشانی محصولات پیش‌فرض</button>
+                <h4 style="font-size: 0.9rem; margin: 10px 0 5px;">افزودن محصول جدید:</h4>
+                <div class="admin-inputs">
+                    <input type="text" id="newTitle" placeholder="نام محصول">
+                    <select id="newCat">
+                        <option value="خشکبار">خشکبار</option>
+                        <option value="گیاهان دارویی">گیاهان دارویی</option>
+                        <option value="ادویه و زعفران">ادویه و زعفران</option>
+                        <option value="حبوبات و غلات">حبوبات و غلات</option>
+                    </select>
+                    <input type="text" id="newWeight" placeholder="وزن (مثلا: بسته ۱۰۰ گرمی)">
+                    <input type="number" id="newPrice" placeholder="قیمت به تومان (خالی بگذارید برای استعلام)">
+                    <input type="text" id="newImage" placeholder="آدرس لینک عکس (اختیاری)">
+                    <button class="btn" onclick="addNewProduct()">ثبت محصول جدید</button>
+                </div>
+                <button class="btn" onclick="resetDefaults()" style="background:#b22222; margin-top: 10px;">بازنشانی محصولات پیش‌فرض</button>
             </div>
         </div>
     </div>
@@ -112,23 +139,24 @@
 
     <script>
         const defaultProducts = [
-            { id: 1, name: "پسته اکبری", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 493000, health: "تقویت قوای جسمی قلب", emoji: "🌰" },
-            { id: 2, name: "بادام هندی زعفرانی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 395000, health: "تقویت قوای جسمی", emoji: "🥜" },
-            { id: 3, name: "بادام هندی خام", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 390000, health: "تقویت قوای جسمی", emoji: "🥜" },
-            { id: 4, name: "آجیل سه مغز", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 380000, health: "تقویت قوای جسمی", emoji: "🌰" },
-            { id: 5, name: "توت خشک درجه یک", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 180000, health: "پوکی استخوان گوارش", emoji: "🫐" },
-            { id: 6, name: "توت خشک معمولی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 99000, health: "گوارش", emoji: "🫐" },
-            { id: 7, name: "بادام زمینی آستانه", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 97000, health: "تقویت قوای جسمی", emoji: "🥜" },
-            { id: 8, name: "تخمه کدو ایرانی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 120000, health: "قلب", emoji: "🌻" },
-            { id: 9, name: "انجیر خشک استهبان", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 120000, health: "گوارش پوکی استخوان", emoji: "🍈" },
-            { id: 10, name: "زعفران نگین اعلا", category: "ادویه و زعفران", weight: "مثقالی", price: null, health: "آرامبخش قلب", emoji: "🌺" },
-            { id: 11, name: "گل گاوزبان اصل", category: "گیاهان دارویی", weight: "بسته ۵۰ گرمی", price: null, health: "آرامبخش و خواب", emoji: "🌿" },
-            { id: 12, name: "به لیمو", category: "گیاهان دارویی", weight: "بسته ۵۰ گرمی", price: null, health: "آرامبخش گوارش", emoji: "🍃" }
+            { id: 1, name: "پسته اکبری", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 493000, health: "تقویت قوای جسمی قلب", emoji: "🌰", image: "" },
+            { id: 2, name: "بادام هندی زعفرانی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 395000, health: "تقویت قوای جسمی", emoji: "🥜", image: "" },
+            { id: 3, name: "بادام هندی خام", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 390000, health: "تقویت قوای جسمی", emoji: "🥜", image: "" },
+            { id: 4, name: "آجیل سه مغز", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 380000, health: "تقویت قوای جسمی", emoji: "🌰", image: "" },
+            { id: 5, name: "توت خشک درجه یک", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 180000, health: "پوکی استخوان گوارش", emoji: "🫐", image: "" },
+            { id: 6, name: "توت خشک معمولی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 99000, health: "گوارش", emoji: "🫐", image: "" },
+            { id: 7, name: "بادام زمینی آستانه", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 97000, health: "تقویت قوای جسمی", emoji: "🥜", image: "" },
+            { id: 8, name: "تخمه کدو ایرانی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 120000, health: "قلب", emoji: "🌻", image: "" },
+            { id: 9, name: "انجیر خشک استهبان", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 120000, health: "گوارش پوکی استخوان", emoji: "🍈", image: "" },
+            { id: 10, name: "زعفران نگین اعلا", category: "ادویه و زعفران", weight: "مثقالی", price: null, health: "آرامبخش قلب", emoji: "🌺", image: "" },
+            { id: 11, name: "گل گاوزبان اصل", category: "گیاهان دارویی", weight: "بسته ۵۰ گرمی", price: null, health: "آرامبخش و خواب", emoji: "🌿", image: "" },
+            { id: 12, name: "به لیمو", category: "گیاهان دارویی", weight: "بسته ۵۰ گرمی", price: null, health: "آرامبخش گوارش", emoji: "🍃", image: "" }
         ];
 
-        let products = JSON.parse(localStorage.getItem('khushkhabar_products_v1')) || defaultProducts;
+        let products = JSON.parse(localStorage.getItem('taghdisi_products_v2')) || defaultProducts;
         let cart = {};
         let activeHealthFilter = "";
+        let activeCategory = "همه";
 
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
@@ -138,7 +166,8 @@
             const filtered = products.filter(p => {
                 const matchName = p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
                 const matchHealth = activeHealthFilter ? p.health.includes(activeHealthFilter) : true;
-                return matchName && matchHealth;
+                const matchCat = activeCategory === "همه" || p.category === activeCategory;
+                return matchName && matchHealth && matchCat;
             });
 
             if(filtered.length === 0) {
@@ -150,11 +179,12 @@
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 
+                let imgHtml = p.image ? `<img src="${p.image}" alt="${p.name}">` : `<span>${p.emoji || '🌿'}</span>`;
                 let priceHtml = p.price ? `${p.price.toLocaleString()} تومان` : `<span style="color:#b22222;">استعلام قیمت</span>`;
-                let btnHtml = p.price ? `<button class="btn" onclick="addToCart(${p.id})">افزودن به سبد</button>` : `<a href="https://wa.me/989188085331?text=سلام، درخواست استعلام قیمت محصول ${encodeURIComponent(p.name)} را دارم." target="_blank" class="btn btn-inquiry" style="text-decoration:none; display:block;">استعلام در واتساپ</a>`;
+                let btnHtml = p.price ? `<button class="btn" onclick="addToCart(${p.id})">افزودن به سبد</button>` : `<a href="https://wa.me/989188085331?text=سلام، درخواست استعلام قیمت محصول ${encodeURIComponent(p.name)} را دارم." target="_blank" class="btn btn-inquiry">استعلام در واتساپ</a>`;
 
                 card.innerHTML = `
-                    <div class="product-img">${p.emoji}</div>
+                    <div class="product-img">${imgHtml}</div>
                     <div class="product-info">
                         <div>
                             <div class="product-title">${p.name}</div>
@@ -166,6 +196,14 @@
                 `;
                 grid.appendChild(card);
             });
+        }
+
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-chip').forEach(c => {
+                c.classList.toggle('active', c.textContent.includes(cat));
+            });
+            renderProducts();
         }
 
         function filterByHealth(tag) {
@@ -225,15 +263,49 @@
             if(pass === "Mjt_3330") {
                 document.getElementById('adminLogin').style.display = 'none';
                 document.getElementById('adminControls').style.display = 'block';
-                alert("ورود موفقیت‌آمیز بود!");
+                alert("ورود به پنل مدیریت موفقیت‌آمیز بود!");
             } else {
                 alert("رمز عبور اشتباه است.");
             }
         }
 
+        function addNewProduct() {
+            const name = document.getElementById('newTitle').value.trim();
+            const category = document.getElementById('newCat').value;
+            const weight = document.getElementById('newWeight').value.trim();
+            const priceVal = document.getElementById('newPrice').value.trim();
+            const image = document.getElementById('newImage').value.trim();
+
+            if(!name) {
+                alert("لطفا نام محصول را وارد کنید.");
+                return;
+            }
+
+            const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+            const newProd = {
+                id: newId,
+                name: name,
+                category: category,
+                weight: weight || "بسته بندی استاندارد",
+                price: priceVal ? parseInt(priceVal) : null,
+                health: "عمومی",
+                emoji: "🌿",
+                image: image
+            };
+
+            products.push(newProd);
+            localStorage.setItem('taghdisi_products_v2', JSON.stringify(products));
+            renderProducts();
+            alert("محصول با موفقیت اضافه شد!");
+            document.getElementById('newTitle').value = '';
+            document.getElementById('newWeight').value = '';
+            document.getElementById('newPrice').value = '';
+            document.getElementById('newImage').value = '';
+        }
+
         function resetDefaults() {
             if(confirm("آیا محصولات به حالت اولیه بازنشانی شوند؟")) {
-                localStorage.removeItem('khushkhabar_products_v1');
+                localStorage.removeItem('taghdisi_products_v2');
                 products = defaultProducts;
                 renderProducts();
                 alert("بازنشانی انجام شد.");
