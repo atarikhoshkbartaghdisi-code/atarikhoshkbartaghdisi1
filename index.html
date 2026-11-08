@@ -12,7 +12,7 @@
   <meta property="og:description" content="فروشگاه تخصصی گیاهان دارویی، عرقیات و خشکبار تازه در نارمک تهران">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://atarikhoshkbartaghdisi.ir">
-  <meta name="google-site-verification" content="GAPGPTMASKTOKENw7v2so88r0eX0X">
+  <meta name="google-site-verification" content="GAPGPTMASKTOKEN0hf8uecsrxzX0X">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
@@ -41,7 +41,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-    /* Welcome Banner (10s auto-dismiss) */
+    /* بنر خوش‌آمدگویی هوشمند (محو شونده پس از ۱۰ ثانیه) */
     .welcome-banner {
       position: fixed;
       top: 16px;
@@ -88,14 +88,13 @@
     }
     .welcome-banner-close:hover { background: rgba(255,255,255,0.35); }
 
-    /* Header */
+    /* سربرگ */
     header {
       background: linear-gradient(135deg, #14532d 0%, #15803d 50%, #166534 100%);
       color: white;
       padding: 30px 16px;
       text-align: center;
       position: relative;
-      overflow: hidden;
       box-shadow: var(--shadow-md);
     }
     header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 6px; }
@@ -114,10 +113,10 @@
       border-radius: 20px;
     }
 
-    /* Container */
+    /* بدنه اصلی */
     .container { max-width: 1200px; margin: 0 auto; padding: 16px; }
 
-    /* Search & Filter Bar */
+    /* بخش جستجو و دسته‌بندی */
     .controls-card {
       background: var(--surface);
       border-radius: var(--radius-md);
@@ -150,7 +149,6 @@
       pointer-events: none;
     }
 
-    /* Categories Tabs */
     .categories-bar {
       display: flex;
       gap: 8px;
@@ -176,8 +174,178 @@
       border-color: var(--primary);
     }
 
-    /*   <script>
-    // بستن دستی یا خودکار بنر خوش‌آمدگویی
+    /* گرید محصولات */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 24px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-dark);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .product-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--primary-light); }
+    .product-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: #f0fdf4;
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .product-name { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+    .product-price { font-size: 1.05rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
+    .product-unit { font-size: 0.78rem; color: var(--text-muted); }
+    .order-btn {
+      margin-top: 12px;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: var(--transition);
+      display: block;
+    }
+    .order-btn:hover { background: var(--secondary-hover); }
+
+    /* پاورقی */
+    footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 36px 16px 20px;
+      margin-top: 40px;
+      border-top: 4px solid var(--primary);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .footer-col h3 { color: #fff; font-size: 1.1rem; margin-bottom: 12px; border-bottom: 2px solid var(--primary); padding-bottom: 6px; display: inline-block; }
+    .footer-col p { font-size: 0.88rem; line-height: 1.8; margin-bottom: 8px; }
+    .footer-col a { color: #38bdf8; text-decoration: none; }
+    .footer-bottom { text-align: center; margin-top: 30px; padding-top: 16px; border-top: 1px solid #334155; font-size: 0.8rem; color: #94a3b8; }
+
+    /* دکمه شناور تماس */
+    .floating-call {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #22c55e;
+      color: white;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(34,197,94,0.4);
+      text-decoration: none;
+      font-size: 1.5rem;
+      z-index: 900;
+      transition: var(--transition);
+    }
+    .floating-call:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+  <!-- بنر خوش‌آمدگویی هوشمند -->
+  <div id="welcomeBanner" class="welcome-banner">
+    <div class="welcome-banner-content">
+      <span>🌿</span>
+      <span>به <strong>عطاری و خشکبار برادران تقدیسی</strong> خوش آمدید! ارسال سریع و رایگان در نارمک 🛵✨</span>
+    </div>
+    <button class="welcome-banner-close" onclick="closeWelcomeBanner()" title="بستن">✕</button>
+  </div>
+
+  <header>
+    <h1>🌱 عطاری و خشکبار برادران تقدیسی</h1>
+    <p class="tagline">عرضه مرغوب‌ترین گیاهان دارویی، خشکبار اعلا و عرقیات سنتی اصل</p>
+    <div class="header-badges">
+      <span class="header-badge">📍 تهران، نارمک</span>
+      <span class="header-badge">🛵 ارسال رایگان در محدوده نارمک</span>
+      <span class="header-badge">⏰ همه‌روزه ۹:۰۰ الی ۲۲:۳۰</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="controls-card">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="جستجوی محصول، گیاه دارویی، خشکبار، ادویه...">
+      </div>
+      <div class="categories-bar" id="categoriesBar">
+        <button class="category-btn active" onclick="filterCategory('all', this)">همه محصولات</button>
+        <button class="category-btn" onclick="filterCategory('دارویی', this)">🌿 گیاهان دارویی</button>
+        <button class="category-btn" onclick="filterCategory('خشکبار', this)">🥜 خشکبار و مغزیجات</button>
+        <button class="category-btn" onclick="filterCategory('ادویه', this)">🌶️ ادویه‌جات اعلا</button>
+        <button class="category-btn" onclick="filterCategory('حبوبات', this)">🌾 حبوبات و غلات</button>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <span>📦 محصولات فروشگاه</span>
+      <span id="productCount" style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">(در حال بارگذاری...)</span>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>عطاری و خشکبار برادران تقدیسی</h3>
+        <p>با سال‌ها تجربه در ارائه باکیفیت‌ترین محصولات ارگانیک، ادویه‌های اصیل هندی و ایرانی، عرقیات دوآتیشه کاشان و مرغوب‌ترین خشکبار ایران.</p>
+        <p><strong>اینستاگرام:</strong> <a href="https://instagram.com/atarikhoshkbartaghdisi" target="_blank" dir="ltr">@atarikhoshkbartaghdisi</a></p>
+      </div>
+      <div class="footer-col">
+        <h3>📍 آدرس و ساعت کاری</h3>
+        <p>تهران، نارمک، آیت شمالی، رو به روی آموزش زبان سفیر، جنب مجتمع نان برکت، پلاک ۲۶۴</p>
+        <p><strong>ساعت کاری:</strong> همه‌روزه از ساعت ۹:۰۰ الی ۲۲:۳۰ شب</p>
+      </div>
+      <div class="footer-col">
+        <h3>📞 تماس و سفارش سریع</h3>
+        <p>تلفن‌های ثبت سفارش و مشاوره:</p>
+        <p>📱 <a href="tel:09188085331">۰۹۱۸۸۰۸۵۳۳۱</a></p>
+        <p>📱 <a href="tel:09166267732">۰۹۱۶۶۲۶۷۷۳۲</a></p>
+        <p>🛵 <em>ارسال رایگان در محدوده نارمک با اولین تماس!</em></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © کلیه حقوق محفوظ است - عطاری و خشکبار برادران تقدیسی (atarikhoshkbartaghdisi.ir)
+    </div>
+  </footer>
+
+  <a href="tel:09188085331" class="floating-call" title="تماس فوری">📞</a>
+
+  <script>
     function closeWelcomeBanner() {
       const banner = document.getElementById('welcomeBanner');
       if (banner) {
@@ -186,12 +354,10 @@
       }
     }
 
-    // تایمر خودکار ۱۰ ثانیه‌ای برای محو شدن بنر
     setTimeout(() => {
       closeWelcomeBanner();
     }, 10000);
 
-    // بانک محصولات عطاری و خشکبار تقدیسی
     const products = [
       { name: "پسته اکبری اعلا", category: "خشکبار", price: "۸۹۰,۰۰۰", unit: "کیلوگرم" },
       { name: "پسته احمدآقایی درجه یک", category: "خشکبار", price: "۷۸۰,۰۰۰", unit: "کیلوگرم" },
@@ -264,10 +430,12 @@
       `).join('');
     }
 
-    function filterCategory(cat) {
+    function filterCategory(cat, element) {
       currentCategory = cat;
       document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if (element) {
+        element.classList.add('active');
+      }
       renderProducts();
     }
 
@@ -276,7 +444,6 @@
       renderProducts();
     });
 
-    // شروع و نمایش اولیه محصولات
     renderProducts();
   </script>
 </body>
