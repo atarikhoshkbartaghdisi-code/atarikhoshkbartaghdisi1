@@ -3,448 +3,648 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عطاری و خشکبار برادران تقدیسی | نارمک تهران</title>
-  <meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران - عرضه مستقیم بهترین گیاهان دارویی، ادویه‌جات اعلا، مغزیجات تازه، حبوبات و دمنوش‌های طبیعی.">
-  <meta name="keywords" content="عطاری برادران تقدیسی, خشکبار نارمک, گیاهان دارویی نارمک, عطاری شرق تهران, ادویه اعلا">
-  <meta name="author" content="برادران تقدیسی">
+  <meta name="description" content="عطاری و خشکبار برادران تقدیسی در نارمک تهران؛ گیاهان دارویی، ادویه‌جات، خشکبار و سفارش عمده.">
   <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="GAPGPTMASKTOKENak5900geijX0X">
   <meta property="og:title" content="عطاری و خشکبار برادران تقدیسی">
-  <meta property="og:description" content="فروشگاه تخصصی گیاهان دارویی، عرقیات و خشکبار تازه در نارمک تهران">
+  <meta property="og:description" content="گیاهان دارویی، ادویه و خشکبار در نارمک تهران">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://atarikhoshkbartaghdisi.ir">
-  <meta name="google-site-verification" content="GAPGPTMASKTOKEN0hf8uecsrxzX0X">
+  <title>عطاری و خشکبار برادران تقدیسی | نارمک تهران</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
     :root {
-      --primary: #15803d;
-      --primary-dark: #166534;
-      --primary-light: #22c55e;
-      --secondary: #d97706;
-      --secondary-hover: #b45309;
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --danger: #ef4444;
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 22px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1);
-      --transition: all 0.25s ease;
+      --green: #15803d;
+      --dark-green: #14532d;
+      --amber: #b45309;
+      --ink: #17212b;
+      --muted: #586779;
+      --line: #dfe8e1;
+      --bg: #f6f9f5;
+      --white: #fff;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Vazirmatn, Tahoma, sans-serif;
+      line-height: 1.85;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    [hidden] { display: none !important; }
+    a { color: inherit; }
+    .container { width: min(1180px, calc(100% - 28px)); margin-inline: auto; }
+    .small { font-size: .86rem; color: var(--muted); }
+    .notice { color: #7c3d0c; background: #fff5e6; border: 1px solid #f3d1a5; }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(18, 56, 29, .05);
+    }
+    .section-title { margin: 34px 0 14px; font-size: 1.35rem; color: var(--dark-green); }
+    .button {
+      display: inline-block;
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 16px;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+    }
+    .button:hover { filter: brightness(.93); }
+    .button.secondary { background: #e8f4ec; color: var(--dark-green); }
+    .button.amber { background: var(--amber); }
+    .button.danger { background: #b42318; }
+    .button:disabled { background: #a5afb2; cursor: not-allowed; filter: none; }
+    .field {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #cbd8ce;
+      border-radius: 11px;
+      background: white;
+      padding: 9px 12px;
+      color: var(--ink);
+    }
+    .field:focus { outline: 2px solid #82cba0; border-color: var(--green); }
+    textarea.field { min-height: 90px; resize: vertical; }
+    .form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    .form-grid label { display: grid; gap: 5px; font-size: .9rem; font-weight: 700; }
+    .span-all { grid-column: 1 / -1; }
+    .actions { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; }
+    .pill { display: inline-block; border-radius: 100px; padding: 4px 11px; background: #ebf7ee; color: var(--dark-green); font-size: .82rem; }
 
-    /* بنر خوش‌آمدگویی هوشمند (محو شونده پس از ۱۰ ثانیه) */
     .welcome-banner {
       position: fixed;
-      top: 16px;
-      left: 16px;
-      right: 16px;
-      max-width: 600px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, #15803d, #047857);
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: var(--radius-md);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-      z-index: 9999;
+      z-index: 100;
+      top: 12px;
+      right: 12px;
+      left: 12px;
+      width: min(580px, calc(100% - 24px));
+      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      animation: bannerSlideIn 0.5s ease-out;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      gap: 10px;
+      padding: 11px 15px;
+      border-radius: 17px;
+      background: #166534;
+      color: white;
+      box-shadow: 0 10px 30px #163d2970;
+      transition: opacity .4s, transform .4s;
     }
-    .welcome-banner.hide {
-      opacity: 0;
-      transform: translateY(-20px);
-      pointer-events: none;
-    }
-    @keyframes bannerSlideIn {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .welcome-banner-content { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 500; }
-    .welcome-banner-close {
-      background: rgba(255,255,255,0.2);
-      border: none;
-      color: #fff;
-      font-size: 1.2rem;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-    .welcome-banner-close:hover { background: rgba(255,255,255,0.35); }
+    .welcome-banner.hide { opacity: 0; transform: translateY(-18px); pointer-events: none; }
+    .welcome-banner button { background: #ffffff35; border: 0; border-radius: 50%; color: white; width: 30px; height: 30px; flex: none; }
 
-    /* سربرگ */
     header {
-      background: linear-gradient(135deg, #14532d 0%, #15803d 50%, #166534 100%);
+      background: linear-gradient(135deg, #104523, #15803d);
       color: white;
-      padding: 30px 16px;
       text-align: center;
+      padding: 48px 15px 54px;
+    }
+    header h1 { margin: 0; font-size: clamp(1.55rem, 4vw, 2.4rem); }
+    header p { margin: 8px 0 16px; }
+    .header-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+    .header-badges span { background: #ffffff24; border-radius: 30px; padding: 5px 12px; font-size: .87rem; }
+
+    .wholesale {
+      margin-top: -27px;
       position: relative;
-      box-shadow: var(--shadow-md);
-    }
-    header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 6px; }
-    header p.tagline { font-size: 0.95rem; opacity: 0.9; margin-bottom: 14px; }
-    .header-badges {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      font-size: 0.8rem;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid #e9d5ac;
+      border-radius: 30px;
+      background: linear-gradient(125deg, #fff9e9, #fff, #eef9ee);
+      box-shadow: 0 12px 26px #22422c16;
     }
-    .header-badge {
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(4px);
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
+    .wholesale h2 { margin: 0 0 5px; color: #854d0e; font-size: 1.3rem; }
+    .wholesale p { margin: 0; }
 
-    /* بدنه اصلی */
-    .container { max-width: 1200px; margin: 0 auto; padding: 16px; }
-
-    /* بخش جستجو و دسته‌بندی */
-    .controls-card {
-      background: var(--surface);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      margin-top: -24px;
-      position: relative;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .search-input-wrapper { position: relative; width: 100%; }
-    .search-input {
-      width: 100%;
-      padding: 12px 42px 12px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-size: 0.95rem;
-      outline: none;
-      transition: var(--transition);
-    }
-    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(21,128,61,0.15); }
-    .search-icon {
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      pointer-events: none;
-    }
-
-    .categories-bar {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scrollbar-width: thin;
-    }
+    .controls { margin-top: 22px; padding: 16px; }
+    .categories { display: flex; gap: 8px; overflow-x: auto; margin-top: 13px; padding-bottom: 4px; }
     .category-btn {
-      background: #f1f5f9;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
+      border: 1px solid var(--line);
+      background: #f2f6f2;
+      padding: 7px 13px;
+      border-radius: 100px;
       white-space: nowrap;
-      cursor: pointer;
-      transition: var(--transition);
     }
-    .category-btn.active, .category-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
+    .category-btn.active { background: var(--green); border-color: var(--green); color: white; }
 
-    /* گرید محصولات */
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin: 24px 0 14px;
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .product { padding: 16px; display: flex; flex-direction: column; }
+    .product h3 { font-size: 1.02rem; margin: 8px 0 5px; }
+    .product p { margin: 5px 0; }
+    .product .bottom { margin-top: auto; padding-top: 12px; }
+    .price { color: var(--dark-green); font-size: 1.14rem; font-weight: 900; }
+    .old-price { text-decoration: line-through; color: var(--muted); font-size: .86rem; }
+    .sold-out { color: #a52222; font-weight: 800; }
+    .stock-ok { color: #206a39; }
+    .product .field { margin: 7px 0 4px; }
+    .product .button { width: 100%; margin-top: 8px; }
+
+    .health, .payment, .admin { padding: 19px; margin-top: 14px; }
+    .health-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-top: 13px; }
+    .health-item { background: #f5f9f6; border: 1px solid var(--line); border-radius: 13px; padding: 12px; }
+    .health-item strong { color: var(--dark-green); }
+    .health-item p { margin: 5px 0 0; font-size: .85rem; }
+
+    .admin { margin-bottom: 35px; }
+    .admin-warning { padding: 12px; border-radius: 12px; margin: 10px 0 17px; }
+    .admin-list { display: grid; gap: 8px; margin-top: 15px; max-height: 370px; overflow: auto; }
+    .admin-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: var(--primary-dark);
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 14px;
-    }
-    .product-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 9px;
     }
-    .product-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--primary-light); }
-    .product-badge {
-      display: inline-block;
-      align-self: flex-start;
-      background: #f0fdf4;
-      color: var(--primary);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin-bottom: 8px;
-    }
-    .product-name { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
-    .product-price { font-size: 1.05rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
-    .product-unit { font-size: 0.78rem; color: var(--text-muted); }
-    .order-btn {
-      margin-top: 12px;
-      background: var(--secondary);
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: var(--transition);
-      display: block;
-    }
-    .order-btn:hover { background: var(--secondary-hover); }
+    .admin-row .button { padding: 6px 10px; font-size: .82rem; }
+    .admin-row .actions { flex: none; }
 
-    /* پاورقی */
-    footer {
-      background: #0f172a;
-      color: #e2e8f0;
-      padding: 36px 16px 20px;
-      margin-top: 40px;
-      border-top: 4px solid var(--primary);
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .footer-col h3 { color: #fff; font-size: 1.1rem; margin-bottom: 12px; border-bottom: 2px solid var(--primary); padding-bottom: 6px; display: inline-block; }
-    .footer-col p { font-size: 0.88rem; line-height: 1.8; margin-bottom: 8px; }
-    .footer-col a { color: #38bdf8; text-decoration: none; }
-    .footer-bottom { text-align: center; margin-top: 30px; padding-top: 16px; border-top: 1px solid #334155; font-size: 0.8rem; color: #94a3b8; }
-
-    /* دکمه شناور تماس */
+    footer { background: #13251b; color: #e5f2e9; margin-top: 42px; padding: 30px 0; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    footer h3 { color: white; margin: 0 0 8px; }
+    footer p { margin: 5px 0; }
+    footer a { color: #9be4b3; }
     .floating-call {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      bottom: 17px;
+      left: 17px;
+      z-index: 20;
       background: #22c55e;
       color: white;
-      width: 54px;
-      height: 54px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 16px rgba(34,197,94,0.4);
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
       text-decoration: none;
+      box-shadow: 0 5px 16px #0004;
       font-size: 1.5rem;
-      z-index: 900;
-      transition: var(--transition);
     }
-    .floating-call:hover { transform: scale(1.1); }
+    @media (max-width: 720px) {
+      .wholesale { display: block; }
+      .wholesale .button { margin-top: 13px; }
+      .form-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 470px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .admin-row { align-items: start; flex-direction: column; }
+      .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+      .product { padding: 11px; }
+      .product h3 { font-size: .9rem; }
+      .product .small, .product .pill { font-size: .75rem; }
+      .price { font-size: .98rem; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- بنر خوش‌آمدگویی هوشمند -->
-  <div id="welcomeBanner" class="welcome-banner">
-    <div class="welcome-banner-content">
-      <span>🌿</span>
-      <span>به <strong>عطاری و خشکبار برادران تقدیسی</strong> خوش آمدید! ارسال سریع و رایگان در نارمک 🛵✨</span>
-    </div>
-    <button class="welcome-banner-close" onclick="closeWelcomeBanner()" title="بستن">✕</button>
+  <div class="welcome-banner" id="welcomeBanner">
+    <span>🌿 به عطاری و خشکبار برادران تقدیسی خوش آمدید! 🛵 ارسال رایگان در محدوده نارمک</span>
+    <button type="button" id="closeBanner" aria-label="بستن پیام">×</button>
   </div>
 
   <header>
     <h1>🌱 عطاری و خشکبار برادران تقدیسی</h1>
-    <p class="tagline">عرضه مرغوب‌ترین گیاهان دارویی، خشکبار اعلا و عرقیات سنتی اصل</p>
+    <p>گیاهان دارویی، ادویه‌جات و خشکبار در نارمک تهران</p>
     <div class="header-badges">
-      <span class="header-badge">📍 تهران، نارمک</span>
-      <span class="header-badge">🛵 ارسال رایگان در محدوده نارمک</span>
-      <span class="header-badge">⏰ همه‌روزه ۹:۰۰ الی ۲۲:۳۰</span>
+      <span>📍 تهران، نارمک</span>
+      <span>🛵 ارسال رایگان در محدوده نارمک</span>
+      <span>⏰ همه‌روزه ۹:۰۰ تا ۲۲:۳۰</span>
     </div>
   </header>
 
   <main class="container">
-    <div class="controls-card">
-      <div class="search-input-wrapper">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" class="search-input" placeholder="جستجوی محصول، گیاه دارویی، خشکبار، ادویه...">
+    <section class="wholesale" aria-labelledby="wholesaleTitle">
+      <div>
+        <h2 id="wholesaleTitle">🤝 فروش همکاری و عمده</h2>
+        <p>🏪 ویژه فروشگاه‌ها، عطاری‌ها و سفارش‌های عمده؛ برای استعلام قیمت و شرایط همکاری تماس بگیرید.</p>
       </div>
-      <div class="categories-bar" id="categoriesBar">
-        <button class="category-btn active" onclick="filterCategory('all', this)">همه محصولات</button>
-        <button class="category-btn" onclick="filterCategory('دارویی', this)">🌿 گیاهان دارویی</button>
-        <button class="category-btn" onclick="filterCategory('خشکبار', this)">🥜 خشکبار و مغزیجات</button>
-        <button class="category-btn" onclick="filterCategory('ادویه', this)">🌶️ ادویه‌جات اعلا</button>
-        <button class="category-btn" onclick="filterCategory('حبوبات', this)">🌾 حبوبات و غلات</button>
-      </div>
-    </div>
+      <a class="button amber" href="tel:09188085331">📞 استعلام قیمت عمده</a>
+    </section>
 
-    <div class="section-title">
-      <span>📦 محصولات فروشگاه</span>
-      <span id="productCount" style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">(در حال بارگذاری...)</span>
-    </div>
+    <section class="card controls" aria-label="جست‌وجو و دسته‌بندی محصولات">
+      <label for="searchInput"><strong>🔎 جست‌وجوی محصول</strong></label>
+      <input class="field" id="searchInput" type="search" placeholder="نام محصول، دسته یا توضیحات را بنویسید">
+      <div class="categories" id="categoriesBar"></div>
+    </section>
 
+    <h2 class="section-title">📦 محصولات فروشگاه <span id="productCount" class="small"></span></h2>
+    <p class="small">🏷️ قیمت‌های اولیه از فهرست قبلی سایت هستند؛ قیمت نهایی و موجودی را پیش از سفارش تأیید کنید. انتخاب وزن، قیمت متناسب با وزن را نشان می‌دهد.</p>
     <div class="products-grid" id="productsGrid"></div>
+
+    <h2 class="section-title">🩺 جست‌وجوی موضوعات سلامت</h2>
+    <section class="card health">
+      <label for="healthSearch"><strong>🔎 نام بیماری، نشانه یا موضوع سلامت را جست‌وجو کنید</strong></label>
+      <input class="field" id="healthSearch" type="search" placeholder="مثلاً نفخ، بی‌خوابی، دیابت، حساسیت غذایی">
+      <p class="small">⚠️ این فهرست فقط برای آشنایی با موضوعات است؛ تشخیص، تجویز یا وعده درمان نیست. گیاهان ممکن است با داروها تداخل داشته باشند. در بیماری، بارداری، شیردهی یا مصرف دارو با پزشک یا داروساز مشورت کنید.</p>
+      <div class="health-results" id="healthResults"></div>
+    </section>
+
+    <h2 class="section-title">💳 پرداخت سفارش</h2>
+    <section class="card payment">
+      <h3>🔒 درگاه پرداخت آنلاین</h3>
+      <p>برای اتصال امن درگاه، دریافت شناسه پذیرنده و راه‌اندازی بخش سرور لازم است. تا پیش از اتصال و آزمون درگاه، پرداخت اینترنتی در این سایت فعال نیست.</p>
+      <button class="button" type="button" disabled>💳 پرداخت آنلاین — در انتظار اتصال</button>
+      <a class="button secondary" href="tel:09188085331">📞 ثبت سفارش و هماهنگی پرداخت</a>
+      <p class="small">⚠️ اطلاعات کارت بانکی یا رمز پویا را در هیچ فرمی از این صفحه وارد نکنید.</p>
+    </section>
+
+    <section class="card admin" id="adminPanel" hidden>
+      <h2>🛠️ مدیریت محلی محصولات</h2>
+      <div class="admin-warning notice">
+        🔐 این پنل فقط روی همین مرورگر کار می‌کند. تغییرات برای بازدیدکنندگان منتشر نمی‌شود، مگر اینکه از دکمه «دانلود index.html به‌روز» استفاده کنید و فایل دانلودشده را در گیت‌هاب جایگزین کنید. این پنل جایگزین سامانه مدیریت امنِ دارای سرور نیست.
+      </div>
+
+      <div id="adminLogin">
+        <p id="loginHint"></p>
+        <form id="loginForm" class="form-grid">
+          <label>🔑 رمز ورود
+            <input id="adminPassword" class="field" type="password" autocomplete="current-password" required minlength="8">
+          </label>
+          <label id="confirmWrap" hidden>🔑 تکرار رمز برای اولین راه‌اندازی
+            <input id="adminConfirm" class="field" type="password" autocomplete="new-password">
+          </label>
+          <div class="span-all actions">
+            <button class="button" type="submit">🔓 ورود / راه‌اندازی</button>
+            <button class="button secondary" type="button" id="closeAdmin">✕ بستن</button>
+          </div>
+        </form>
+        <p id="loginMessage" class="small" role="status"></p>
+      </div>
+
+      <div id="adminApp" hidden>
+        <div class="actions">
+          <button class="button amber" type="button" id="downloadSite">⬇️ دانلود index.html به‌روز</button>
+          <button class="button secondary" type="button" id="downloadBackup">💾 پشتیبان JSON</button>
+          <label class="button secondary" for="importBackup">📂 بازیابی پشتیبان</label>
+          <input id="importBackup" type="file" accept="application/json,.json" hidden>
+          <button class="button secondary" type="button" id="logoutAdmin">🚪 خروج</button>
+        </div>
+        <p class="small">📌 پس از دانلود، فایل جدید را در مخزن سایت با نام <code>index.html</code> جایگزین و Commit کنید. موجودی با سفارش تلفنی خودکار کم نمی‌شود.</p>
+
+        <h3 id="formTitle">➕ افزودن محصول</h3>
+        <form id="productForm" class="form-grid">
+          <input type="hidden" id="editId">
+          <label>📦 نام محصول
+            <input class="field" id="itemName" required maxlength="100">
+          </label>
+          <label>🗂️ دسته‌بندی
+            <input class="field" id="itemCategory" list="categorySuggestions" required maxlength="50">
+            <datalist id="categorySuggestions"></datalist>
+          </label>
+          <label>💰 قیمت واحد پایه (تومان)
+            <input class="field" id="itemPrice" type="number" min="1" step="1" required>
+          </label>
+          <label>⚖️ واحد قیمت‌گذاری
+            <select class="field" id="itemUnit">
+              <option value="کیلوگرم">کیلوگرم</option>
+              <option value="۱۰۰ گرم">۱۰۰ گرم</option>
+              <option value="۵۰۰ گرم">۵۰۰ گرم</option>
+              <option value="یک مثقال">یک مثقال</option>
+              <option value="بسته">بسته</option>
+            </select>
+          </label>
+          <label>📊 موجودی برحسب واحد پایه
+            <input class="field" id="itemStock" type="number" min="0" step="0.001" placeholder="خالی = نیازمند استعلام">
+          </label>
+          <label>🏷️ درصد تخفیف
+            <input class="field" id="itemDiscount" type="number" min="0" max="99" step="1" value="0" required>
+          </label>
+          <label class="span-all">🌿 توضیحات / خواص و احتیاط‌ها
+            <textarea class="field" id="itemBenefits" maxlength="700" placeholder="فقط اطلاعات مستند و بدون ادعای درمان قطعی بنویسید."></textarea>
+          </label>
+          <div class="span-all actions">
+            <button class="button" type="submit">💾 ذخیره محصول</button>
+            <button class="button secondary" type="button" id="resetProductForm">↩️ فرم جدید</button>
+          </div>
+        </form>
+        <h3>📋 فهرست قابل ویرایش</h3>
+        <div class="admin-list" id="manageRows"></div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="footer-content">
-      <div class="footer-col">
-        <h3>عطاری و خشکبار برادران تقدیسی</h3>
-        <p>با سال‌ها تجربه در ارائه باکیفیت‌ترین محصولات ارگانیک، ادویه‌های اصیل هندی و ایرانی، عرقیات دوآتیشه کاشان و مرغوب‌ترین خشکبار ایران.</p>
-        <p><strong>اینستاگرام:</strong> <a href="https://instagram.com/atarikhoshkbartaghdisi" target="_blank" dir="ltr">@atarikhoshkbartaghdisi</a></p>
+    <div class="container footer-grid">
+      <div>
+        <h3>🌿 عطاری و خشکبار برادران تقدیسی</h3>
+        <p>🥜 خشکبار، گیاهان دارویی، ادویه‌جات و فروش همکاری</p>
+        <p>📷 اینستاگرام: <a href="https://instagram.com/atarikhoshkbartaghdisi" target="_blank" rel="noopener noreferrer">@atarikhoshkbartaghdisi</a></p>
       </div>
-      <div class="footer-col">
-        <h3>📍 آدرس و ساعت کاری</h3>
-        <p>تهران، نارمک، آیت شمالی، رو به روی آموزش زبان سفیر، جنب مجتمع نان برکت، پلاک ۲۶۴</p>
-        <p><strong>ساعت کاری:</strong> همه‌روزه از ساعت ۹:۰۰ الی ۲۲:۳۰ شب</p>
+      <div>
+        <h3>📍 نشانی و ساعت کاری</h3>
+        <p>تهران، نارمک، آیت شمالی، روبه‌روی آموزش زبان سفیر، جنب مجتمع نان برکت، پلاک ۲۶۴</p>
+        <p>⏰ همه‌روزه ۹:۰۰ تا ۲۲:۳۰</p>
       </div>
-      <div class="footer-col">
-        <h3>📞 تماس و سفارش سریع</h3>
-        <p>تلفن‌های ثبت سفارش و مشاوره:</p>
+      <div>
+        <h3>📞 تماس و مدیریت</h3>
         <p>📱 <a href="tel:09188085331">۰۹۱۸۸۰۸۵۳۳۱</a></p>
         <p>📱 <a href="tel:09166267732">۰۹۱۶۶۲۶۷۷۳۲</a></p>
-        <p>🛵 <em>ارسال رایگان در محدوده نارمک با اولین تماس!</em></p>
+        <button class="button secondary" id="openAdmin" type="button">🛠️ ورود به مدیریت محلی</button>
       </div>
-    </div>
-    <div class="footer-bottom">
-      © کلیه حقوق محفوظ است - عطاری و خشکبار برادران تقدیسی (atarikhoshkbartaghdisi.ir)
     </div>
   </footer>
 
-  <a href="tel:09188085331" class="floating-call" title="تماس فوری">📞</a>
+  <a class="floating-call" href="tel:09188085331" aria-label="تماس فوری">📞</a>
 
   <script>
-    function closeWelcomeBanner() {
-      const banner = document.getElementById('welcomeBanner');
-      if (banner) {
-        banner.classList.add('hide');
-        setTimeout(() => banner.remove(), 600);
-      }
-    }
+    "use strict";
 
-    setTimeout(() => {
-      closeWelcomeBanner();
-    }, 10000);
-
-    const products = [
-      { name: "پسته اکبری اعلا", category: "خشکبار", price: "۸۹۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "پسته احمدآقایی درجه یک", category: "خشکبار", price: "۷۸۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "مغز گردو تویسرکان", category: "خشکبار", price: "۶۵۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "بادام درختی ایرانی", category: "خشکبار", price: "۵۹۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "بادام هندی شور زعفرانی", category: "خشکبار", price: "۷۹۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "فندق شور دستچین", category: "خشکبار", price: "۶۸۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "کشمش پلویی آفتابی", category: "خشکبار", price: "۱۹۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "مویز ازبک بی‌دانه", category: "خشکبار", price: "۳۸۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "انجیر خشک استهبان اعلا", category: "خشکبار", price: "۴۹۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "تخمه کدو گوشتی", category: "خشکبار", price: "۲۸۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "تخمه جابانی (ژاپنی) ممتاز", category: "خشکبار", price: "۳۲۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "گل گاو زبان اعلا", category: "دارویی", price: "۱۲۰,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "بابونه شیرازی معطر", category: "دارویی", price: "۶۵,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "آویشن کوهی شیرازی", category: "دارویی", price: "۸۵,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "اسطوخودوس اصل فرانسوی", category: "دارویی", price: "۹۵,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "پنیرک کوهی بنفش", category: "دارویی", price: "۷۰,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "عناب درشت خراسان", category: "دارویی", price: "۱۴۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "به لیمو درجه یک", category: "دارویی", price: "۹۰,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "چای کوهی معطر", category: "دارویی", price: "۵۵,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "خاکشیر بوجار و شسته شده", category: "دارویی", price: "۲۲۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "تخم شربتی اعلا", category: "دارویی", price: "۲۵۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "زردچوبه قلم زرین نظام‌آباد", category: "ادویه", price: "۳۸,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "فلفل سیاه دانه درشت", category: "ادویه", price: "۶۵,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "دارچین لوله‌ای سیلان اعلا", category: "ادویه", price: "۷۵,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "زنجبیل قلم تازه چینی", category: "ادویه", price: "۶۸,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "هل اکبر بنفش درجه یک", category: "ادویه", price: "۳۴۰,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "زعفران قائنات ممتاز سرگل", category: "ادویه", price: "۱۴۵,۰۰۰", unit: "یک مثقال" },
-      { name: "پودر پاپریکا دودی مجارستانی", category: "ادویه", price: "۴۵,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "پودر سیر درجه یک همدان", category: "ادویه", price: "۳۸,۰۰۰", unit: "۱۰۰ گرم" },
-      { name: "لوبیا قرمز دستچین خمین", category: "حبوبات", price: "۱۱۰,۰۰۰", unit: "کیلوگرم" },
-      { name: "عدس ریز کانادایی", category: "حبوبات", price: "۹۵,۰۰۰", unit: "کیلوگرم" },
-      { name: "نخود کرمانشاهی سایز بزرگ", category: "حبوبات", price: "۹۸,۰۰۰", unit: "کیلوگرم" },
-      { name: "لوبیا چیتی خمین اعلا", category: "حبوبات", price: "۱۳۵,۰۰۰", unit: "کیلوگرم" },
-      { name: "لپه آذرشهر اعلا", category: "حبوبات", price: "۸۸,۰۰۰", unit: "کیلوگرم" }
-    ];
-
-    let currentCategory = 'all';
-    let searchQuery = '';
-
-    function renderProducts() {
-      const grid = document.getElementById('productsGrid');
-      const countEl = document.getElementById('productCount');
-      
-      const filtered = products.filter(p => {
-        const matchCat = currentCategory === 'all' || p.category === currentCategory;
-        const matchSearch = !searchQuery || p.name.includes(searchQuery) || p.category.includes(searchQuery);
-        return matchCat && matchSearch;
-      });
-
-      countEl.innerText = `(${filtered.length} مورد)`;
-
-      if (filtered.length === 0) {
-        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">محصولی با این مشخصات یافت نشد! 🔍</div>';
-        return;
-      }
-
-      grid.innerHTML = filtered.map(p => `
-        <div class="product-card">
-          <div>
-            <span class="product-badge">${p.category}</span>
-            <div class="product-name">${p.name}</div>
-          </div>
-          <div>
-            <div class="product-price">${p.price} <span style="font-size:0.75rem; font-weight:normal;">تومان</span></div>
-            <div class="product-unit">هر ${p.unit}</div>
-            <a href="tel:09188085331" class="order-btn">سفارش تلفنی 📞</a>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function filterCategory(cat, element) {
-      currentCategory = cat;
-      document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-      if (element) {
-        element.classList.add('active');
-      }
-      renderProducts();
-    }
-
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim();
-      renderProducts();
+    /*
+      داده‌های اولیه همان محصولات کد قبلی‌اند.
+      بخش بین DATA_START و DATA_END هنگام دانلود فایل جدید به‌روز می‌شود.
+      رمز مدیریت در این فایل عمومی ذخیره نشده است.
+    */
+    const seedProducts = (/* DATA_START */ [
+      ["پسته اکبری اعلا","خشکبار",890000,"کیلوگرم"],
+      ["پسته احمدآقایی درجه یک","خشکبار",780000,"کیلوگرم"],
+      ["مغز گردو تویسرکان","خشکبار",650000,"کیلوگرم"],
+      ["بادام درختی ایرانی","خشکبار",590000,"کیلوگرم"],
+      ["بادام هندی شور زعفرانی","خشکبار",790000,"کیلوگرم"],
+      ["فندق شور دستچین","خشکبار",680000,"کیلوگرم"],
+      ["کشمش پلویی آفتابی","خشکبار",190000,"کیلوگرم"],
+      ["مویز ازبک بی‌دانه","خشکبار",380000,"کیلوگرم"],
+      ["انجیر خشک استهبان اعلا","خشکبار",490000,"کیلوگرم"],
+      ["تخمه کدو گوشتی","خشکبار",280000,"کیلوگرم"],
+      ["تخمه جابانی (ژاپنی) ممتاز","خشکبار",320000,"کیلوگرم"],
+      ["گل گاو زبان اعلا","دارویی",120000,"۱۰۰ گرم"],
+      ["بابونه شیرازی معطر","دارویی",65000,"۱۰۰ گرم"],
+      ["آویشن کوهی شیرازی","دارویی",85000,"۱۰۰ گرم"],
+      ["اسطوخودوس اصل فرانسوی","دارویی",95000,"۱۰۰ گرم"],
+      ["پنیرک کوهی بنفش","دارویی",70000,"۱۰۰ گرم"],
+      ["عناب درشت خراسان","دارویی",140000,"کیلوگرم"],
+      ["به لیمو درجه یک","دارویی",90000,"۱۰۰ گرم"],
+      ["چای کوهی معطر","دارویی",55000,"۱۰۰ گرم"],
+      ["خاکشیر بوجار و شسته شده","دارویی",220000,"کیلوگرم"],
+      ["تخم شربتی اعلا","دارویی",250000,"کیلوگرم"],
+      ["زردچوبه قلم زرین نظام‌آباد","ادویه",38000,"۱۰۰ گرم"],
+      ["فلفل سیاه دانه درشت","ادویه",65000,"۱۰۰ گرم"],
+      ["دارچین لوله‌ای سیلان اعلا","ادویه",75000,"۱۰۰ گرم"],
+      ["زنجبیل قلم تازه چینی","ادویه",68000,"۱۰۰ گرم"],
+      ["هل اکبر بنفش درجه یک","ادویه",340000,"۱۰۰ گرم"],
+      ["زعفران قائنات ممتاز سرگل","ادویه",145000,"یک مثقال"],
+      ["پودر پاپریکا دودی مجارستانی","ادویه",45000,"۱۰۰ گرم"],
+      ["پودر سیر درجه یک همدان","ادویه",38000,"۱۰۰ گرم"],
+      ["لوبیا قرمز دستچین خمین","حبوبات",110000,"کیلوگرم"],
+      ["عدس ریز کانادایی","حبوبات",95000,"کیلوگرم"],
+      ["نخود کرمانشاهی سایز بزرگ","حبوبات",98000,"کیلوگرم"],
+      ["لوبیا چیتی خمین اعلا","حبوبات",135000,"کیلوگرم"],
+      ["لپه آذرشهر اعلا","حبوبات",88000,"کیلوگرم"]
+    ] /* DATA_END */).map((row, index) => {
+      if (!Array.isArray(row)) return row;
+      return {
+        id: "p" + (index + 1),
+        name: row[0],
+        category: row[1],
+        price: row[2],
+        unit: row[3],
+        stock: null,
+        discount: 0,
+        benefits: ""
+      };
     });
 
-    renderProducts();
-  </script>
-</body>
-</html>
+    const initialDescriptions = {
+      "بابونه شیرازی معطر": "🌼 مصرف رایج به‌صورت دمنوش است؛ برای درمان بیماری‌ها شواهد کافی وجود ندارد. در صورت حساسیت به گیاهان هم‌خانواده یا مصرف دارو، احتیاط کنید.",
+      "زنجبیل قلم تازه چینی": "🫚 ادویه خوراکی است. برخی مطالعات درباره مکمل زنجبیل و تهوع انجام شده‌اند؛ نتیجه آنها را نمی‌توان مستقیم به این محصول خوراکی تعمیم داد.",
+      "زردچوبه قلم زرین نظام‌آباد": "🟡 ادویه خوراکی است؛ اثربخشی درمانی آن برای بیماری‌های مختلف به‌طور قطعی ثابت نشده است."
+    };
+    seedProducts.forEach(p => {
+      if (!p.benefits && initialDescriptions[p.name]) {
+        p.benefits = initialDescriptions[p.name];
+      }
+    });
+
+    // این نسخه پیش از تغییرات صفحه نگهداری می‌شود تا بنر و ساختار اصلی
+    // در فایل index.html دانلودشده از بین نروند.
+    const originalHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+    const PRODUCTS_KEY = "taghdisi_products_local_v1";
+    const AUTH_KEY = "taghdisi_admin_local_v1";
+    let products = loadProducts();
+    let activeCategory = "همه";
+    let productSearch = "";
+
+    const $ = id => document.getElementById(id);
+    const money = n => Math.round(n).toLocaleString("fa-IR");
+    const faNum = n => Number(n).toLocaleString("fa-IR");
+    const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    })[char]);
+
+    function normalize(text) {
+      return String(text ?? "")
+        .replace(/ي/g, "ی").replace(/ك/g, "ک")
+        .replace(/[ًٌٍَُِّْ]/g, "")
+        .replace(/\u200c/g, " ")
+        .trim().toLowerCase();
+    }
+
+    function safeProduct(p) {
+      if (!p || typeof p !== "object") return null;
+      const name = String(p.name ?? "").trim().slice(0, 100);
+      const category = String(p.category ?? "").trim().slice(0, 50);
+      const price = Number(p.price);
+      const unit = String(p.unit ?? "").trim().slice(0, 35);
+      const stock = p.stock === "" || p.stock === null || p.stock === undefined
+        ? null : Number(p.stock);
+      const discount = Number(p.discount ?? 0);
+      if (!name || !category || !unit || !Number.isFinite(price) || price <= 0 ||
+          (stock !== null && (!Number.isFinite(stock) || stock < 0)) ||
+          !Number.isInteger(discount) || discount < 0 || discount > 99) return null;
+      return {
+        id: String(p.id ?? ("p" + Date.now() + Math.random())).slice(0, 80),
+        name, category, price: Math.round(price), unit, stock, discount,
+        benefits: String(p.benefits ?? "").trim().slice(0, 700)
+      };
+    }
+
+    function loadProducts() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(PRODUCTS_KEY));
+        if (Array.isArray(saved) && saved.length <= 2000) {
+          const clean = saved.map(safeProduct);
+          if (clean.every(Boolean)) return clean; // آرایه خالی یعنی همه محصولات عمداً حذف شده‌اند.
+        }
+      } catch (_) {}
+      return seedProducts.map(p => ({ ...p }));
+    }
+
+    function persistProducts() {
+      try {
+        localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
+        return true;
+      } catch (_) {
+        alert("ذخیره در این مرورگر انجام نشد. فضای مرورگر یا حالت خصوصی را بررسی کنید.");
+        return false;
+      }
+    }
+
+    function iconFor(category) {
+      return ({
+        "خشکبار": "🥜", "دارویی": "🌿",
+        "ادویه": "🌶️", "حبوبات": "🌾"
+      })[category] || "📦";
+    }
+
+    function weightChoices(unit) {
+      if (unit === "کیلوگرم") return [
+        [.1, "۱۰۰ گرم"], [.25, "۲۵۰ گرم"],
+        [.5, "۵۰۰ گرم"], [1, "۱ کیلوگرم"]
+      ];
+      if (unit === "۱۰۰ گرم") return [[1,"۱۰۰ گرم"],[2,"۲۰۰ گرم"],[5,"۵۰۰ گرم"]];
+      if (unit === "۵۰۰ گرم") return [[1,"۵۰۰ گرم"],[2,"۱ کیلوگرم"]];
+      if (unit === "یک مثقال") return [[1,"۱ مثقال"],[2,"۲ مثقال"]];
+      return [[1, unit], [2, "۲ × " + unit]];
+    }
+
+    function unitPrice(p, multiplier) {
+      return Math.round(p.price * multiplier * (1 - p.discount / 100));
+    }
+
+    function renderCategories() {
+      const categories = ["همه", ...new Set(products.map(p => p.category))];
+      if (!categories.includes(activeCategory)) activeCategory = "همه";
+      $("categoriesBar").innerHTML = categories.map(cat =>
+        `<button type="button" class="category-btn ${cat === activeCategory ? "active" : ""}"
+          data-category="${esc(cat)}">${cat === "همه" ? "📦" : iconFor(cat)} ${esc(cat)}</button>`
+      ).join("");
+      $("categorySuggestions").innerHTML = categories.filter(c => c !== "همه")
+        .map(cat => `<option value="${esc(cat)}"></option>`).join("");
+    }
+
+    function renderProducts() {
+      renderCategories();
+      const found = products.filter(p =>
+        (activeCategory === "همه" || p.category === activeCategory) &&
+        (!productSearch || normalize([p.name, p.category, p.benefits].join(" ")).includes(productSearch))
+      );
+      $("productCount").textContent = "(" + faNum(found.length) + " مورد)";
+      $("productsGrid").innerHTML = found.length ? found.map(p => {
+        const choices = weightChoices(p.unit);
+        const available = choices.filter(([multiplier]) =>
+          p.stock === null || p.stock + 0.00001 >= multiplier
+        );
+        const firstMultiplier = available.length ? available[0][0] : choices[0][0];
+        const soldOut = p.stock === 0 || available.length === 0;
+        const stockText = p.stock === null
+          ? "❔ موجودی: نیازمند استعلام"
+          : p.stock === 0 ? "⛔ ناموجود"
+          : "📊 موجودی ثبت‌شده: " + faNum(p.stock) + " " + p.unit;
+        return `
+          <article class="card product" data-id="${esc(p.id)}">
+            <div>
+              <span class="pill">${iconFor(p.category)} ${esc(p.category)}</span>
+              ${p.discount ? `<span class="pill">🏷️ ${faNum(p.discount)}٪ تخفیف</span>` : ""}
+              <h3>${esc(p.name)}</h3>
+              <p class="small">${p.benefits ? esc(p.benefits) : "📝 توضیحات و خواص هنوز ثبت نشده است."}</p>
+            </div>
+            <div class="bottom">
+              <label class="small" for="weight-${esc(p.id)}">⚖️ وزن / مقدار:</label>
+              <select class="field weight-select" id="weight-${esc(p.id)}" ${soldOut ? "disabled" : ""}>
+                ${available.map(([m, label]) =>
+                  `<option value="${m}">${esc(label)}</option>`).join("")}
+              </select>
+              <div class="price selected-price">${money(unitPrice(p, firstMultiplier))} تومان</div>
+              ${p.discount
+                ? `<div class="old-price original-price">${money(p.price * firstMultiplier)} تومان</div>`
+                : ""}
+              <div class="small ${soldOut ? "sold-out" : "stock-ok"}">${esc(stockText)}</div>
+              <a class="button ${soldOut ? "secondary" : ""}" href="tel:09188085331">
+                ${soldOut ? "📞 استعلام مجدد" : "📞 سفارش تلفنی"}
+              </a>
+            </div>
+          </article>`;
+      }).join("") : `<p class="card" style="padding:18px;grid-column:1/-1">🔎 محصولی پیدا نشد.</p>`;
+    }
+
+    $("categoriesBar").addEventListener("click", event => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+      activeCategory = button.dataset.category;
+      renderProducts();
+    });
+    $("searchInput").addEventListener("input", event => {
+      productSearch = normalize(event.target.value);
+      renderProducts();
+    });
+    $("productsGrid").addEventListener("change", event => {
+      if (!event.target.matches(".weight-select")) return;
+      const card = event.target.closest(".product");
+      const p = products.find(item => item.id === card?.dataset.id);
+      if (!p) return;
+      const multiplier = Number(event.target.value);
+      card.querySelector(".selected-price").textContent =
+        money(unitPrice(p, multiplier)) + " تومان";
+      const old = card.querySelector(".original-price");
+      if (old) old.textContent = money(p.price * multiplier) + " تومان";
+    });
+
+    // فهرست موضوعات قابل جست‌وجو؛ برای تشخیص یا پیشنهاد درمان نیست.
+    const healthGroups = [
+      {
+        icon: "🍵", group: "گوارش",
+        terms: "نفخ،سوءهاضمه،تهوع،استفراغ،یبوست،اسهال،رفلاکس،سوزش معده،درد معده،سندرم روده تحریک‌پذیر",
+        guidance: "علت مشکلات گوارشی متفاوت است؛ نشانه شدید، مداوم یا همراه خون نیازمند ارزیابی پزشکی است."
+      },
+      {
+        icon: "😴", group: "خواب و خلق",
+        terms: "بی‌خوابی،اختلال خواب،اضطراب،استرس،افسردگی،خستگی",
+        guidance: "برای نشانه‌های شدید یا مداوم، ارزیابی حرفه‌ای لازم است؛ مصرف خودسرانه گیاهان جای درمان نیست."
+      },
+      {
+        icon: "🌬️", group: "تنفس و حساسیت",
+        terms: "سرفه،گلودرد،سرماخوردگی،آنفلوآنزا،گرفتگی بینی،آلرژی فصلی،آسم،تنگی نفس",
+        guidance: "تنگی نفس یا علائم شدید به رسیدگی فوری پزشکی نیاز دارد؛ گیاهان جای داروهای تجویزی نیستند."
+      },
+      {
+        icon: "🫀", group: "متابولیک و قلب",
+        terms: "دیابت،قند خون،فشار خون،کلسترول،چربی خون،بیماری قلبی،کم خونی،فقر آهن",
+        guidance: "این بیماری‌ها نیازمند بررسی و پیگیری پزشکی‌اند؛ داروهای تجویزشده را با محصولات گیاهی جایگزین نکنید."
+      },
+      {
+        icon: "🧠", group: "درد و اعصاب",
+        terms: "سردرد،میگرن،درد مفصل،آرتروز،کمردرد،درد عضله،سرگیجه",
+        guidance: "درد شدید، ناگهانی یا ماندگار باید بررسی شود؛ درباره تداخل گیاهان با داروها سؤال کنید."
+      },
+      {
+        icon: "🧬", group: "موضوعات دیگر",
+        terms: "درد قاعدگی،قاعدگی نامنظم،بارداری،شیردهی،حساسیت غذایی،حساسیت به آجیل،بیماری کلیوی،بیماری کبدی،تیروئید،سرطان،مشکل پوستی،اگزما",
+        guidance: "در بارداری، شیردهی، آلرژی یا بیماری زمینه‌ای بدون مشورت پزشک از مکمل و گیاه دارویی استفاده نکنید."
+      }
+    ];
+    const healthTopics = healthGroups.flatMap(group =>
+      group.terms.split("،").map(term => ({
+        term, icon: group.icon, group: group.group, guidance: group.guidance
+      }))
+    );
+
+    function renderHealth() {
+      const query = normalize($("healthSearch").value);
+      const found = query
+        ? healthTopics.filter(item =>
+            normalize(item.term + " " + item.group).includes(query))
+        : healthTopics;
+      $("healthResults").innerHTML = found.length
+        ? found.map(item => `
+          <div class="health-item">
+            <strong>${item.icon} ${esc(item.term)}</strong>
+            <div class="small">📚 ${esc(item.group)}</div>
+            <p>⚠️ ${esc(item.guidance)}</p>
+          </div>`).join("")
+        : `<div class="health-item">🔎 این مو
