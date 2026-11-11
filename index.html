@@ -3,316 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عطاری و خشکبار برادران تقدیسی</title>
-    <meta name="google-site-verification" content="GAPGPTMASKTOKEN6j60rq8z468X0X" />
+    <title>عطاری و خشکبار برادران تقدیسی | نارمک</title>
+    <meta name="google-site-verification" content="GAPGPTMASKTOKENi1iyjh2sd9X0X">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #556B2F; /* Olive Green */
-            --primary-dark: #3E5424;
-            --primary-light: #6B8E23;
-            --accent: #607C3B;
-            --bg: #F4F6F0;
-            --text: #2C3E2D;
-            --card-bg: #FFFFFF;
-            --border: #D0D9C8;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, Arial, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 25px 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header h1 { font-size: 1.6rem; margin-bottom: 5px; }
-        header p { font-size: 0.9rem; opacity: 0.9; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 15px; }
-        
-        /* Search & Health Filter Boxes */
-        .search-box { background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border); }
-        .search-box h3 { font-size: 1rem; margin-bottom: 10px; color: var(--primary-dark); }
-        .search-box input, .search-box select { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; outline: none; }
-        .search-box input:focus { border-color: var(--primary); }
-
-        .health-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-        .health-tag { background: #E8ECE1; border: 1px solid var(--border); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; color: var(--primary-dark); transition: 0.2s; }
-        .health-tag:hover, .health-tag.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-        /* Categories Bar */
-        .categories { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 15px; }
-        .cat-chip { background: #fff; border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; white-space: nowrap; color: var(--primary-dark); }
-        .cat-chip.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-        /* Product Grid */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-        .product-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; }
-        .product-img { width: 100%; height: 130px; background: #EAEFE5; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary); }
-        .product-img img { width: 100%; height: 100%; object-fit: cover; }
-        .product-info { padding: 10px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
-        .product-title { font-size: 0.95rem; font-weight: bold; margin-bottom: 4px; color: var(--text); }
-        .product-weight { font-size: 0.75rem; color: #666; margin-bottom: 6px; }
-        .product-price { font-size: 0.9rem; font-weight: bold; color: var(--primary-dark); margin-bottom: 8px; }
-        
-        .btn { background: var(--primary); color: #fff; border: none; padding: 8px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; width: 100%; text-align: center; }
-        .btn:hover { background: var(--primary-dark); }
-        .btn-inquiry { background: #A0A89B; text-decoration: none; display: block; }
-
-        /* Cart Floating bar */
-        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--primary-dark); color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 10px rgba(0,0,0,0.1); z-index: 100; }
-        .cart-btn { background: #fff; color: var(--primary-dark); padding: 6px 14px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
-
-        /* Admin Panel */
-        .admin-panel { background: #fff; padding: 15px; border-radius: 12px; margin-top: 25px; border: 1px dashed var(--primary); }
-        .admin-panel h3 { margin-bottom: 10px; color: var(--primary-dark); }
-        .admin-inputs input, .admin-inputs select { width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid var(--border); border-radius: 6px; }
-        
-        footer { text-align: center; padding: 30px 15px 80px; font-size: 0.85rem; color: #666; }
+        body { font-family: Tahoma, Arial, sans-serif; background-color: #f7f9f6; color: #333; }
+        .bg-olive { background-color: #3b5323; }
+        .text-olive { color: #3b5323; }
+        .border-olive { border-color: #3b5323; }
+        .bg-olive-light { background-color: #eaf0e6; }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-    <header>
-        <h1>عطاری و خشکبار برادران تقدیسی</h1>
-        <p>تهران، نارمک، آیت شمالی، پلاک ۲۶۴ | ارسال رایگان در نارمک</p>
-    </header>
-
-    <div class="container">
-        <!-- Health Search strictly ABOVE product search -->
-        <div class="search-box">
-            <h3>🌿 جست‌وجوی درمانی و خواص گیاهان</h3>
-            <div class="health-tags" id="healthTags">
-                <span class="health-tag" onclick="filterByHealth('تقویت قوای جسمی')">💪 تقویت قوای جسمی</span>
-                <span class="health-tag" onclick="filterByHealth('آرامبخش')">🍵 آرامبخش و خواب</span>
-                <span class="health-tag" onclick="filterByHealth('سرماخوردگی')">🍋 سرماخوردگی و ایمنی</span>
-                <span class="health-tag" onclick="filterByHealth('پوکی استخوان')">🦴 تقویت استخوان</span>
-                <span class="health-tag" onclick="filterByHealth('کاهش کلسترول')">❤️ قلب و کلسترول</span>
-                <span class="health-tag" onclick="filterByHealth('گوارش')">🍃 بهبود گوارش</span>
+    <!-- Header -->
+    <header class="bg-olive text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3 space-x-reverse mb-3 md:mb-0">
+                <div class="bg-white text-olive p-2 rounded-full font-bold text-xl">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">عطاری و خشکبار برادران تقدیسی</h1>
+                    <p class="text-xs text-gray-200">ارسال رایگان در محدوده نارمک</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 space-x-reverse text-sm">
+                <span><i class="fas fa-phone-alt ml-1"></i> ۰۹۱۸۸۰۸۵۳۳۱ - ۰۹۱۶۶۲۶۷۷۳۲</span>
+                <a href="https://instagram.com/atarikhoshkbartaghdisi" target="_blank" class="bg-white text-olive px-3 py-1 rounded-full font-semibold hover:bg-gray-100 transition">
+                    <i class="fab fa-instagram ml-1"></i> اینستاگرام
+                </a>
             </div>
         </div>
+    </header>
 
-        <!-- Product Search -->
-        <div class="search-box">
-            <h3>🔍 جست‌وجوی محصولات</h3>
-            <input type="text" id="searchInput" placeholder="نام محصول، ادویه، آجیل..." oninput="renderProducts()">
+    <!-- Hero / Search Section -->
+    <section class="bg-olive-light py-8 px-4 text-center border-b border-olive">
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="text-2xl font-bold text-olive mb-3">جستجوی محصولات، ادویه‌ها و گیاهان دارویی</h2>
+            <p class="text-gray-600 mb-6 text-sm">تهران، نارمک، آیت شمالی، رو به روی آموزش زبان سفیر، جنب مجتمع نان برکت، پلاک ۲۶۴</p>
+            <div class="relative">
+                <input type="text" id="searchInput" placeholder="نام محصول را جستجو کنید..." class="w-full py-3 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:border-olive shadow-sm">
+                <i class="fas fa-search absolute top-4 right-4 text-gray-400"></i>
+            </div>
         </div>
+    </section>
 
-        <!-- Categories Filter -->
-        <div class="categories" id="categoryChips">
-            <div class="cat-chip active" onclick="filterCategory('همه')">همه محصولات</div>
-            <div class="cat-chip" onclick="filterCategory('خشکبار')">خشکبار و آجیل</div>
-            <div class="cat-chip" onclick="filterCategory('گیاهان دارویی')">گیاهان دارویی</div>
-            <div class="cat-chip" onclick="filterCategory('ادویه و زعفران')">ادویه و زعفران</div>
-            <div class="cat-chip" onclick="filterCategory('حبوبات و غلات')">حبوبات و غلات</div>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Category Filters -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8" id="categoryFilters">
+            <button onclick="filterCategory('all')" class="cat-btn bg-olive text-white px-4 py-2 rounded-full text-sm font-semibold transition">همه محصولات</button>
+            <button onclick="filterCategory('خشکبار و آجیل')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">خشکبار و آجیل</button>
+            <button onclick="filterCategory('گیاهان دارویی')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">گیاهان دارویی</button>
+            <button onclick="filterCategory('ادویه جات')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">ادویه جات</button>
+            <button onclick="filterCategory('حبوبات و اقلام قندی')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">حبوبات و اقلام قندی</button>
         </div>
 
         <!-- Products Grid -->
-        <div class="products-grid" id="productsGrid"></div>
-
-        <!-- Admin Control Panel -->
-        <div class="admin-panel">
-            <h3>⚙️ پنل مدیریت (رمز عبور: Mjt_3330)</h3>
-            <div id="adminLogin">
-                <input type="password" id="adminPass" placeholder="رمز عبور مدیریت">
-                <button class="btn" onclick="checkAdmin()">ورود به پنل</button>
-            </div>
-            <div id="adminControls" style="display:none; margin-top: 10px;">
-                <p style="color: green; font-size: 0.85rem; margin-bottom: 8px;">✅ مدیریت فعال است</p>
-                <h4 style="font-size: 0.9rem; margin: 10px 0 5px;">افزودن محصول جدید:</h4>
-                <div class="admin-inputs">
-                    <input type="text" id="newTitle" placeholder="نام محصول">
-                    <select id="newCat">
-                        <option value="خشکبار">خشکبار</option>
-                        <option value="گیاهان دارویی">گیاهان دارویی</option>
-                        <option value="ادویه و زعفران">ادویه و زعفران</option>
-                        <option value="حبوبات و غلات">حبوبات و غلات</option>
-                    </select>
-                    <input type="text" id="newWeight" placeholder="وزن (مثلا: بسته ۱۰۰ گرمی)">
-                    <input type="number" id="newPrice" placeholder="قیمت به تومان (خالی بگذارید برای استعلام)">
-                    <input type="text" id="newImage" placeholder="آدرس لینک عکس (اختیاری)">
-                    <button class="btn" onclick="addNewProduct()">ثبت محصول جدید</button>
-                </div>
-                <button class="btn" onclick="resetDefaults()" style="background:#b22222; margin-top: 10px;">بازنشانی محصولات پیش‌فرض</button>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="productsGrid">
+            <!-- Products rendered dynamically -->
         </div>
-    </div>
+    </main>
 
-    <!-- Cart Bar -->
-    <div class="cart-bar">
-        <div>سبد خرید: <span id="cartCount">۰</span> قلم | <span id="cartTotal">۰</span> تومان</div>
-        <a href="#" class="cart-btn" onclick="checkoutWhatsApp()">سفارش در واتساپ 📱</a>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-olive text-white py-6 mt-12 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">ساعت کاری: همه روزه از ساعت ۰۹:۰۰ الی ۲۲:۳۰</p>
+            <p>© تمامی حقوق برای عطاری و خشکبار برادران تقدیسی محفوظ است.</p>
+        </div>
+    </footer>
 
     <script>
-        const defaultProducts = [
-            { id: 1, name: "پسته اکبری", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 493000, health: "تقویت قوای جسمی قلب", emoji: "🌰", image: "" },
-            { id: 2, name: "بادام هندی زعفرانی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 395000, health: "تقویت قوای جسمی", emoji: "🥜", image: "" },
-            { id: 3, name: "بادام هندی خام", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 390000, health: "تقویت قوای جسمی", emoji: "🥜", image: "" },
-            { id: 4, name: "آجیل سه مغز", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 380000, health: "تقویت قوای جسمی", emoji: "🌰", image: "" },
-            { id: 5, name: "توت خشک درجه یک", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 180000, health: "پوکی استخوان گوارش", emoji: "🫐", image: "" },
-            { id: 6, name: "توت خشک معمولی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 99000, health: "گوارش", emoji: "🫐", image: "" },
-            { id: 7, name: "بادام زمینی آستانه", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 97000, health: "تقویت قوای جسمی", emoji: "🥜", image: "" },
-            { id: 8, name: "تخمه کدو ایرانی", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 120000, health: "قلب", emoji: "🌻", image: "" },
-            { id: 9, name: "انجیر خشک استهبان", category: "خشکبار", weight: "بسته ۱۰۰ گرمی", price: 120000, health: "گوارش پوکی استخوان", emoji: "🍈", image: "" },
-            { id: 10, name: "زعفران نگین اعلا", category: "ادویه و زعفران", weight: "مثقالی", price: null, health: "آرامبخش قلب", emoji: "🌺", image: "" },
-            { id: 11, name: "گل گاوزبان اصل", category: "گیاهان دارویی", weight: "بسته ۵۰ گرمی", price: null, health: "آرامبخش و خواب", emoji: "🌿", image: "" },
-            { id: 12, name: "به لیمو", category: "گیاهان دارویی", weight: "بسته ۵۰ گرمی", price: null, health: "آرامبخش گوارش", emoji: "🍃", image: "" }
+        const products = [
+            { name: "پسته اکبری درجه یک", category: "خشکبار و آجیل" },
+            { name: "بادام هندی زعفرانی", category: "خشکبار و آجیل" },
+            { name: "بادام هندی خام", category: "خشکبار و آجیل" },
+            { name: "آجیل سه مغز(بادام هندی ،پسته،مغز بادام درختی)", category: "خشکبار و آجیل" },
+            { name: "توت خشک درجه یک", category: "خشکبار و آجیل" },
+            { name: "توت خشک معمولی", category: "خشکبار و آجیل" },
+            { name: "بادام زمینی آستانه اشرفیه", category: "خشکبار و آجیل" },
+            { name: "تخمه کدو ایرانی درجه یک", category: "خشکبار و آجیل" },
+            { name: "انجیر خشک استهبان", category: "خشکبار و آجیل" },
+            { name: "برگه هلو ساده", category: "خشکبار و آجیل" },
+            { name: "برگه هلو زعفرانی", category: "خشکبار و آجیل" },
+            { name: "اسلایس شلیل", category: "خشکبار و آجیل" },
+            { name: "بادام زمینی روکش دار طعم پنیری", category: "خشکبار و آجیل" },
+            { name: "بادام زمینی روکش دار طعم کچاپ", category: "خشکبار و آجیل" },
+            { name: "بادام زمینی روکش دار طعم سبزیجات", category: "خشکبار و آجیل" },
+            { name: "مغز گردوی ایرانی توسکان", category: "خشکبار و آجیل" },
+            { name: "مغز گردوی خورده خورشتی توسکان", category: "خشکبار و آجیل" },
+            { name: "گردو محلی خراسانی", category: "خشکبار و آجیل" },
+            { name: "مویز درجه یک افغان", category: "خشکبار و آجیل" },
+            { name: "کشمش سبز درجه یک", category: "خشکبار و آجیل" },
+            { name: "کشمش سبز پلویی", category: "خشکبار و آجیل" },
+            { name: "بادام درختی پوست کاغذی", category: "خشکبار و آجیل" },
+            { name: "بادام درختی سنگی", category: "خشکبار و آجیل" },
+            { name: "مغز بادام درختی", category: "خشکبار و آجیل" },
+            { name: "خرما زاهدی", category: "خشکبار و آجیل" },
+            { name: "خرما پیارم", category: "خشکبار و آجیل" },
+            { name: "نخود چی دو آتیشه", category: "خشکبار و آجیل" },
+            { name: "تخمه کانادایی طعم سس رنو", category: "خشکبار و آجیل" },
+            { name: "تخمه کانادایی طعم نمکی", category: "خشکبار و آجیل" },
+            { name: "تخمه کانادایی طعم لیمویی", category: "خشکبار و آجیل" },
+            { name: "تخمه کانادایی طعم گلپر", category: "خشکبار و آجیل" },
+            { name: "مغز تخمه آفتابگردان خام", category: "خشکبار و آجیل" },
+            { name: "مغز تخمه کدو خام درجه یک", category: "خشکبار و آجیل" },
+            { name: "آلو حاج حسنی آفتابی", category: "خشکبار و آجیل" },
+            { name: "آلو حاج حسنی دودی", category: "خشکبار و آجیل" },
+            { name: "تخم جعفری", category: "گیاهان دارویی" },
+            { name: "تخم تره", category: "گیاهان دارویی" },
+            { name: "تخم کرفس", category: "گیاهان دارویی" },
+            { name: "تخم شنبلیله", category: "گیاهان دارویی" },
+            { name: "تخم خشخاش", category: "گیاهان دارویی" },
+            { name: "تخم هویچ", category: "گیاهان دارویی" },
+            { name: "تخم ریحان سبز", category: "گیاهان دارویی" },
+            { name: "تخم ریحان بنفش", category: "گیاهان دارویی" },
+            { name: "تخم بالنگو", category: "گیاهان دارویی" },
+            { name: "اِسفرزه", category: "گیاهان دارویی" },
+            { name: "تخم شوید", category: "گیاهان دارویی" },
+            { name: "تخم تربچه", category: "گیاهان دارویی" },
+            { name: "تخم شاهی", category: "گیاهان دارویی" },
+            { name: "تخم یونجه", category: "گیاهان دارویی" },
+            { name: "تخم کاسنی", category: "گیاهان دارویی" },
+            { name: "تخم پیازچه", category: "گیاهان دارویی" },
+            { name: "ریشه کاسنی", category: "گیاهان دارویی" },
+            { name: "شاهدانه ریز", category: "گیاهان دارویی" },
+            { name: "زاچ درشت", category: "گیاهان دارویی" },
+            { name: "زاچ نرم", category: "گیاهان دارویی" },
+            { name: "گل بنفشه", category: "گیاهان دارویی" },
+            { name: "شکر تیغال", category: "گیاهان دارویی" },
+            { name: "ترنجبین", category: "گیاهان دارویی" },
+            { name: "جوز هندی", category: "گیاهان دارویی" },
+            { name: "چهار تخمه", category: "گیاهان دارویی" },
+            { name: "هلیله سیاه", category: "گیاهان دارویی" },
+            { name: "قهوه خوراکی درجه یک وارداتی", category: "گیاهان دارویی" },
+            { name: "کنجد سفید خام", category: "گیاهان دارویی" },
+            { name: "تخم گشنیز", category: "گیاهان دارویی" },
+            { name: "زیره سیاه", category: "گیاهان دارویی" },
+            { name: "زیره سبز", category: "گیاهان دارویی" },
+            { name: "رازیانه", category: "گیاهان دارویی" },
+            { name: "مرداب سنگ", category: "گیاهان دارویی" },
+            { name: "تخم شربتی ریز", category: "گیاهان دارویی" },
+            { name: "تخم شربتی درشت", category: "گیاهان دارویی" },
+            { name: "مصطَکی", category: "گیاهان دارویی" },
+            { name: "افتیمون", category: "گیاهان دارویی" },
+            { name: "انیسون", category: "گیاهان دارویی" },
+            { name: "کُندور دودی", category: "گیاهان دارویی" },
+            { name: "کُندور خوراکی", category: "گیاهان دارویی" },
+            { name: "کتیرا خشک", category: "گیاهان دارویی" },
+            { name: "فلفل سیاه درشت", category: "ادویه جات" },
+            { name: "فلفل سفید درشت", category: "ادویه جات" },
+            { name: "بادیان ستاره ای", category: "گیاهان دارویی" },
+            { name: "هل سبز اکبر بنفش", category: "گیاهان دارویی" },
+            { name: "میخک", category: "گیاهان دارویی" },
+            { name: "پودر کاکائو", category: "گیاهان دارویی" },
+            { name: "موسیر خشک", category: "گیاهان دارویی" },
+            { name: "زنجبیل درشت", category: "گیاهان دارویی" },
+            { name: "پودر زنجبیل", category: "ادویه جات" },
+            { name: "وانیل", category: "گیاهان دارویی" },
+            { name: "دانه چیا", category: "گیاهان دارویی" },
+            { name: "تخم کتان قرمز", category: "گیاهان دارویی" },
+            { name: "بارهنگ", category: "گیاهان دارویی" },
+            { name: "بِه دانه", category: "گیاهان دارویی" },
+            { name: "کینوا سفید", category: "گیاهان دارویی" },
+            { name: "زنیان", category: "گیاهان دارویی" },
+            { name: "تخم کاهو", category: "گیاهان دارویی" },
+            { name: "سِپستان", category: "گیاهان دارویی" },
+            { name: "سنگ قلاب", category: "گیاهان دارویی" },
+            { name: "نفتالین", category: "گیاهان دارویی" },
+            { name: "طباشیر", category: "گیاهان دارویی" },
+            { name: "گلرنگ", category: "گیاهان دارویی" },
+            { name: "جوهر لیمو", category: "گیاهان دارویی" },
+            { name: "گوگرد زرد", category: "گیاهان دارویی" },
+            { name: "قولنجان", category: "گیاهان دارویی" },
+            { name: "سورنجان", category: "گیاهان دارویی" },
+            { name: "گلنار فارسی", category: "گیاهان دارویی" },
+            { name: "آرد نخود خام", category: "گیاهان دارویی" },
+            { name: "خرنوب", category: "گیاهان دارویی" },
+            { name: "ناخنک", category: "گیاهان دارویی" },
+            { name: "سفید آب روی", category: "گیاهان دارویی" },
+            { name: "میوه نسترن", category: "گیاهان دارویی" },
+            { name: "ثعلب", category: "گیاهان دارویی" },
+            { name: "پودر گل سرشور", category: "گیاهان دارویی" },
+            { name: "گل سرشور", category: "گیاهان دارویی" },
+            { name: "قرص کمر", category: "گیاهان دارویی" },
+            { name: "قهوه سر", category: "گیاهان دارویی" },
+            { name: "سِدر", category: "گیاهان دارویی" },
+            { name: "مورد سبز", category: "گیاهان دارویی" },
+            { name: "صبر زرد", category: "گیاهان دارویی" },
+            { name: "ریشه شیرین بیان", category: "گیاهان دارویی" },
+            { name: "پودر عصاره شیرین بیان", category: "گیاهان دارویی" },
+            { name: "ادویه ترشی", category: "ادویه جات" },
+            { name: "پرک لیمو", category: "ادویه جات" },
+            { name: "پودر موسیر", category: "ادویه جات" },
+            { name: "خمیر مایه", category: "گیاهان دارویی" },
+            { name: "ادویه دودی", category: "ادویه جات" },
+            { name: "ادویه ژامبون و مرغ", category: "ادویه جات" },
+            { name: "ادویه ماهی", category: "ادویه جات" },
+            { name: "ادویه خورشتی", category: "ادویه جات" },
+            { name: "ادویه پلویی", category: "ادویه جات" },
+            { name: "پودر کره", category: "ادویه جات" },
+            { name: "ادویه قرمه سبزی", category: "ادویه جات" },
+            { name: "گلپر نرم", category: "ادویه جات" },
+            { name: "آویشن نرم", category: "ادویه جات" },
+            { name: "سماق قهوه آیی", category: "ادویه جات" },
+            { name: "سماق قرمز", category: "ادویه جات" },
+            { name: "گرد لیمو", category: "ادویه جات" },
+            { name: "گرد غوره", category: "ادویه جات" },
+            { name: "پودر کچاب", category: "ادویه جات" },
+            { name: "ادویه ماکارونی", category: "ادویه جات" },
+            { name: "ادویه ژامبون و گوشت", category: "ادویه جات" },
+            { name: "فلفل پولبیبر", category: "ادویه جات" },
+            { name: "ادویه ایتالیایی", category: "ادویه جات" },
+            { name: "ادویه بلژیکی", category: "ادویه جات" },
+            { name: "سیاه دانه", category: "گیاهان دارویی" },
+            { name: "پودر سنجد", category: "گیاهان دارویی" },
+            { name: "پودر خردل", category: "گیاهان دارویی" },
+            { name: "سماق قهوه ایی درشت", category: "ادویه جات" },
+            { name: "دارچین نرم", category: "ادویه جات" },
+            { name: "فلفل قرمز نرم", category: "ادویه جات" },
+            { name: "فلفل سیاه نرم", category: "ادویه جات" },
+            { name: "زرد چوبه", category: "ادویه جات" },
+            { name: "پودر سیر", category: "ادویه جات" },
+            { name: "پودر پیاز", category: "ادویه جات" },
+            { name: "پاپریکا", category: "ادویه جات" },
+            { name: "ادویه کاری", category: "ادویه جات" },
+            { name: "جوش شیرین", category: "گیاهان دارویی" },
+            { name: "پودر انبه", category: "گیاهان دارویی" },
+            { name: "پودر ژلاتین", category: "گیاهان دارویی" },
+            { name: "برگ سنا", category: "گیاهان دارویی" },
+            { name: "پودر نارگیل", category: "گیاهان دارویی" },
+            { name: "بکینگ پودر", category: "گیاهان دارویی" },
+            { name: "نشاسته گل", category: "گیاهان دارویی" },
+            { name: "نشاسته ذرت", category: "گیاهان دارویی" },
+            { name: "آرد نخودچی خام", category: "گیاهان دارویی" },
+            { name: "آرد برنج", category: "گیاهان دارویی" },
+            { name: "تخم خرفه", category: "گیاهان دارویی" },
+            { name: "قدومه شیرازی", category: "گیاهان دارویی" },
+            { name: "نبات شاخه نی شکر", category: "حبوبات و اقلام قندی" },
+            { name: "نبات چوبی نی شکر", category: "حبوبات و اقلام قندی" },
+            { name: "نبات چوبی زعفرانی", category: "حبوبات و اقلام قندی" },
+            { name: "نبات شاخه زرد", category: "حبوبات و اقلام قندی" },
+            { name: "نبات چوبی زرد", category: "حبوبات و اقلام قندی" },
+            { name: "نبات شاخه سفید", category: "حبوبات و اقلام قندی" },
+            { name: "نبات چوبی سفید", category: "حبوبات و اقلام قندی" },
+            { name: "خرده نبات سفید", category: "حبوبات و اقلام قندی" },
+            { name: "شکر قهوه ای", category: "حبوبات و اقلام قندی" },
+            { name: "به لیمو", category: "گیاهان دارویی" },
+            { name: "چای ترش", category: "گیاهان دارویی" },
+            { name: "چای سبز ایرانی", category: "گیاهان دارویی" },
+            { name: "چای سبز خارجی", category: "گیاهان دارویی" },
+            { name: "بهار نارنج", category: "گیاهان دارویی" },
+            { name: "اسطوخودوس", category: "گیاهان دارویی" },
+            { name: "گل سرخ", category: "گیاهان دارویی" },
+            { name: "غنچه گل محمدی", category: "گیاهان دارویی" },
+            { name: "سنبل الطیب", category: "گیاهان دارویی" },
+            { name: "گل شقایق", category: "گیاهان دارویی" },
+            { name: "چاهی کوهی", category: "گیاهان دارویی" },
+            { name: "لیمو عمانی درشت", category: "حبوبات و اقلام قندی" },
+            { name: "لیمو عمانی ریز", category: "حبوبات و اقلام قندی" },
+            { name: "نخود کرمانشاهی", category: "حبوبات و اقلام قندی" },
+            { name: "لپه آذر شهر", category: "حبوبات و اقلام قندی" },
+            { name: "لوبیا قرمز", category: "حبوبات و اقلام قندی" },
+            { name: "عدس درشت", category: "حبوبات و اقلام قندی" },
+            { name: "لوبیا چیتی", category: "حبوبات و اقلام قندی" },
+            { name: "سویا", category: "حبوبات و اقلام قندی" },
+            { name: "گل پنیرک", category: "گیاهان دارویی" },
+            { name: "گل بابونه", category: "گیاهان دارویی" },
+            { name: "آویشن شیرازی", category: "گیاهان دارویی" },
+            { name: "گل ختمی", category: "گیاهان دارویی" },
+            { name: "نمک صورت درشت", category: "گیاهان دارویی" },
+            { name: "پودر نمک صورتی", category: "گیاهان دارویی" },
+            { name: "نمک دریا هستی", category: "گیاهان دارویی" },
+            { name: "نمک دریا سودمند", category: "گیاهان دارویی" },
+            { name: "برگ بو", category: "گیاهان دارویی" },
+            { name: "شکلات کاکائویی 72 درصد", category: "حبوبات و اقلام قندی" },
+            { name: "شکلات آب نباتی میوه آیی", category: "حبوبات و اقلام قندی" },
+            { name: "حبه عناب", category: "حبوبات و اقلام قندی" }
         ];
 
-        let products = JSON.parse(localStorage.getItem('taghdisi_products_v2')) || defaultProducts;
-        let cart = {};
-        let activeHealthFilter = "";
-        let activeCategory = "همه";
+        let currentCategory = 'all';
 
-        function renderProducts() {
+        function renderProducts(filteredProducts) {
             const grid = document.getElementById('productsGrid');
-            const query = document.getElementById('searchInput').value.toLowerCase();
             grid.innerHTML = '';
-
-            const filtered = products.filter(p => {
-                const matchName = p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
-                const matchHealth = activeHealthFilter ? p.health.includes(activeHealthFilter) : true;
-                const matchCat = activeCategory === "همه" || p.category === activeCategory;
-                return matchName && matchHealth && matchCat;
-            });
-
-            if(filtered.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; color:#666; padding:20px;">محصولی یافت نشد.</p>';
+            
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-8">محصولی یافت نشد.</p>';
                 return;
             }
 
-            filtered.forEach(p => {
+            filteredProducts.forEach(p => {
                 const card = document.createElement('div');
-                card.className = 'product-card';
-                
-                let imgHtml = p.image ? `<img src="${p.image}" alt="${p.name}">` : `<span>${p.emoji || '🌿'}</span>`;
-                let priceHtml = p.price ? `${p.price.toLocaleString()} تومان` : `<span style="color:#b22222;">استعلام قیمت</span>`;
-                let btnHtml = p.price ? `<button class="btn" onclick="addToCart(${p.id})">افزودن به سبد</button>` : `<a href="https://wa.me/989188085331?text=سلام، درخواست استعلام قیمت محصول ${encodeURIComponent(p.name)} را دارم." target="_blank" class="btn btn-inquiry">استعلام در واتساپ</a>`;
-
+                card.className = 'bg-white rounded-lg shadow-md p-4 flex flex-col justify-between border border-gray-100 hover:shadow-lg transition';
                 card.innerHTML = `
-                    <div class="product-img">${imgHtml}</div>
-                    <div class="product-info">
-                        <div>
-                            <div class="product-title">${p.name}</div>
-                            <div class="product-weight">${p.weight} | ${p.category}</div>
-                            <div class="product-price">${priceHtml}</div>
-                        </div>
-                        <div>${btnHtml}</div>
+                    <div>
+                        <span class="text-xs bg-olive-light text-olive px-2 py-1 rounded font-medium">${p.category}</span>
+                        <h3 class="font-bold text-gray-800 text-base mt-2 mb-3">${p.name}</h3>
+                    </div>
+                    <div class="border-t pt-3 mt-2 flex justify-between items-center text-sm text-gray-500">
+                        <span>وزن: ---</span>
+                        <span class="font-semibold text-olive">قیمت تماس بگیرید</span>
                     </div>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        function filterCategory(cat) {
-            activeCategory = cat;
-            document.querySelectorAll('.cat-chip').forEach(c => {
-                c.classList.toggle('active', c.textContent.includes(cat));
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if(btn.textContent.includes(category === 'all' ? 'همه محصولات' : category)) {
+                    btn.className = 'cat-btn bg-olive text-white px-4 py-2 rounded-full text-sm font-semibold transition';
+                } else {
+                    btn.className = 'cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition';
+                }
             });
-            renderProducts();
+
+            applyFilters();
         }
 
-        function filterByHealth(tag) {
-            if(activeHealthFilter === tag) {
-                activeHealthFilter = "";
-                document.querySelectorAll('.health-tag').forEach(t => t.classList.remove('active'));
-            } else {
-                activeHealthFilter = tag;
-                document.querySelectorAll('.health-tag').forEach(t => {
-                    t.classList.toggle('active', t.textContent.includes(tag));
-                });
-            }
-            renderProducts();
-        }
+        function applyFilters() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            let filtered = products;
 
-        function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            if(!product || !product.price) return;
-            cart[id] = (cart[id] || 0) + 1;
-            updateCartBar();
-        }
-
-        function updateCartBar() {
-            let count = 0;
-            let total = 0;
-            for(let id in cart) {
-                const p = products.find(item => item.id == id);
-                if(p && p.price) {
-                    count += cart[id];
-                    total += p.price * cart[id];
-                }
-            }
-            document.getElementById('cartCount').textContent = count;
-            document.getElementById('cartTotal').textContent = total.toLocaleString();
-        }
-
-        function checkoutWhatsApp() {
-            let text = "سلام، سفارش خود را از وبسایت عطاری برادران تقدیسی ثبت می‌کنم:\n\n";
-            let total = 0;
-            for(let id in cart) {
-                const p = products.find(item => item.id == id);
-                if(p && cart[id] > 0) {
-                    text += `- ${p.name} (${p.weight}): ${cart[id]} عدد - ${(p.price * cart[id]).toLocaleString()} تومان\n`;
-                    total += p.price * cart[id];
-                }
-            }
-            if(total === 0) {
-                alert("سبد خرید شما خالی است.");
-                return;
-            }
-            text += `\nجمع کل: ${total.toLocaleString()} تومان\nآدرس تحویل: نارمک`;
-            window.open(`https://wa.me/989188085331?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        function checkAdmin() {
-            const pass = document.getElementById('adminPass').value;
-            if(pass === "Mjt_3330") {
-                document.getElementById('adminLogin').style.display = 'none';
-                document.getElementById('adminControls').style.display = 'block';
-                alert("ورود به پنل مدیریت موفقیت‌آمیز بود!");
-            } else {
-                alert("رمز عبور اشتباه است.");
-            }
-        }
-
-        function addNewProduct() {
-            const name = document.getElementById('newTitle').value.trim();
-            const category = document.getElementById('newCat').value;
-            const weight = document.getElementById('newWeight').value.trim();
-            const priceVal = document.getElementById('newPrice').value.trim();
-            const image = document.getElementById('newImage').value.trim();
-
-            if(!name) {
-                alert("لطفا نام محصول را وارد کنید.");
-                return;
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === currentCategory);
             }
 
-            const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-            const newProd = {
-                id: newId,
-                name: name,
-                category: category,
-                weight: weight || "بسته بندی استاندارد",
-                price: priceVal ? parseInt(priceVal) : null,
-                health: "عمومی",
-                emoji: "🌿",
-                image: image
-            };
-
-            products.push(newProd);
-            localStorage.setItem('taghdisi_products_v2', JSON.stringify(products));
-            renderProducts();
-            alert("محصول با موفقیت اضافه شد!");
-            document.getElementById('newTitle').value = '';
-            document.getElementById('newWeight').value = '';
-            document.getElementById('newPrice').value = '';
-            document.getElementById('newImage').value = '';
-        }
-
-        function resetDefaults() {
-            if(confirm("آیا محصولات به حالت اولیه بازنشانی شوند؟")) {
-                localStorage.removeItem('taghdisi_products_v2');
-                products = defaultProducts;
-                renderProducts();
-                alert("بازنشانی انجام شد.");
+            if (query) {
+                filtered = filtered.filter(p => p.name.toLowerCase().includes(query));
             }
+
+            renderProducts(filtered);
         }
 
-        renderProducts();
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+        renderProducts(products);
     </script>
 </body>
 </html>
