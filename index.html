@@ -4,61 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عطاری و خشکبار برادران تقدیسی | نارمک</title>
-    <meta name="google-site-verification" content="GAPGPTMASKTOKENi1iyjh2sd9X0X">
+    <meta name="google-site-verification" content="GAPGPTMASKTOKENvsdv4yhj4zfX0X">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: Tahoma, Arial, sans-serif; background-color: #f7f9f6; color: #333; }
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap');
+        body { font-family: 'Vazirmatn', Tahoma, sans-serif; background-color: #faf8f5; color: #2d3748; }
         .bg-olive { background-color: #3b5323; }
         .text-olive { color: #3b5323; }
         .border-olive { border-color: #3b5323; }
-        .bg-olive-light { background-color: #eaf0e6; }
+        .bg-olive-light { background-color: #f3f6ef; }
+        .hover-olive:hover { background-color: #2e411b; }
+        .hero-gradient { background: linear-gradient(135deg, #3b5323 0%, #283a17 100%); }
+        .product-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(59, 83, 35, 0.12), 0 10px 10px rgba(59, 83, 35, 0.08); }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-yellow-600 text-white text-xs py-2 px-4 text-center font-medium shadow-inner">
+        <i class="fas fa-shipping-fast ml-1"></i> ارسال کاملاً رایگان در محدوده نارمک | سفارش تلفنی و آنلاین
+    </div>
 
     <!-- Header -->
     <header class="bg-olive text-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center space-x-3 space-x-reverse mb-3 md:mb-0">
-                <div class="bg-white text-olive p-2 rounded-full font-bold text-xl">
-                    <i class="fas fa-leaf"></i>
+        <div class="container mx-auto px-4 py-3.5 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3 space-x-reverse mb-3 sm:mb-0">
+                <div class="bg-white text-olive p-2.5 rounded-2xl shadow-md text-xl">
+                    <i class="fas fa-mortar-pestle"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold">عطاری و خشکبار برادران تقدیسی</h1>
-                    <p class="text-xs text-gray-200">ارسال رایگان در محدوده نارمک</p>
+                    <h1 class="text-lg font-extrabold tracking-wide">عطاری و خشکبار برادران تقدیسی</h1>
+                    <p class="text-xs text-gray-200 mt-0.5">اصالت، کیفیت و سلامتی در دل طبیعت</p>
                 </div>
             </div>
-            <div class="flex items-center space-x-4 space-x-reverse text-sm">
-                <span><i class="fas fa-phone-alt ml-1"></i> ۰۹۱۸۸۰۸۵۳۳۱ - ۰۹۱۶۶۲۶۷۷۳۲</span>
-                <a href="https://instagram.com/atarikhoshkbartaghdisi" target="_blank" class="bg-white text-olive px-3 py-1 rounded-full font-semibold hover:bg-gray-100 transition">
-                    <i class="fab fa-instagram ml-1"></i> اینستاگرام
+            <div class="flex items-center space-x-3 space-x-reverse text-sm">
+                <a href="tel:09188085331" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-xl font-bold transition shadow flex items-center">
+                    <i class="fas fa-phone-alt ml-1.5"></i> ۰۹۱۸۸۰۸۵۳۳۱
+                </a>
+                <a href="https://instagram.com/atarikhoshkbartaghdisi" target="_blank" class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-xl font-bold hover:opacity-90 transition shadow flex items-center">
+                    <i class="fab fa-instagram ml-1.5"></i> اینستاگرام
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero / Search Section -->
-    <section class="bg-olive-light py-8 px-4 text-center border-b border-olive">
-        <div class="container mx-auto max-w-2xl">
-            <h2 class="text-2xl font-bold text-olive mb-3">جستجوی محصولات، ادویه‌ها و گیاهان دارویی</h2>
-            <p class="text-gray-600 mb-6 text-sm">تهران، نارمک، آیت شمالی، رو به روی آموزش زبان سفیر، جنب مجتمع نان برکت، پلاک ۲۶۴</p>
-            <div class="relative">
-                <input type="text" id="searchInput" placeholder="نام محصول را جستجو کنید..." class="w-full py-3 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:border-olive shadow-sm">
-                <i class="fas fa-search absolute top-4 right-4 text-gray-400"></i>
+    <!-- Hero Banner -->
+    <section class="hero-gradient text-white py-12 px-4 text-center relative overflow-hidden shadow-lg">
+        <div class="absolute inset-0 opacity-10 bg-repeat" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        <div class="container mx-auto max-w-3xl relative z-10">
+            <span class="bg-white text-olive text-xs px-3 py-1.5 rounded-full font-bold inline-block mb-3 shadow">🌿 معتبرترین مرکز عرضه گیاهان دارویی و خشکبار اعلاء در شرق تهران</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold mb-3 leading-tight">بهترین‌های طبیعت را از ما بخواهید</h2>
+            <p class="text-gray-200 text-xs sm:text-sm mb-8 leading-relaxed max-w-xl mx-auto">
+                تهران، نارمک، آیت شمالی، رو به روی آموزش زبان سفیر، جنب مجتمع نان برکت، پلاک ۲۶۴
+            </p>
+            
+            <!-- Search Box -->
+            <div class="relative shadow-2xl rounded-2xl max-w-xl mx-auto">
+                <input type="text" id="searchInput" placeholder="جستجوی محصول بین بیش از ۲۰۰ آیتم (پسته، آویشن، ادویه...)" class="w-full py-4 px-6 pr-14 rounded-2xl border-0 focus:outline-none focus:ring-4 focus:ring-yellow-500 text-sm bg-white text-gray-800 font-medium">
+                <i class="fas fa-search absolute top-4.5 right-5 text-olive text-xl"></i>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-10 flex-grow">
         <!-- Category Filters -->
         <div class="flex flex-wrap justify-center gap-2 mb-8" id="categoryFilters">
-            <button onclick="filterCategory('all')" class="cat-btn bg-olive text-white px-4 py-2 rounded-full text-sm font-semibold transition">همه محصولات</button>
-            <button onclick="filterCategory('خشکبار و آجیل')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">خشکبار و آجیل</button>
-            <button onclick="filterCategory('گیاهان دارویی')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">گیاهان دارویی</button>
-            <button onclick="filterCategory('ادویه جات')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">ادویه جات</button>
-            <button onclick="filterCategory('حبوبات و اقلام قندی')" class="cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition">حبوبات و اقلام قندی</button>
+            <button onclick="filterCategory('all')" class="cat-btn bg-olive text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow transition hover-olive">همه محصولات</button>
+            <button onclick="filterCategory('خشکبار و آجیل')" class="cat-btn bg-white text-olive border-2 border-olive px-6 py-2.5 rounded-xl text-sm font-bold shadow-sm transition hover:bg-olive-light">خشکبار و آجیل</button>
+            <button onclick="filterCategory('گیاهان دارویی')" class="cat-btn bg-white text-olive border-2 border-olive px-6 py-2.5 rounded-xl text-sm font-bold shadow-sm transition hover:bg-olive-light">گیاهان دارویی</button>
+            <button onclick="filterCategory('ادویه جات')" class="cat-btn bg-white text-olive border-2 border-olive px-6 py-2.5 rounded-xl text-sm font-bold shadow-sm transition hover:bg-olive-light">ادویه جات</button>
+            <button onclick="filterCategory('حبوبات و اقلام قندی')" class="cat-btn bg-white text-olive border-2 border-olive px-6 py-2.5 rounded-xl text-sm font-bold shadow-sm transition hover:bg-olive-light">حبوبات و اقلام قندی</button>
         </div>
 
         <!-- Products Grid -->
@@ -67,11 +85,37 @@
         </div>
     </main>
 
+    <!-- Store Info / Contact Section -->
+    <section class="bg-olive-light py-10 border-t border-b border-gray-200 mt-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-right">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center space-x-4 space-x-reverse">
+                <div class="bg-olive text-white p-3.5 rounded-xl text-xl"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <h4 class="font-bold text-gray-800 text-sm mb-1">آدرس فروشگاه</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">نارمک، آیت شمالی، روبروی سفیر، جنب نان برکت، پلاک ۲۶۴</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center space-x-4 space-x-reverse">
+                <div class="bg-olive text-white p-3.5 rounded-xl text-xl"><i class="fas fa-clock"></i></div>
+                <div>
+                    <h4 class="font-bold text-gray-800 text-sm mb-1">ساعت کاری</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">همه روزه از ساعت ۰۹:۰۰ صبح الی ۲۲:۳۰ شب</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center space-x-4 space-x-reverse">
+                <div class="bg-olive text-white p-3.5 rounded-xl text-xl"><i class="fas fa-headset"></i></div>
+                <div>
+                    <h4 class="font-bold text-gray-800 text-sm mb-1">تلفن‌های پشتیبانی و سفارش</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed" dir="ltr">۰۹۱۸۸۰۸۵۳۳۱ - ۰۹۱۶۶۲۶۷۷۳۲</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-olive text-white py-6 mt-12 text-center text-sm">
+    <footer class="bg-olive text-white py-6 text-center text-xs">
         <div class="container mx-auto px-4">
-            <p class="mb-2">ساعت کاری: همه روزه از ساعت ۰۹:۰۰ الی ۲۲:۳۰</p>
-            <p>© تمامی حقوق برای عطاری و خشکبار برادران تقدیسی محفوظ است.</p>
+            <p class="font-medium">عطاری و خشکبار برادران تقدیسی © تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
 
@@ -291,21 +335,28 @@
             grid.innerHTML = '';
             
             if (filteredProducts.length === 0) {
-                grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-8">محصولی یافت نشد.</p>';
+                grid.innerHTML = '<div class="col-span-full text-center py-16 bg-white rounded-2xl shadow-sm"><p class="text-gray-500 text-sm">محصولی با این مشخصات یافت نشد.</p></div>';
                 return;
             }
 
             filteredProducts.forEach(p => {
                 const card = document.createElement('div');
-                card.className = 'bg-white rounded-lg shadow-md p-4 flex flex-col justify-between border border-gray-100 hover:shadow-lg transition';
+                card.className = 'product-card bg-white rounded-2xl shadow-md p-5 flex flex-col justify-between border border-gray-100';
                 card.innerHTML = `
                     <div>
-                        <span class="text-xs bg-olive-light text-olive px-2 py-1 rounded font-medium">${p.category}</span>
-                        <h3 class="font-bold text-gray-800 text-base mt-2 mb-3">${p.name}</h3>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs bg-olive-light text-olive px-3 py-1 rounded-lg font-bold">${p.category}</span>
+                            <div class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 text-xs">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-gray-800 text-base mt-2 mb-4 leading-snug">${p.name}</h3>
                     </div>
-                    <div class="border-t pt-3 mt-2 flex justify-between items-center text-sm text-gray-500">
-                        <span>وزن: ---</span>
-                        <span class="font-semibold text-olive">قیمت تماس بگیرید</span>
+                    <div class="border-t border-gray-100 pt-3 mt-2 flex justify-between items-center text-xs">
+                        <span class="text-gray-500 font-medium bg-gray-50 px-2.5 py-1 rounded-md">وزن: متغیر</span>
+                        <a href="tel:09188085331" class="text-white bg-olive hover-olive px-3 py-1.5 rounded-lg font-bold transition shadow-sm flex items-center">
+                            <i class="fas fa-phone-alt ml-1 text-[10px]"></i> سفارش
+                        </a>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -317,9 +368,9 @@
             
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 if(btn.textContent.includes(category === 'all' ? 'همه محصولات' : category)) {
-                    btn.className = 'cat-btn bg-olive text-white px-4 py-2 rounded-full text-sm font-semibold transition';
+                    btn.className = 'cat-btn bg-olive text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow transition hover-olive';
                 } else {
-                    btn.className = 'cat-btn bg-white text-olive border border-olive px-4 py-2 rounded-full text-sm font-semibold transition';
+                    btn.className = 'cat-btn bg-white text-olive border-2 border-olive px-6 py-2.5 rounded-xl text-sm font-bold shadow-sm transition hover:bg-olive-light';
                 }
             });
 
